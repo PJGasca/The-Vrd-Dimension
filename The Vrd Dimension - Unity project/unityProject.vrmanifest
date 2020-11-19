@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.thevrddimensionunityproject.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\work\\Unity\\The-Vrd-Dimension\\The Vrd Dimension - Unity project\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "The Vrd Dimension - Unity project [Testing]"
+        }
+      }
+    }
+  ]
+}
