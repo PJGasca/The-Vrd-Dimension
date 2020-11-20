@@ -13,6 +13,9 @@ namespace Assets.Scripts.Player
 
         private static readonly float CLICK_TIME = 0.25f;
 
+        [SerializeField]
+        private PlayerBeam beam;
+
         // Use this for initialization
         void Start()
         {
@@ -30,22 +33,37 @@ namespace Assets.Scripts.Player
             {
                 repelTime += Time.fixedDeltaTime;
             }
-
-
         }
 
         public void OnAttractStart()
         {
             attract = true;
+
+            if(repel)
+            {
+                beam.Mode = PlayerBeam.BeamMode.BOTH;
+            }
+            else
+            {
+                beam.Mode = PlayerBeam.BeamMode.ATTRACT;
+            }
         }
 
         public void OnAttractEnd()
         {
             attract = false;
 
-            if(attractTime <= CLICK_TIME)
+            if(!repel)
             {
-                // Fast attract
+                if (attractTime <= CLICK_TIME)
+                {
+                    // Fast attract
+                }
+                beam.Mode = PlayerBeam.BeamMode.OFF;
+            }
+            else
+            {
+                beam.Mode = PlayerBeam.BeamMode.REPEL;
             }
 
             attractTime = 0f;
@@ -54,12 +72,29 @@ namespace Assets.Scripts.Player
         public void OnRepelStart()
         {
             repel = true;
+            if (attract)
+            {
+                beam.Mode = PlayerBeam.BeamMode.BOTH;
+            }
+            else
+            {
+                beam.Mode = PlayerBeam.BeamMode.REPEL;
+            }
         }
 
         public void OnRepelEnd()
         {
             repel = false;
             repelTime = 0f;
+
+            if(!attract)
+            {
+                beam.Mode = PlayerBeam.BeamMode.OFF;
+            }
+            else
+            {
+                beam.Mode = PlayerBeam.BeamMode.ATTRACT;
+            }
         }
     }
 }
