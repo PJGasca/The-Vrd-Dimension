@@ -76,6 +76,12 @@ namespace Assets.Scripts.Objects {
             if (_allBySize[oldSize].Contains (this)) { _allBySize[oldSize].Remove (this); }
             if (_allBySize[oldSize].Count == 0) { _sizes.Remove (oldSize); }
         }
+
+        public bool IsDisplaced()
+        {
+            // TODO: Work out if we have moved from our start position
+            return true;
+        }
 #endregion
     }
 }

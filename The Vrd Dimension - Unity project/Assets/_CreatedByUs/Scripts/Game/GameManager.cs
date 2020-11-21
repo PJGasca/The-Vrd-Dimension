@@ -12,7 +12,7 @@ namespace Assets.Scripts.Game
 
         private int minObjects = 1; // Assume all tetras can be merged into 1
 
-        private HashSet<GameObject> objects;
+        public HashSet<GameObject> objects;
 
         public static GameManager Instance { get; private set; }
 

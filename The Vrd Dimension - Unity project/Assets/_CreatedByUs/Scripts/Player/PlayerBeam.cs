@@ -11,18 +11,6 @@ namespace Assets.Scripts.Player
         public enum BeamMode { ATTRACT, REPEL, BOTH, NEUTRAL, OFF };
 
         [SerializeField]
-        private Color neutralColor;
-
-        [SerializeField]
-        private Color attractingColor;
-
-        [SerializeField]
-        private Color repellingColor;
-
-        [SerializeField]
-        private Color bothColor;
-
-        [SerializeField]
         private GameObject laserPointer;
 
         [SerializeField]

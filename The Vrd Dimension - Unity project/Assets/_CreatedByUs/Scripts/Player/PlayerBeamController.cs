@@ -61,7 +61,7 @@ namespace Assets.Scripts.Player
                     {
                         ApplyForceToObject(toAffect);
 
-                        if (toAffect.CompareTag("EnemyAgent"))
+                        /*if (toAffect.CompareTag("EnemyAgent"))
                         {
                             if (toAffect.GetComponent<Enemies.ChaosAgent>() != null)
                             {
@@ -71,7 +71,7 @@ namespace Assets.Scripts.Player
                             {
                                 toAffect.GetComponent<Enemies.OrderAgent>().InBeam(attract);
                             }
-                        }
+                        }*/
                     }
                 }
             }

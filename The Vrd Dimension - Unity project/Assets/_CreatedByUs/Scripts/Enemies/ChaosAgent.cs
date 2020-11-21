@@ -154,7 +154,7 @@ namespace Assets.Scripts.Enemies
          // order agents pass through colliders that aren't their targets
             if (c.gameObject.CompareTag("EnemyAgent"))
             {
-                c.gameObject.GetComponent<OrderAgent>().TakeEnemyDamage();
+               // c.gameObject.GetComponent<OrderAgent>().TakeEnemyDamage();
             }
             else
             {
