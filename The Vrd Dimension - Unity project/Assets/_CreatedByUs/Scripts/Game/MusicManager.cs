@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicVolume : MonoBehaviour
+public class MusicManager : MonoBehaviour
 {
     IEnumerator volumeTransition;
     float currentVolume;
 
-    public static MusicVolume instance; 
+    public static MusicManager instance; 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         instance = this;
     }
