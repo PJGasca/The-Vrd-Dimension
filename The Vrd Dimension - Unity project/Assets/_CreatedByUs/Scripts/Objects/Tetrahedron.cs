@@ -9,18 +9,26 @@ namespace Assets.Scripts.Objects {
     {
 #region Constants and static members
         public const float minimumScale = 2f;
+        public const float baseSplitForce = 10f;
 
 
-        public static Tetrahedron[] All => _all.ToArray ();
+        public static Dictionary<int, Tetrahedron[]> AllBySize {
+            get {
+                Dictionary<int, Tetrahedron[]> allBySize = new Dictionary<int, Tetrahedron[]> ();
+                foreach (int key in _allBySize.Keys) {
+                    if (_allBySize[key].Count > 0) { allBySize.Add (key, _allBySize[key].ToArray ()); }
+                }
+                return allBySize;
+            }
+        }
         public static int[] Sizes => _sizes.ToArray ();
 
 
-        private static List<Tetrahedron> _all = new List<Tetrahedron> ();
         private static Dictionary<int, List<Tetrahedron>> _allBySize = new Dictionary<int, List<Tetrahedron>> ();
         private static List<int> _sizes = new List<int> ();
 
 
-        public static Tetrahedron[] AllBySize (int size) {
+        public static Tetrahedron[] AllForSize (int size) {
             if (!_allBySize.ContainsKey (size) || _allBySize[size].Count == 0) { return new Tetrahedron[0]; }
             return _allBySize[size].ToArray ();
         }
@@ -29,33 +37,72 @@ namespace Assets.Scripts.Objects {
 
 #region Instance members
 
-        public ObjectSize SizeComponent {
-            get {
-                if (_sizeComponent == null) { _sizeComponent = GetComponent<ObjectSize> (); }
-                return _sizeComponent;
-            }
-        }
+        public event System.Action<Tetrahedron> OnTetrahedronEnabled;
+        public event System.Action<Tetrahedron> OnTetrahedronDisabled;
+        public event System.Action<Tetrahedron> OnTetrahedronSplit;
+
+
+        public Vector3 SpawnPosition { get; private set; }
 
 
         private ObjectSize _sizeComponent;
 
 
-        void OnEnable () {
-            _all.Add (this);
+        void Awake () {
             SetSize (GetComponent<ObjectSize> ().Size);
+            SpawnPosition = transform.position;
+        }
+
+
+        void OnEnable () {
             Game.GameManager.Instance?.OnObjectAdded (this.gameObject);
+            if (OnTetrahedronEnabled != null) { OnTetrahedronEnabled (this); }
         }
 
 
         void OnDisable () {
-            _all.Remove (this);
+            _allBySize[_sizeComponent.Size].Remove (this);
             Game.GameManager.Instance?.OnObjectRemoved (this.gameObject);
+            if (OnTetrahedronDisabled != null) { OnTetrahedronDisabled (this); }
+        }
+
+
+        public void Split () {
+            if (_sizeComponent.Size < TetrahedronManager.countForMerge) { return; }
+
+            Tetrahedron[] newTetrahedra = new Tetrahedron[TetrahedronManager.countForMerge];
+            newTetrahedra[0] = this;
+            for (int i = 1; i < TetrahedronManager.countForMerge; i++) {
+                newTetrahedra[i] = Utility.ObjectPool.Instance.GetObjectForType ("Tetrahedron", true).GetComponent<Tetrahedron> ();
+            }
+
+            Vector3 center = transform.position;
+            int newSize = _sizeComponent.Size / TetrahedronManager.countForMerge;
+
+            Vector3[] vertices = GetComponent<MeshFilter> ().mesh.vertices
+                .Select (v => transform.TransformPoint (v))
+                .ToArray ();
+            Vector3[] newPositions = vertices
+                .Select (v => Vector3.Normalize (v - center) * 1.2f * TetrahedronManager.mergeRadius)
+                .ToArray ();
+            Vector3[] velocities = vertices
+                .Select (v => baseSplitForce * Vector3.Normalize (v - center) / _sizeComponent.Size)
+                .ToArray ();
+
+            for (int i = 0; i < newTetrahedra.Length; i++) {
+                newTetrahedra[i].transform.position = newPositions[i];
+                newTetrahedra[i].GetComponent<Rigidbody> ().velocity = velocities[i];
+                newTetrahedra[i].SetSize (newSize);
+                newTetrahedra[i].gameObject.SetActive (true);
+            }
+
+            if (OnTetrahedronSplit != null) { OnTetrahedronSplit (this); }
         }
 
 
         public void SetSize (int newSize) {
-            int oldSize = SizeComponent.Size;
-            SizeComponent.Size = newSize;
+            int oldSize = _sizeComponent.Size;
+            _sizeComponent.Size = newSize;
 
             SetScale (newSize);
             RegisterBySize (newSize, oldSize);
