@@ -22,6 +22,18 @@ namespace Assets.Scripts.Player
         [SerializeField]
         private Color bothColor;
 
+        [SerializeField]
+        private GameObject laserPointer;
+
+        [SerializeField]
+        private GameObject attractBeam;
+
+        [SerializeField]
+        private GameObject repelBeam;
+
+        [SerializeField]
+        private GameObject holdBeam;
+
         private Color invisible = new Color(0, 0, 0, 0);
 
         private BeamMode mode = BeamMode.NEUTRAL;
@@ -42,23 +54,38 @@ namespace Assets.Scripts.Player
                 switch (mode)
                 {
                     case BeamMode.ATTRACT:
-                        SetBeamColor(attractingColor);
+                        laserPointer.SetActive(false);
+                        repelBeam.SetActive(false);
+                        attractBeam.SetActive(true);
+                        holdBeam.SetActive(false);
                         break;
 
                     case BeamMode.REPEL:
-                        SetBeamColor(repellingColor);
+                        laserPointer.SetActive(false);
+                        repelBeam.SetActive(true);
+                        attractBeam.SetActive(false);
+                        holdBeam.SetActive(false);
                         break;
 
                     case BeamMode.BOTH:
-                        SetBeamColor(bothColor);
+                        laserPointer.SetActive(false);
+                        repelBeam.SetActive(false);
+                        attractBeam.SetActive(false);
+                        holdBeam.SetActive(true);
                         break;
 
                     case BeamMode.NEUTRAL:
-                        SetBeamColor(neutralColor);
+                        laserPointer.SetActive(true);
+                        repelBeam.SetActive(false);
+                        attractBeam.SetActive(false);
+                        holdBeam.SetActive(false);
                         break;
 
                     default:
-                        SetBeamColor(invisible);
+                        laserPointer.SetActive(false);
+                        repelBeam.SetActive(false);
+                        attractBeam.SetActive(false);
+                        holdBeam.SetActive(false);
                         break;
                 }
             }
@@ -66,7 +93,6 @@ namespace Assets.Scripts.Player
 
         public void Awake()
         {
-            lineRenderer = GetComponent<LineRenderer>();
         }
 
         // Start is called before the first frame update
@@ -81,11 +107,6 @@ namespace Assets.Scripts.Player
 
         }
 
-        public void OnEnable()
-        {
-            SetBeamColor(neutralColor);
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             ObjectsInBeam.Add(other.gameObject);
@@ -94,12 +115,6 @@ namespace Assets.Scripts.Player
         private void OnTriggerExit(Collider other)
         {
             ObjectsInBeam.Remove(other.gameObject);
-        }
-
-        private void SetBeamColor(Color color)
-        {
-            lineRenderer.startColor = color;
-            lineRenderer.endColor = color;
         }
     }
 }
