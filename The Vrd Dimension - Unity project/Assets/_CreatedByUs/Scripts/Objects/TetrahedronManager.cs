@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -7,15 +6,7 @@ namespace Assets.Scripts.Objects {
     public class TetrahedronManager : MonoBehaviour
     {
         public const int countForMerge = 4;
-        public const float mergeDistance = 0.5f;
-
-
-        private Tetrahedron[] _xOrdered;
-        private Tetrahedron[] _yOrdered;
-        private Tetrahedron[] _zOrdered;
-        private float[] _xDifferences;
-        private float[] _yDifferences;
-        private float[] _zDifferences;
+        public const float mergeRadius = 0.5f;
 
 
         void FixedUpdate (){
@@ -24,23 +15,39 @@ namespace Assets.Scripts.Objects {
 
 
         void CheckForMerges () {
+            var allBySize = Tetrahedron.AllBySize;
             int[] sizes = Tetrahedron.Sizes;
             foreach (int size in sizes) {
-                Tetrahedron[] all = Tetrahedron.AllBySize (size);
+                Tetrahedron[] all = allBySize[size];
                 CheckForMerges (all);
             }
         }
         void CheckForMerges (Tetrahedron[] all) {
             if (all.Length < countForMerge) { return; }
 
-            _xOrdered = all.OrderBy ((t) => t.transform.position.x).ToArray ();
-            // _yOrdered = all.OrderBy ((t) => t.transform.position.y).ToArray ();
-            // _zOrdered = all.OrderBy ((t) => t.transform.position.z).ToArray ();
+            List<Tetrahedron> unused = all.ToList ();
+            foreach (Tetrahedron t in all) {
+                if (!unused.Contains (t)) { continue; }
 
-            _xDifferences = new float[_xOrdered.Length - countForMerge + 1];
-            for (int i = 0; i < _xDifferences.Length; i++) {
-                _xDifferences[i] = _xOrdered[i + countForMerge - 1].transform.position.x - _xOrdered[i].transform.position.y;
-                
+                var inRange = unused.Where (u => Vector3.Distance (u.transform.position, t.transform.position) < mergeRadius).ToArray ();
+                if (inRange.Length < countForMerge) { continue; }
+
+                Tetrahedron[] merging = inRange.Take (countForMerge).ToArray ();
+                Merge (merging);
+                unused.RemoveAll (u => merging.Contains (u));
+            }
+        }
+
+
+        void Merge (Tetrahedron[] tetrahedra) {            
+            int newSize = tetrahedra[0].GetComponent<ObjectSize> ().Size * countForMerge;
+            tetrahedra[0].SetSize (newSize);
+            tetrahedra[0].transform.position = tetrahedra
+                .Select (t => t.transform.position)
+                .Aggregate (Vector3.zero, (p, acc) => acc + p) / countForMerge;
+
+            for (int i = 1; i < tetrahedra.Length; i++) {
+                Utility.ObjectPool.Instance.PoolObject (tetrahedra[i].gameObject);
             }
         }
     }
