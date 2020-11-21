@@ -12,6 +12,7 @@ namespace Assets.Scripts.Objects {
         public const float baseSplitVelocity = 0.5f;
 
 
+        public static Tetrahedron[] All => _all.ToArray ();
         public static Dictionary<int, Tetrahedron[]> AllBySize {
             get {
                 Dictionary<int, Tetrahedron[]> allBySize = new Dictionary<int, Tetrahedron[]> ();
@@ -24,6 +25,7 @@ namespace Assets.Scripts.Objects {
         public static int[] Sizes => _sizes.ToArray ();
 
 
+        private static List<Tetrahedron> _all = new List<Tetrahedron> ();
         private static Dictionary<int, List<Tetrahedron>> _allBySize = new Dictionary<int, List<Tetrahedron>> ();
         private static List<int> _sizes = new List<int> ();
 
@@ -55,12 +57,14 @@ namespace Assets.Scripts.Objects {
 
 
         void OnEnable () {
+            _all.Add (this);
             Game.GameManager.Instance?.OnObjectAdded (this.gameObject);
             if (OnTetrahedronEnabled != null) { OnTetrahedronEnabled (this); }
         }
 
 
         void OnDisable () {
+            _all.Remove (this);
             _allBySize[_sizeComponent.Size].Remove (this);
             Game.GameManager.Instance?.OnObjectRemoved (this.gameObject);
             if (OnTetrahedronDisabled != null) { OnTetrahedronDisabled (this); }
