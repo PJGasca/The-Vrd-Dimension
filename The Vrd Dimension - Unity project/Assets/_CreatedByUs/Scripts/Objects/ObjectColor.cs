@@ -2,26 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
-public class ObjectColor : MonoBehaviour
+namespace Assets.Scripts.Objects
 {
-    [SerializeField]
-    private Color manualColor;
-    public Color randomColor;
-
-    // Start is called before the first frame update
-    void Start()
+    [ExecuteInEditMode]
+    public class ObjectColor : MonoBehaviour
     {
-        if (manualColor.a != 0)
+        [SerializeField]
+        private Color manualColor;
+        public Color randomColor;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            randomColor = manualColor;
-        }
-        else if (randomColor.a == 0) // stop it from re-randomizing the color in Play
-        {
-            float r = Random.Range(0, 255);
-            float g = Random.Range(0, 255);
-            float b = Random.Range(0, 255);
-            randomColor = new Color(r, g, b, 1);
+            if (manualColor.a != 0)
+            {
+                randomColor = manualColor;
+            }
+            else if (randomColor.a == 0) // stop it from re-randomizing the color in Play
+            {
+                float r = Random.Range(0, 255);
+                float g = Random.Range(0, 255);
+                float b = Random.Range(0, 255);
+                randomColor = new Color(r, g, b, 1);
+            }
         }
     }
 }

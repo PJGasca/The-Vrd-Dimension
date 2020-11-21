@@ -63,13 +63,13 @@ namespace Assets.Scripts.Player
 
                         if (toAffect.CompareTag("EnemyAgent"))
                         {
-                            if (toAffect.GetComponent<ChaosAgent>() != null)
+                            if (toAffect.GetComponent<Enemies.ChaosAgent>() != null)
                             {
-                                toAffect.GetComponent<ChaosAgent>().InBeam(attract);
+                                toAffect.GetComponent<Enemies.ChaosAgent>().InBeam(attract);
                             }
                             else // is order agent
                             {
-                                toAffect.GetComponent<OrderAgent>().InBeam(attract);
+                                toAffect.GetComponent<Enemies.OrderAgent>().InBeam(attract);
                             }
                         }
                     }

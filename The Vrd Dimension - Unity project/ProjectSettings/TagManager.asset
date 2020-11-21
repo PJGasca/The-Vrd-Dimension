@@ -19,8 +19,8 @@ TagManager:
   - PlayerBeam
   - Scenery
   - Player
-  - 
-  - 
+  - ChaosAgent
+  - OrderAgent
   - 
   - 
   - 

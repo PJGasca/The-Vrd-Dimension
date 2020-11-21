@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Helpers : MonoBehaviour
-// any basic multi-use helper functions
+namespace Assets.Scripts.Utility
 {
-    public static Helpers instance;
-
-    private void Awake()
+    public class Helpers : MonoBehaviour
+    // any basic multi-use helper functions
     {
-        instance = this;
-    }
+        public static Helpers instance;
 
-    public IEnumerator Timer(Action<bool> assigner, float timer)
-    {
-        yield return new WaitForSeconds(timer);
-        assigner(true);
-    }
+        private void Awake()
+        {
+            instance = this;
+        }
 
-    public IEnumerator WaitOneFrame(Action<bool> assigner)
-    {
-        yield return null;
-        assigner(true);
+        public IEnumerator Timer(Action<bool> assigner, float timer)
+        {
+            yield return new WaitForSeconds(timer);
+            assigner(true);
+        }
+
+        public IEnumerator WaitOneFrame(Action<bool> assigner)
+        {
+            yield return null;
+            assigner(true);
+        }
     }
 }
