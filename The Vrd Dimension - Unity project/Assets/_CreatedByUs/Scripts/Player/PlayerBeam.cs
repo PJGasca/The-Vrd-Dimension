@@ -8,10 +8,10 @@ namespace Assets.Scripts.Player
     {
         public HashSet<GameObject> ObjectsInBeam { get; private set; } = new HashSet<GameObject>();
 
-        public enum BeamMode { ATTRACT, REPEL, BOTH, OFF };
+        public enum BeamMode { ATTRACT, REPEL, BOTH, NEUTRAL, OFF };
 
         [SerializeField]
-        private Color offColor;
+        private Color neutralColor;
 
         [SerializeField]
         private Color attractingColor;
@@ -22,7 +22,9 @@ namespace Assets.Scripts.Player
         [SerializeField]
         private Color bothColor;
 
-        private BeamMode mode = BeamMode.OFF;
+        private Color invisible = new Color(0, 0, 0, 0);
+
+        private BeamMode mode = BeamMode.NEUTRAL;
 
         private LineRenderer lineRenderer;
 
@@ -51,8 +53,12 @@ namespace Assets.Scripts.Player
                         SetBeamColor(bothColor);
                         break;
 
+                    case BeamMode.NEUTRAL:
+                        SetBeamColor(neutralColor);
+                        break;
+
                     default:
-                        SetBeamColor(offColor);
+                        SetBeamColor(invisible);
                         break;
                 }
             }
@@ -77,7 +83,7 @@ namespace Assets.Scripts.Player
 
         public void OnEnable()
         {
-            SetBeamColor(offColor);
+            SetBeamColor(neutralColor);
         }
 
         private void OnTriggerEnter(Collider other)

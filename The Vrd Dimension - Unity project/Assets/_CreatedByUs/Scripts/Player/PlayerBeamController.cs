@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Objects;
 
 namespace Assets.Scripts.Player
 {
@@ -13,12 +14,20 @@ namespace Assets.Scripts.Player
         private bool attract = false;
         private bool repel = false;
 
-        private static readonly float CLICK_TIME = 0.25f;
+        private static readonly float CLICK_TIME = 0.1f;
 
         private PlayerBeam beam;
 
+        private Grabbable grabbedObject = null;
+
         [SerializeField]
         private float force;
+
+        [SerializeField]
+        private float repelBurstForce;
+
+        [SerializeField]
+        private Transform attachmentPoint;
 
         public void Awake()
         {
@@ -33,63 +42,82 @@ namespace Assets.Scripts.Player
 
         void FixedUpdate()
         {
-            if(attract)
+            if(grabbedObject == null)
             {
-                attractTime += Time.fixedDeltaTime;
-            }
-
-            if(repel)
-            {
-                repelTime += Time.fixedDeltaTime;
-            }
-
-            if(attract ^ repel)    // XOR
-            {
-                HashSet<GameObject> objects = beam.ObjectsInBeam;
-                foreach(GameObject toAffect in objects)
+                if (attract)
                 {
-                    ApplyForceToObject(toAffect);
+                    attractTime += Time.fixedDeltaTime;
+                }
+
+                if (repel)
+                {
+                    repelTime += Time.fixedDeltaTime;
+                }
+
+                if (attract ^ repel)    // XOR
+                {
+                    HashSet<GameObject> objects = beam.ObjectsInBeam;
+                    foreach (GameObject toAffect in objects)
+                    {
+                        ApplyForceToObject(toAffect);
+                    }
                 }
             }
         }
 
         public void OnAttractStart()
         {
-            attract = true;
+            if(grabbedObject == null)
+            {
+                attract = true;
 
-            if(repel)
-            {
-                beam.Mode = PlayerBeam.BeamMode.BOTH;
+                if (repel)
+                {
+                    beam.Mode = PlayerBeam.BeamMode.BOTH;
+                }
+                else
+                {
+                    beam.Mode = PlayerBeam.BeamMode.ATTRACT;
+                }
             }
-            else
-            {
-                beam.Mode = PlayerBeam.BeamMode.ATTRACT;
-            }
+
         }
 
         public void OnAttractEnd()
         {
-            attract = false;
-
-            if(!repel)
+            if(grabbedObject == null)
             {
-                if (attractTime <= CLICK_TIME)
+                attract = false;
+
+                if (!repel)
                 {
-                    // Fast attract
+                    if (attractTime <= CLICK_TIME)
+                    {
+                        GrabClosestObject();
+                    }
+                    else
+                    {
+                        beam.Mode = PlayerBeam.BeamMode.NEUTRAL;
+                    }
                 }
-                beam.Mode = PlayerBeam.BeamMode.OFF;
-            }
-            else
-            {
-                beam.Mode = PlayerBeam.BeamMode.REPEL;
+                else
+                {
+                    beam.Mode = PlayerBeam.BeamMode.REPEL;
+                }
+
+                attractTime = 0f;
             }
 
-            attractTime = 0f;
         }
 
         public void OnRepelStart()
         {
             repel = true;
+            if(grabbedObject!=null)
+            {
+                ReleaseGrabbedObject();
+            }
+
             if (attract)
             {
                 beam.Mode = PlayerBeam.BeamMode.BOTH;
@@ -102,16 +130,26 @@ namespace Assets.Scripts.Player
 
         public void OnRepelEnd()
         {
-            repel = false;
-            repelTime = 0f;
+            if(grabbedObject==null)
+            {
+                repel = false;
 
-            if(!attract)
-            {
-                beam.Mode = PlayerBeam.BeamMode.OFF;
-            }
-            else
-            {
-                beam.Mode = PlayerBeam.BeamMode.ATTRACT;
+                if (!attract)
+                {
+                    if (repelTime <= CLICK_TIME)
+                    {
+                        // Fast repel
+                        FastRepelClosestObject();
+                    }
+
+                    beam.Mode = PlayerBeam.BeamMode.NEUTRAL;
+                }
+                else
+                {
+                    beam.Mode = PlayerBeam.BeamMode.ATTRACT;
+                }
+
+                repelTime = 0f;
             }
         }
 
@@ -125,6 +163,58 @@ namespace Assets.Scripts.Player
             }
 
             toApply.GetComponent<Rigidbody>().AddForce(forceToApply);
+        }
+
+        private void GrabClosestObject()
+        {
+            GameObject closest = FindClosestObjectInBeam();
+            if(closest!=null)
+            {
+                Grabbable grabbable = closest.GetComponent<Grabbable>();
+                if (grabbable != null)
+                {
+                    grabbable.Grab(attachmentPoint);
+                    grabbedObject = grabbable;
+                    beam.Mode = PlayerBeam.BeamMode.OFF;
+                }
+            }
+
+        }
+
+        private void ReleaseGrabbedObject()
+        {
+            if(grabbedObject!=null)
+            {
+                grabbedObject.Release();
+                grabbedObject = null;
+            }
+        }
+
+        private void FastRepelClosestObject()
+        {
+            GameObject closest = FindClosestObjectInBeam();
+            if(closest != null)
+            {
+                Vector3 forceToApply = transform.forward * repelBurstForce;
+                closest.GetComponent<Rigidbody>().AddForce(forceToApply);
+            }
+        }
+
+        private GameObject FindClosestObjectInBeam()
+        {
+            GameObject closest = null;
+            float closestDistance = 0;
+            foreach(GameObject obj in beam.ObjectsInBeam)
+            {
+                float distance = Vector3.Distance(transform.position, obj.transform.position);
+                if (closest == null || distance < closestDistance)
+                {
+                    closest = obj;
+                    closestDistance = distance;
+                }
+            }
+
+            return closest;
         }
     }
 }
