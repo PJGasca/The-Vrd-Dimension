@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Player
 {
-    public class PlayerController : MonoBehaviour
+    [RequireComponent(typeof(PlayerBeam))]
+    public class PlayerBeamController : MonoBehaviour
     {
         private float attractTime = 0;
         private float repelTime = 0;
@@ -13,8 +15,15 @@ namespace Assets.Scripts.Player
 
         private static readonly float CLICK_TIME = 0.25f;
 
-        [SerializeField]
         private PlayerBeam beam;
+
+        [SerializeField]
+        private float force;
+
+        public void Awake()
+        {
+            beam = GetComponent<PlayerBeam>();
+        }
 
         // Use this for initialization
         void Start()
@@ -32,6 +41,15 @@ namespace Assets.Scripts.Player
             if(repel)
             {
                 repelTime += Time.fixedDeltaTime;
+            }
+
+            if(attract ^ repel)    // XOR
+            {
+                HashSet<GameObject> objects = beam.ObjectsInBeam;
+                foreach(GameObject toAffect in objects)
+                {
+                    ApplyForceToObject(toAffect);
+                }
             }
         }
 
@@ -95,6 +113,18 @@ namespace Assets.Scripts.Player
             {
                 beam.Mode = PlayerBeam.BeamMode.ATTRACT;
             }
+        }
+
+        private void ApplyForceToObject(GameObject toApply)
+        {
+            Vector3 forceToApply = transform.forward * force * Time.fixedDeltaTime;
+
+            if(attract)
+            {
+                forceToApply *= -1;
+            }
+
+            toApply.GetComponent<Rigidbody>().AddForce(forceToApply);
         }
     }
 }

@@ -39,12 +39,14 @@ namespace Assets.Scripts.Utility
                 vr = value;
                 if (vr)
                 {
+                    Debug.Log("Turning on vr");
                     nonVRCameraRig.SetActive(false);
                     vrCameraRig.SetActive(true);
                     currentCameraObj = vrCameraRig;
                 }
                 else
                 {
+                    Debug.Log("Turning off vr");
                     vrCameraRig.SetActive(false);
                     nonVRCameraRig.SetActive(true);
                     currentCameraObj = nonVRCameraRig;
@@ -69,10 +71,11 @@ namespace Assets.Scripts.Utility
             }
         }
 
-        public static void SetVREnabled(bool enabled)
+        public void SetVREnabled(bool enabled)
         {
             XRSettings.enabled = enabled;
             //Player.Instance.VR = enabled;
+            this.VR = enabled;
 
             if (OnVRToggle != null)
             {
