@@ -39,7 +39,7 @@ namespace Assets.Scripts.Player
             {
                 mode = value;
 
-                switch(mode)
+                switch (mode)
                 {
                     case BeamMode.ATTRACT:
                         SetBeamColor(attractingColor);

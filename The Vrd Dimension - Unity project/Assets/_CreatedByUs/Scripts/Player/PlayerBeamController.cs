@@ -60,6 +60,18 @@ namespace Assets.Scripts.Player
                     foreach (GameObject toAffect in objects)
                     {
                         ApplyForceToObject(toAffect);
+
+                        if (toAffect.CompareTag("EnemyAgent"))
+                        {
+                            if (toAffect.GetComponent<ChaosAgent>() != null)
+                            {
+                                toAffect.GetComponent<ChaosAgent>().InBeam(attract);
+                            }
+                            else // is order agent
+                            {
+                                toAffect.GetComponent<OrderAgent>().InBeam(attract);
+                            }
+                        }
                     }
                 }
             }
