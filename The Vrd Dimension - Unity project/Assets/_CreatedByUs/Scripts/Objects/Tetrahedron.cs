@@ -9,7 +9,7 @@ namespace Assets.Scripts.Objects {
     {
 #region Constants and static members
         public const float minimumScale = 2f;
-        public const float baseSplitForce = 10f;
+        public const float baseSplitVelocity = 0.5f;
 
 
         public static Dictionary<int, Tetrahedron[]> AllBySize {
@@ -70,28 +70,16 @@ namespace Assets.Scripts.Objects {
         public void Split () {
             if (_sizeComponent.Size < TetrahedronManager.countForMerge) { return; }
 
-            Tetrahedron[] newTetrahedra = new Tetrahedron[TetrahedronManager.countForMerge];
-            newTetrahedra[0] = this;
-            for (int i = 1; i < TetrahedronManager.countForMerge; i++) {
-                newTetrahedra[i] = Utility.ObjectPool.Instance.GetObjectForType ("Tetrahedron", true).GetComponent<Tetrahedron> ();
-            }
+            Tetrahedron[] newTetrahedra = TetrahedraForSplit ();
 
             Vector3 center = transform.position;
             int newSize = _sizeComponent.Size / TetrahedronManager.countForMerge;
 
-            Vector3[] vertices = GetComponent<MeshFilter> ().mesh.vertices
-                .Select (v => transform.TransformPoint (v))
-                .ToArray ();
-            Vector3[] newPositions = vertices
-                .Select (v => Vector3.Normalize (v - center) * 1.2f * TetrahedronManager.mergeRadius)
-                .ToArray ();
-            Vector3[] velocities = vertices
-                .Select (v => baseSplitForce * Vector3.Normalize (v - center) / _sizeComponent.Size)
-                .ToArray ();
+            Vector3[] vertices = VertexOffsets (center);
 
             for (int i = 0; i < newTetrahedra.Length; i++) {
-                newTetrahedra[i].transform.position = newPositions[i];
-                newTetrahedra[i].GetComponent<Rigidbody> ().velocity = velocities[i];
+                newTetrahedra[i].transform.position = PositionForSplit (vertices[i], center);
+                newTetrahedra[i].GetComponent<Rigidbody> ().velocity = VelocityForSplit (vertices[i]);
                 newTetrahedra[i].SetSize (newSize);
                 newTetrahedra[i].gameObject.SetActive (true);
             }
@@ -111,6 +99,35 @@ namespace Assets.Scripts.Objects {
 
         void SetScale (int newSize) {
             transform.localScale = minimumScale * Mathf.Log (newSize, 4) * Vector3.one;
+        }
+
+
+        Tetrahedron[] TetrahedraForSplit () {
+            Tetrahedron[] newTetrahedra = new Tetrahedron[TetrahedronManager.countForMerge];
+            newTetrahedra[0] = this;
+            for (int i = 1; i < TetrahedronManager.countForMerge; i++) {
+                newTetrahedra[i] = Utility.ObjectPool.Instance.GetObjectForType ("Tetrahedron", true).GetComponent<Tetrahedron> ();
+            }
+
+            return newTetrahedra;
+        }
+
+
+        Vector3[] VertexOffsets (Vector3 center) {
+            return GetComponent<MeshFilter> ().mesh.vertices
+                .Select (v => transform.TransformPoint (v))
+                .Select (v => (v - center).normalized)
+                .ToArray ();
+        }
+
+
+        Vector3 PositionForSplit (Vector3 normalizedOffset, Vector3 center) {
+            return center + normalizedOffset * 1.2f * TetrahedronManager.mergeRadius;
+        }
+
+
+        Vector3 VelocityForSplit (Vector3 normalizedOffset) {
+            return normalizedOffset * baseSplitVelocity / _sizeComponent.Size;
         }
 
 
