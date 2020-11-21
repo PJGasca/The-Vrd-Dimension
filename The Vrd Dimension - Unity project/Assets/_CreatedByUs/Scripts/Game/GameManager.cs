@@ -6,13 +6,11 @@ namespace Assets.Scripts.Game
 {
     public class GameManager : MonoBehaviour
     {
-        private float entropy;
+        private int maxObjects;
 
-        private float minEntropy;
+        private int minObjects;
 
-        private float maxEntropy;
-
-        private float entropyPercentage;
+        private HashSet<GameObject> objects;
 
         public static GameManager Instance { get; private set; }
 
@@ -21,7 +19,7 @@ namespace Assets.Scripts.Game
             // Find all the manipulatable objects in the scene
             GameObject[] objects = GameObject.FindGameObjectsWithTag("Manipulatable");
 
-            // Work out min/max entropies
+            
 
         }
     }
