@@ -47,7 +47,7 @@ namespace Assets.Scripts.Objects {
         public Vector3 SpawnPosition { get; private set; }
 
 
-        private ObjectSize _sizeComponent;
+        [SerializeField] private ObjectSize _sizeComponent;
 
 
         void Awake () {
