@@ -19,16 +19,11 @@ namespace Assets.Scripts.Game
         [SerializeField]
         private GameObject tetraSizeWarning;
 
-        private float entropyPercentage;
+        private bool recalculateEntropy = false;
 
         public float EntropyPercentage
         {
-            get
-            {
-                int maxRange = maxObjects - minObjects;
-                int totalInRange = objects.Count - minObjects;
-                return totalInRange / (maxRange / 100);
-            }
+            get; private set;
         }
 
         public void OnEnable()
@@ -58,6 +53,18 @@ namespace Assets.Scripts.Game
             }
 
             maxObjects = maxTetras;
+        }
+
+        public void FixedUpdate()
+        {
+            if(recalculateEntropy)
+            {
+                int maxRange = maxObjects - minObjects;
+                int totalInRange = objects.Count - minObjects;
+                EntropyPercentage = totalInRange / (maxRange / 100);
+                recalculateEntropy = false;
+                Debug.Log("Entropy percentage = " + EntropyPercentage);
+            }
         }
 
         private bool IsPowerOfFour(int n)
@@ -90,11 +97,13 @@ namespace Assets.Scripts.Game
         public void OnObjectAdded(GameObject obj)
         {
             objects.Add(obj);
+            recalculateEntropy = true;
         }
 
         public void OnObjectRemoved(GameObject obj)
         {
             objects.Remove(obj);
+            recalculateEntropy = true;
         }
     }
 }
