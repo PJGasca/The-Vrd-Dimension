@@ -7,6 +7,8 @@ namespace Assets.Scripts.Enemies
 {
     [RequireComponent(typeof(MoveTowardsPoint))]
     [RequireComponent(typeof(OrderAgentReturning))]
+    [RequireComponent(typeof(OrderAgentDying))]
+    [RequireComponent(typeof(Collider))]
     public class OrderAgentSeeking : MonoBehaviour
     {
         private Rigidbody rb;
@@ -19,23 +21,31 @@ namespace Assets.Scripts.Enemies
         [SerializeField]
         private float targetObjectGrabRange;
 
+        [SerializeField]
+        [Tooltip("Distance from start point that an item has to be before it is considered displaced.")]
+        private float displacementRange;
+
         private Grabbable targetGrabbable;
 
         private OrderAgentReturning returningBehaviour;
 
+        private OrderAgentDying dyingBehaviour;
+
         // Start is called before the first frame update
         void Awake()
         {
-            defaultScale = transform.localScale;
             rb = GetComponent<Rigidbody>();
             mover = GetComponent<MoveTowardsPoint>();
-            returningBehaviour = GetComponent<OrderAgentReturning>();
+            dyingBehaviour = GetComponent<OrderAgentDying>();
         }
 
         private void OnEnable()
         {
             // Put a bit of spin on it
             rb.AddRelativeTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)));
+            targetGrabbable = null;
+            target = null;
+            GetComponent<Collider>().enabled = true;
         }
 
         public void FixedUpdate()
@@ -50,16 +60,24 @@ namespace Assets.Scripts.Enemies
                 if (!grabbable.IsGrabbed)
                 {
                     target.GetComponent<Grabbable>().Grab(transform);
+                    returningBehaviour.GrabbedObject = target;
+                    returningBehaviour.enabled = true;
+                    this.enabled = false;
                 }
+            }
+            else
+            {
+                mover.targetPoint = target.transform.position;
             }
         }
 
         private void PickNewTarget()
         {
             Tetrahedron[] tetras = Tetrahedron.All;
+            Debug.Log("Found " + tetras.Length + " tetras");
             foreach(Tetrahedron tetra in tetras)
             {
-                if(tetra.IsDisplaced())
+                if(IsDisplaced(tetra))
                 {
                     target = tetra.gameObject;
                     mover.targetPoint = target.transform.position;
@@ -77,84 +95,15 @@ namespace Assets.Scripts.Enemies
             }
         }
 
-        private void Die()
+        private bool IsDisplaced(Tetrahedron tetra)
         {
-            Debug.Log("Dieing");
+            return Vector3.Distance(tetra.transform.position, tetra.SpawnPosition) > displacementRange;
         }
 
-
-        /*
-           public void InBeam(bool attract) // if false, is repelling
-           {
-               caughtInBeam = true;
-
-               if (releaseFromBeam != null) StopCoroutine(releaseFromBeam);
-               releaseFromBeam = Utility.Helpers.instance.WaitOneFrame(release => caughtInBeam = false);
-               StartCoroutine(releaseFromBeam);
-
-               if (!attract) // repelling damages
-               {
-                   transform.localScale -= defaultScale * (1 - percentageAtDeath) / timeToDeath * Time.deltaTime;
-                   if (transform.localScale.x <= defaultScale.x * percentageAtDeath)
-                   {
-                       Die(true);
-                   }
-               }
-               else // attracting damages
-               {
-                   if (transform.localScale.x < defaultScale.x) // should be enough to just check for one value
-                   {
-                       transform.localScale += defaultScale * (1 - percentageAtDeath) / timeToDeath * Time.deltaTime;
-                   }
-                   else if (transform.localScale.x > defaultScale.x)
-                   {
-                       transform.localScale = defaultScale;
-                   }
-               }
-           }
-
-           void Die(bool killedByPlayer = false)
-           {
-               // particles, sound, etc
-               gameObject.SetActive(false);
-           }
-
-           public void TakeEnemyDamage()
-           {
-               transform.localScale -= defaultScale * (1 - enemyDamagePercentage);
-               if (transform.localScale.x <= defaultScale.x * percentageAtDeath)
-               {
-                   Die();
-               }
-           }
-
-           private void OnCollisionEnter(Collision c)
-           {// chaos agents damage whatever they collide with, even if not actual target
-            // order agents pass through colliders that aren't their targets
-               if (c.transform == target)
-               {
-                   if (c.gameObject.CompareTag("EnemyAgent"))
-                   {
-                       c.gameObject.GetComponent<ChaosAgent>().TakeEnemyDamage();
-                   }
-                   else
-                   {
-                       // break up object
-                   }
-                   Die();
-               }
-               else
-               {
-                   if (c.gameObject.CompareTag("EnemyAgent"))
-                   {
-                       TakeEnemyDamage();
-                   }
-                   else
-                   {
-                       ignoredColliders.Add(c.collider);
-                       Physics.IgnoreCollision(coll, c.collider, true);
-                   }
-               }
-           }*/
+        private void Die()
+        {
+            this.enabled = false;
+            dyingBehaviour.enabled = true;
+        }
     }
 }

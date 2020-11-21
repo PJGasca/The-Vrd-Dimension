@@ -13,11 +13,12 @@ GameObject:
   - component: {fileID: 8714687068317036478}
   - component: {fileID: 7751507582063904789}
   - component: {fileID: 6983208384432718714}
-  - component: {fileID: 1608540733658265529}
-  - component: {fileID: 8505411107689490558}
-  m_Layer: 8
+  - component: {fileID: 299723555}
+  - component: {fileID: 299723562}
+  - component: {fileID: 299723563}
+  m_Layer: 13
   m_Name: AgentOfOrder
-  m_TagString: Manipulatable
+  m_TagString: OrderAgent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5594207759179592103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.624, z: 2.68}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +76,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 373b5d58b0fa65d439449d36db5d6e74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,15 +105,15 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5594207759179592103}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 1
+  m_Mass: 3
+  m_Drag: 3
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1608540733658265529
+--- !u!114 &299723555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,10 +122,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5594207759179592103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff03f56aa217dea478771ec77a8733cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 994b0e30c8f02984494a55be1b237d4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8505411107689490558
+  GrabbedObject: {fileID: 0}
+  objectDropOffRange: 0
+--- !u!114 &299723562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +136,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 5594207759179592103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8d3b94d13b6804596ef2ce8ec54ed4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b49193e9a6abf247a913fed75d599be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Size: 3
+  targetObjectGrabRange: 1
+  displacementRange: 0
+--- !u!114 &299723563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594207759179592103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ab150d1eb629c479b808ec1278ecbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPoint: {x: 0, y: 0, z: 0}
+  maxForce: 20
+  distanceToTargetVelocity: 2.5
+  maximumVelocity: 10
+  gain: 5

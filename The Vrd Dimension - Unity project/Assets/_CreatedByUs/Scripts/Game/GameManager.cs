@@ -19,6 +19,9 @@ namespace Assets.Scripts.Game
         [SerializeField]
         private GameObject tetraSizeWarning;
 
+        [SerializeField]
+        private int maxOrderAgents;
+
         private bool recalculateEntropy = false;
 
         public float EntropyPercentage

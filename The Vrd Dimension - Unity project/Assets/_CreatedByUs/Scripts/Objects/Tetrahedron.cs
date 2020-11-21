@@ -49,7 +49,6 @@ namespace Assets.Scripts.Objects {
 
         [SerializeField] private ObjectSize _sizeComponent;
 
-
         void Awake () {
             SetSize (GetComponent<ObjectSize> ().Size);
             SpawnPosition = transform.position;
@@ -143,12 +142,6 @@ namespace Assets.Scripts.Objects {
             if (!_allBySize.ContainsKey (oldSize)) { return; }
             if (_allBySize[oldSize].Contains (this)) { _allBySize[oldSize].Remove (this); }
             if (_allBySize[oldSize].Count == 0) { _sizes.Remove (oldSize); }
-        }
-
-        public bool IsDisplaced()
-        {
-            // TODO: Work out if we have moved from our start position
-            return true;
         }
 #endregion
     }
