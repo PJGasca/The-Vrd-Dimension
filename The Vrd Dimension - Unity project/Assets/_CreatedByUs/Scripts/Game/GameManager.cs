@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Objects;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.Scripts.Game
@@ -9,15 +10,14 @@ namespace Assets.Scripts.Game
     {
         private int maxObjects;
 
-        private int minObjects;
+        private int minObjects = 1; // Assume all tetras can be merged into 1
 
         private HashSet<GameObject> objects;
 
         public static GameManager Instance { get; private set; }
 
         [SerializeField]
-        [Tooltip("The number of the smallest size tetras that make up the largest possible.")]
-        private int maxTetraSize;
+        private GameObject tetraSizeWarning;
 
         public void OnEnable()
         {
@@ -38,6 +38,41 @@ namespace Assets.Scripts.Game
                     maxTetras += size.Size;
                 }
             }
+
+            if(!IsPowerOfFour(maxTetras))
+            {
+                tetraSizeWarning.GetComponent<TextMeshPro>().text = "WARNING! TOTAL TETRA SIZE IS CURRENTLY " + maxTetras + ". THIS IS NOT A POWER OF FOUR! THIS LEVEL MAY NOT BE COMPLETABLE!";
+                tetraSizeWarning.SetActive(true);
+            }
+
+            maxObjects = maxTetras;
+        }
+
+        private bool IsPowerOfFour(int n)
+        {
+            int count = 0;
+
+            /*Check if there is only one bit
+            set in n*/
+            int x = n & (n - 1);
+
+            if (n > 0 && x == 0)
+            {
+                /* count 0 bits before set bit */
+                while (n > 1)
+                {
+                    n >>= 1;
+                    count += 1;
+                }
+
+                /*If count is even then return 
+                true else false*/
+                return count % 2 == 0;
+            }
+
+            /* If there are more than 1 bit set
+            then n is not a power of 4*/
+            return false;
         }
     }
 }
