@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
+using Valve.VR;
 
 // The intention of this script is to be conntain all generic logic for handling VR and non-VR options for a game so that it can be easily reused.
 
@@ -36,17 +37,31 @@ namespace Assets.Scripts.Utility
 
             set
             {
-                vr = value;
-                if (vr)
+                
+                if (value)
                 {
-                    nonVRCameraRig.SetActive(false);
-                    vrCameraRig.SetActive(true);
-                    currentCameraObj = vrCameraRig;
+                    if (SteamVR_Behaviour.instance != null)
+                    {
+                        vr = value;
+                        SteamVR_Behaviour.instance.gameObject.SetActive(true);
+                        nonVRCameraRig.SetActive(false);
+                        vrCameraRig.SetActive(true);
+                        currentCameraObj = vrCameraRig;
+                    }
+                    else
+                    {
+                        Debug.Log("Cannot enable VR.  [SteamVR] object not found.");
+                    }
                 }
                 else
                 {
+                    vr = value;
                     vrCameraRig.SetActive(false);
                     nonVRCameraRig.SetActive(true);
+                    if (SteamVR_Behaviour.instance != null)
+                    {
+                        SteamVR_Behaviour.instance.gameObject.SetActive(false);
+                    }
                     currentCameraObj = nonVRCameraRig;
                 }
             }

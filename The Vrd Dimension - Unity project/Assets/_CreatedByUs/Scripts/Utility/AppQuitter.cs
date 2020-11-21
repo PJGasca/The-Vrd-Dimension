@@ -15,7 +15,7 @@ namespace Assets.Scripts.Utility
         void Awake () {
             if (_Current == null) {
                 _Current = this;
-                DontDestroyOnLoad (this.gameObject);
+                //DontDestroyOnLoad (this.gameObject);
             } else if (_Current != this) {
                 Destroy (this.gameObject);
             }
