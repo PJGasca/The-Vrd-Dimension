@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.Enemies
 {
-    public class MoveTowardsObject : MonoBehaviour
+    public class MoveTowardsPoint : MonoBehaviour
     {
-        public GameObject TargetObject;
+        public Vector3 targetPoint;
 
         private Rigidbody rb;
 
@@ -41,17 +41,13 @@ namespace Assets.Scripts.Enemies
 
         private void FixedUpdate()
         {
-            if(TargetObject!=null && TargetObject.activeSelf)
-            {
-                Vector3 dist = TargetObject.transform.position - transform.position;
-                Vector3 targetVel = Vector3.ClampMagnitude(distanceToTargetVelocity * dist, maximumVelocity);
-                // calculate the velocity error
-                Vector3 error = targetVel - rb.velocity;
-                // calc a force proportional to the error (clamped to maxForce)
-                Vector3 force = Vector3.ClampMagnitude(gain * error, maxForce);
-                rb.AddForce(force);
-            }
-
+            Vector3 dist = targetPoint - transform.position;
+            Vector3 targetVel = Vector3.ClampMagnitude(distanceToTargetVelocity * dist, maximumVelocity);
+            // calculate the velocity error
+            Vector3 error = targetVel - rb.velocity;
+            // calc a force proportional to the error (clamped to maxForce)
+            Vector3 force = Vector3.ClampMagnitude(gain * error, maxForce);
+            rb.AddForce(force);
         }
     }
 }

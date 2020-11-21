@@ -12,9 +12,19 @@ namespace Assets.Scripts.Objects
 
         private static readonly float GRAB_TIME = 0.33f; // Time to move to parent
 
+        public bool IsGrabbed
+        {
+            get; private set;
+        }
+
         public void Awake()
         {
             rb = GetComponent<Rigidbody>();
+        }
+
+        public void OnEnable()
+        {
+            IsGrabbed = false;
         }
 
         public void Grab(Transform parent)
@@ -22,7 +32,7 @@ namespace Assets.Scripts.Objects
             rb.isKinematic = true;
             rb.velocity = Vector3.zero;
             transform.parent = parent;
-
+            IsGrabbed = true;
             moveRoutine = StartCoroutine(MoveToParent());
         }
 
@@ -33,7 +43,7 @@ namespace Assets.Scripts.Objects
                 StopCoroutine(moveRoutine);
                 moveRoutine = null;
             }
-
+            IsGrabbed = false;
             transform.parent = null;
             rb.isKinematic = false;
         }

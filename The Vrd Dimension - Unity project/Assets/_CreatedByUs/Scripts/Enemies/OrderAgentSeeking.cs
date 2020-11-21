@@ -5,22 +5,27 @@ using UnityEngine;
 
 namespace Assets.Scripts.Enemies
 {
-    [RequireComponent(typeof(MoveTowardsObject))]
-    public class OrderAgent : MonoBehaviour
+    [RequireComponent(typeof(MoveTowardsPoint))]
+    public class OrderAgentSeeking : MonoBehaviour
     {
         private Rigidbody rb;
-        private MoveTowardsObject mover;
+        private MoveTowardsPoint mover;
 
         private Vector3 defaultScale;
 
         private GameObject target = null;
+
+        [SerializeField]
+        private float targetObjectGrabRange;
+
+        private Grabbable targetGrabbable;
 
         // Start is called before the first frame update
         void Awake()
         {
             defaultScale = transform.localScale;
             rb = GetComponent<Rigidbody>();
-            mover = GetComponent<MoveTowardsObject>();
+            mover = GetComponent<MoveTowardsPoint>();
         }
 
         private void OnEnable()
@@ -31,9 +36,17 @@ namespace Assets.Scripts.Enemies
 
         public void FixedUpdate()
         {
-            if(target == null || !target.activeSelf)
+            if(target == null || !target.activeSelf || targetGrabbable.IsGrabbed)
             {
                 PickNewTarget();
+            }
+            else if(Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange)
+            {
+                Grabbable grabbable = target.GetComponent<Grabbable>();
+                if (!grabbable.IsGrabbed)
+                {
+                    target.GetComponent<Grabbable>().Grab(transform);
+                }
             }
         }
 
@@ -45,7 +58,9 @@ namespace Assets.Scripts.Enemies
                 if(tetra.IsDisplaced())
                 {
                     target = tetra.gameObject;
-                    mover.TargetObject = target;
+                    mover.targetPoint = target.transform.position;
+                    mover.enabled = true;
+                    targetGrabbable = target.GetComponent<Grabbable>();
                     break;
                 }
             }
@@ -53,6 +68,7 @@ namespace Assets.Scripts.Enemies
             // Nothing to pick? My work here is done!
             if (target == null)
             {
+                mover.enabled = false;
                 Die();
             }
         }
