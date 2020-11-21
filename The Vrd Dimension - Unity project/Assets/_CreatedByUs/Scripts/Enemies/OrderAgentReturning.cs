@@ -6,8 +6,7 @@ using UnityEngine;
 namespace Assets.Scripts.Enemies
 {
     [RequireComponent(typeof(MoveTowardsPoint))]
-    [RequireComponent(typeof(OrderAgentReturning))]
-    public class OrderAgentSeeking : MonoBehaviour
+    public class OrderAgentReturning : MonoBehaviour
     {
         private Rigidbody rb;
         private MoveTowardsPoint mover;
@@ -21,15 +20,12 @@ namespace Assets.Scripts.Enemies
 
         private Grabbable targetGrabbable;
 
-        private OrderAgentReturning returningBehaviour;
-
         // Start is called before the first frame update
         void Awake()
         {
             defaultScale = transform.localScale;
             rb = GetComponent<Rigidbody>();
             mover = GetComponent<MoveTowardsPoint>();
-            returningBehaviour = GetComponent<OrderAgentReturning>();
         }
 
         private void OnEnable()
