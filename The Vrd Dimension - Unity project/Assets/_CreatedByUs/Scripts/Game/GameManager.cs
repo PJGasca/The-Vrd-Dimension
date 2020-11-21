@@ -19,6 +19,18 @@ namespace Assets.Scripts.Game
         [SerializeField]
         private GameObject tetraSizeWarning;
 
+        private float entropyPercentage;
+
+        public float EntropyPercentage
+        {
+            get
+            {
+                int maxRange = maxObjects - minObjects;
+                int totalInRange = objects.Count - minObjects;
+                return totalInRange / (maxRange / 100);
+            }
+        }
+
         public void OnEnable()
         {
             // Find all the manipulatable objects in the scene
@@ -73,6 +85,16 @@ namespace Assets.Scripts.Game
             /* If there are more than 1 bit set
             then n is not a power of 4*/
             return false;
+        }
+
+        public void OnObjectAdded(GameObject obj)
+        {
+            objects.Add(obj);
+        }
+
+        public void OnObjectRemoved(GameObject obj)
+        {
+            objects.Remove(obj);
         }
     }
 }
