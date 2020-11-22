@@ -5510,7 +5510,7 @@ MonoBehaviour:
   repelBurstForce: 3000
   attachmentPoint: {fileID: 7192066457216066123}
   agentHealRate: 20
-  agentDamageRate: 33
+  agentDamageRate: 10000
 --- !u!1 &4178522974409935062
 GameObject:
   m_ObjectHideFlags: 0

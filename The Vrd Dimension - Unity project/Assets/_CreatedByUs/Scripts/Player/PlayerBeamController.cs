@@ -73,29 +73,10 @@ namespace Assets.Scripts.Player
             HashSet<GameObject> objects = beam.ObjectsInBeam;
             foreach (GameObject toAffect in objects)
             {
-                if (toAffect.CompareTag("ChaosAgent"))
+                HealthTracker health = toAffect.GetComponent<HealthTracker>();
+                if(health)
                 {
-                    HealthTracker health = toAffect.GetComponent<HealthTracker>();
-                    if (attract)
-                    {
-                        health.InflictDamage(agentDamageRate * Time.fixedDeltaTime);
-                    }
-                    else
-                    {
-                        health.Heal(agentDamageRate * Time.fixedDeltaTime);
-                    }
-                }
-                else if (toAffect.CompareTag("OrderAgent"))
-                {
-                    HealthTracker health = toAffect.GetComponent<HealthTracker>();
-                    if (repel)
-                    {
-                        health.InflictDamage(agentDamageRate * Time.fixedDeltaTime);
-                    }
-                    else
-                    {
-                        health.Heal(agentDamageRate * Time.fixedDeltaTime);
-                    }
+                    health.InflictDamage(agentDamageRate * Time.deltaTime);
                 }
                 else
                 {
