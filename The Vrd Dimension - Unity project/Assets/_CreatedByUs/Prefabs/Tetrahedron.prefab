@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3474632084535399858}
   - component: {fileID: 3474632084535399868}
   - component: {fileID: 6293018026067029962}
+  - component: {fileID: 7090288249047418123}
   m_Layer: 8
   m_Name: Tetrahedron
   m_TagString: Manipulatable
@@ -167,3 +168,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manualColor: {r: 0, g: 0, b: 0, a: 0}
   randomColor: {r: 122, g: 121, b: 76, a: 1}
+--- !u!114 &7090288249047418123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393603012428654830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5abb94b40f809d4b949fd4f4f76ac88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallCollision: {fileID: 8300000, guid: 7feaa40baaf4cf844b09417ee354e5a9, type: 3}

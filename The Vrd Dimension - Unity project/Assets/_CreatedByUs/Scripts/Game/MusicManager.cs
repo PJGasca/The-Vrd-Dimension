@@ -7,7 +7,7 @@ namespace Assets.Scripts.Game
     public class MusicManager : MonoBehaviour
     {
         IEnumerator volumeTransition;
-        float timer;
+        float timer = 0;
         Dictionary<string, AudioSource> musicPlayers = new Dictionary<string, AudioSource>();
         float chaosVel, orderVel, midVel;
 
