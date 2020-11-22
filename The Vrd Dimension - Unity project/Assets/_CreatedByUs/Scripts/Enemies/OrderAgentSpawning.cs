@@ -18,6 +18,8 @@ namespace Assets.Scripts.Enemies
 
         public void Spawn()
         {
+            GetComponent<Collider>().enabled = false;
+
             transform.localScale = Vector3.zero;
             seekingBehaviour = GetComponent<OrderAgentSeeking>();
             StartCoroutine(SpawnInRoutine());

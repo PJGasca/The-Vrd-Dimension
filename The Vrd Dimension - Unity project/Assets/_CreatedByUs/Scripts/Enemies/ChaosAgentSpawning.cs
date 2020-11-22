@@ -7,7 +7,6 @@ using UnityEngine;
 namespace Assets.Scripts.Enemies
 {
     [RequireComponent(typeof(Collider))]
-    [RequireComponent(typeof(ChaosAgentSeeking))]
     [RequireComponent(typeof(AgentScaler))]
     public class ChaosAgentSpawning : MonoBehaviour
     {
@@ -20,6 +19,12 @@ namespace Assets.Scripts.Enemies
         {
             transform.localScale = Vector3.zero;
             seekingBehaviour = GetComponent<ChaosAgentSeeking>();
+            Collider[] colliders = GetComponents<Collider>();
+            foreach(Collider collider in colliders)
+            {
+                collider.enabled = false;
+            }
+            
             StartCoroutine(SpawnInRoutine());
         }
 

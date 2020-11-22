@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 2917662547239405400}
   - component: {fileID: -3117306436707648834}
   - component: {fileID: -1125505249984158760}
+  - component: {fileID: 1114348937276035122}
   m_Layer: 13
   m_Name: AgentOfOrder
   m_TagString: OrderAgent
@@ -229,3 +230,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &1114348937276035122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594207759179592103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa03bf6ab28572340b2d98c155ca286a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPoint: {x: 0, y: 0, z: 0}
+  force: 0

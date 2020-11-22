@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Assets.Scripts.Enemies
 {
     [RequireComponent(typeof(AccelerateTowardsPoint))]
-    [RequireComponent(typeof(ChaosAgentDying))]
+    [RequireComponent(typeof(Collider))]
     public class ChaosAgentSeeking : MonoBehaviour
     {
         private Rigidbody rb;
@@ -27,8 +27,12 @@ namespace Assets.Scripts.Enemies
 
         private void OnEnable()
         {
-            // Put a bit of spin on it
-            rb.AddRelativeTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)));
+            Collider[] colliders = GetComponents<Collider>();
+            foreach (Collider collider in colliders)
+            {
+                collider.enabled = true;
+            }
+
             targetGrabbable = null;
             target = null;
             GetComponent<Collider>().enabled = true;

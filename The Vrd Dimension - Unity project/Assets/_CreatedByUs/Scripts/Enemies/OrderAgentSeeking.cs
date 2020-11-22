@@ -49,6 +49,8 @@ namespace Assets.Scripts.Enemies
 
         private void OnEnable()
         {
+            GetComponent<Collider>().enabled = true;
+
             // Put a bit of spin on it
             rb.AddRelativeTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)));
             targetGrabbable = null;
