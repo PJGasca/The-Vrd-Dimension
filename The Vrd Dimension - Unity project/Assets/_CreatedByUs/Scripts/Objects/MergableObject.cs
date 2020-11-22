@@ -232,6 +232,24 @@ namespace Assets.Scripts.Objects {
             return Utility.ObjectPool.Instance.GetObjectForType (shapeType.ToString(), true).GetComponent<MergableObject> ();
         }
 
+        public void Explode () {
+            MergableObject[] mergableObjects = new MergableObject[_sizeComponent.Size];
+            SetSize (1, -1);
+
+            mergableObjects[0] = this;
+            for (int i = 1; i < mergableObjects.Length; i++) {
+                // TODO: GET FROM POOL!!
+                // mergableObjects[i] = GetShapeFromPool ();
+                mergableObjects[i] = Instantiate (this);
+            }
+
+            foreach (MergableObject mergableObject in mergableObjects) {
+                mergableObject.transform.position = transform.position;
+                mergableObject.enabled = false;
+                mergableObject.gameObject.SetActive (true);
+            }
+        }
+
         public ShapeType GetShapeType()
         {
             return shapeType;

@@ -811,169 +811,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 72668026}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &79291771
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 24
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 8
-    localAABB:
-      m_Center: {x: 0, y: 0.01, z: 0}
-      m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 8
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 28
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 288
-    _typelessdata: 0000c03f0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0.01, z: 0}
-    m_Extent: {x: 1.65, y: 0, z: 1.275}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &83255543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1246,7 +1083,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &118742689
 MonoBehaviour:
@@ -1865,7 +1702,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &158954435
 PrefabInstance:
@@ -2724,7 +2561,7 @@ PrefabInstance:
     - target: {fileID: 5235050758434416857, guid: c858663454e18ba4d9b43b89db917376,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5235050758434416857, guid: c858663454e18ba4d9b43b89db917376,
         type: 3}
@@ -3013,7 +2850,7 @@ Transform:
   - {fileID: 1817307017}
   - {fileID: 597273168}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &283740125
 PrefabInstance:
@@ -4281,7 +4118,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 02817ad7ffd82fb49baf321065aa6445,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02817ad7ffd82fb49baf321065aa6445,
         type: 3}
@@ -4470,7 +4307,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 02817ad7ffd82fb49baf321065aa6445,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02817ad7ffd82fb49baf321065aa6445,
         type: 3}
@@ -4780,7 +4617,7 @@ Transform:
   m_LocalScale: {x: 4.636674, y: 4.636674, z: 4.636674}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &474534487
 PrefabInstance:
@@ -7227,8 +7064,42 @@ Transform:
   m_LocalScale: {x: 4, y: 3, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &627319323
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &632828884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8007,7 +7878,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &699513951
 PrefabInstance:
@@ -8378,7 +8249,7 @@ PrefabInstance:
     - target: {fileID: 5235050758434416857, guid: c858663454e18ba4d9b43b89db917376,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5235050758434416857, guid: c858663454e18ba4d9b43b89db917376,
         type: 3}
@@ -8667,6 +8538,175 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 729922005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &730415373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730415374}
+  - component: {fileID: 730415382}
+  - component: {fileID: 730415381}
+  - component: {fileID: 730415380}
+  - component: {fileID: 730415379}
+  - component: {fileID: 730415378}
+  - component: {fileID: 730415377}
+  - component: {fileID: 730415376}
+  - component: {fileID: 730415375}
+  m_Layer: 8
+  m_Name: Tetrahedron
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &730415374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730415373}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.08700013, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &730415375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730415373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf26681f9f2c3ed4f862521b5c282d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualColor: {r: 0, g: 0, b: 0, a: 0}
+  randomColor: {r: 1, g: 0, b: 3, a: 1}
+--- !u!114 &730415376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730415373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff03f56aa217dea478771ec77a8733cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &730415377
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730415373}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3613567641014311022, guid: 1db9697692e2d1440acca7ac236a1f7a, type: 3}
+--- !u!54 &730415378
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730415373}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0.25
+  m_AngularDrag: 0.01
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &730415379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730415373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8d3b94d13b6804596ef2ce8ec54ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Size: 20
+--- !u!114 &730415380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730415373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3967972d0d57c874c8c03a8d2d4ca9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetedByAgent: 0
+  shapeType: 0
+  _sizeComponent: {fileID: 0}
+--- !u!23 &730415381
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730415373}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 1946173158}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &730415382
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730415373}
+  m_Mesh: {fileID: 3613567641014311022, guid: 1db9697692e2d1440acca7ac236a1f7a, type: 3}
 --- !u!1001 &737341900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12907,7 +12947,7 @@ Transform:
   - {fileID: 2068535426}
   - {fileID: 1082411121}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1038806948
 GameObject:
@@ -14289,6 +14329,169 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1148049981}
   m_PrefabAsset: {fileID: 0}
+--- !u!43 &1153319756
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 0000c03f0ad7233c000090bf000000000000803f0000803f0000803f00000000000000000000c0bf0ad7233c000090bf000000000000803f0000803f0000803f0000803f000000000000c0bf0ad7233c0000903f000000000000803f0000803f0000803f00000000000000000000c03f0ad7233c0000903f000000000000803f0000803f0000803f0000803f000000003333d33f0ad7233c3333a3bf000000000000803f0000803f00000000000000000000803f3333d3bf0ad7233c3333a3bf000000000000803f0000803f000000000000803f0000803f3333d3bf0ad7233c3333a33f000000000000803f0000803f00000000000000000000803f3333d33f0ad7233c3333a33f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 1.65, y: 0, z: 1.275}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 
 --- !u!1001 &1171820561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14665,7 +14868,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1187660548
 PrefabInstance:
@@ -18805,7 +19008,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1515309454
 PrefabInstance:
@@ -22214,11 +22417,11 @@ PrefabInstance:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2037366901}
+      objectReference: {fileID: 627319323}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 79291771}
+      objectReference: {fileID: 1153319756}
     - target: {fileID: 1000014254142504, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Name
       value: Camera
@@ -22750,6 +22953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrCameraRig: {fileID: 1817307023}
+  vrCamera: {fileID: 0}
   nonVRCameraRig: {fileID: 597273170}
 --- !u!1001 &1823841423
 PrefabInstance:
@@ -22991,2775 +23195,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1834760004}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1856193472
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 44908134336876524, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 47140552270775453, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54989302119785368, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 62134520782561022, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 67724345140704964, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 77355416236463207, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 82742564276600293, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 95550821570131374, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 103678657135454355, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 152444752162521202, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 166995649900757253, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 170669676925059373, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 174607387801200197, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 186808580412056534, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 190288383280513226, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 192427398874606063, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199196960905505384, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 211628697738058260, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 235141539689592201, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 238794388729736735, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 239877433030782576, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 239925638365637612, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 257862987257313420, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 258711078741924195, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 268398780217638984, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 285438313491342796, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 340998867888159548, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 354382742234704589, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 370227425211312469, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 371949958169193019, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 380194047677614335, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 448830878133723375, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 452122376599008958, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 475482756625991374, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 482195677733299407, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 537385887034237483, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 550936355691211394, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 568400150627663422, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 582761051772149193, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 582908968427946255, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 600198788718521291, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 603607281843936084, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 635077479684281381, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 637830913848678543, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 651601268513681372, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 654690289682608534, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 663098513250291597, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 672048591831794184, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 689356791519180758, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 707959073357154826, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 712822964467466790, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 717332613824682401, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 761401182678968539, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 764450371813779699, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 802102714029009623, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 805035725318727947, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 814026993855959503, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 814330998502197762, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 875119223925190383, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 896681891627837317, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 929178079542873310, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 956429434098447400, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 995578695799003169, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1006590216117269220, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1022761789736279042, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1027491317970495005, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1036599028579139553, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1045104990237927125, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1045687821368532854, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1076052080014263939, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1077606805621760822, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1079234968395360473, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1117299272160095571, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1134587219122194550, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1134750909531094049, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1137886284848804356, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1150449422620070325, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1170215132467903047, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1171378632657836727, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1171767682819125895, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1196476063228121796, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1201955116555492513, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1231578524570212185, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1256110945498656953, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1316356826368068721, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1341309457841529322, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1343995651535374851, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1366442708893457420, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1388927366051032004, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1432944248847271729, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1449962246731246589, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460548140998703841, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1482629067375705279, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521665682533778156, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523528898128384901, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524823659680373193, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530184867573365108, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536753320203569754, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549342578939156868, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575568710348583356, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1603655326189625852, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1616393498636996638, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1622850431120243244, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1626330212179187560, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1643122551473414529, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684132018561772125, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1701145670140645575, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1719372833549617914, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1734683074041462185, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1741462916379189578, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1753239351251062564, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1781506149807108289, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1781631545712630004, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1791290495430364588, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800873576347244176, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1824957476419541110, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826964649191097203, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1829783392851057106, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1832318617142531457, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1837632355994259890, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1858558234432253823, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863747961554054253, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1883689509288995555, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891469813389168921, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895983359848775426, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1928684859845799843, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1930775464080727294, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 1935132557425343928, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1964056882639028223, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974249562717325829, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2002899986552773647, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2006083636035646907, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2006670954122741558, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016570012767983279, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020629495014465597, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2026334797340520380, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027973052313488092, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068524797673296630, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2085129498293504751, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2154075541726350771, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2154447881637652570, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2179888501496330827, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185150591197173248, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2214004209435444940, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2227151534139034702, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2250536605795711315, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2275726013664761200, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2330683930127479677, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333828683098542994, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2357929410783074058, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2363473440585093605, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2365520757905915630, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379639448713633188, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2381504527549348386, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2409828887520092204, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419837866880074915, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2421992050614403399, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437633297900753024, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2440724622113217435, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2456849506547885758, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2462841151685322876, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517170506869705748, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2531635146137395941, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2541226007100726985, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2561218531854577556, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2569865234888130643, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2576733712264466451, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2616735886719189412, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2625836953289303071, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2652285363731425224, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654783591575252534, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2660761019203217617, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2668321715939027963, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2679193898276427474, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2705730794743079349, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2711492173638701215, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2730975883492937003, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2733731863736990319, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752832117508898439, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770879286624815731, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2814193807196201970, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2835151387486506778, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2882096281919468455, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908251708035231836, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2947265889066126720, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 2963445269766863345, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2967263175924961320, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2978274615772205143, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2996876005818842633, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3014153561429538654, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3050797550216593153, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3051200065967674717, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3060899527502852701, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062663910871899662, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3073290599159752315, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3078105623840211037, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3088388716527487754, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3107064775608542216, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3112626463794804266, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153221689647674356, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3179192839784164904, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196968094910423575, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3329619071103053495, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342257571018229006, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3363452161337452058, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3366667596289818546, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3372685495273541613, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385246815613465578, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414555148166802318, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3423688357853231466, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3459295621004136917, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3489913614141079611, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3493157579387242535, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3499050590628559994, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518377374251461455, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3534828679637049614, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3546851496544105312, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3585148253525974578, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586895945434455175, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3600775940993446279, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613135066320559982, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3619871645037327505, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3716309661227355807, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3724119953018610670, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727302682860900761, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3734709879458907489, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738123878451836445, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3742559294597265436, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3754446979223445557, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3774694228599440336, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3806945672863564673, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3825228350647948046, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3848301360346835517, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3894953353356017394, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3910499419624431264, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3964639639471452175, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: StartingTetra_1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3982748005356516323, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 3997459692164632582, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4046474551778107869, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4096222176956630963, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4117507257185970139, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165575564164541782, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4174248610671938726, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190531240588688426, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4193629725582126166, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199255598065186040, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202905224926482639, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4213065312438606718, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4233745920481902878, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4248625293696257734, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281390735269376384, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4312354428987657969, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335975267415904431, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337982871910130637, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4350630207600107817, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365361820342780190, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384417148396415386, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4389166338382844508, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4392174533918250965, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4392247718925439602, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4392614317932143660, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438156681826174859, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4440333169672916476, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4467151019646898581, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4509158584889707529, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4514050197962375884, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4522005152439409132, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524555676263237240, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4615243558067409356, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4620883955996387284, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633418740064719927, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648734655811004891, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4656957011343586035, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4709424969797464892, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4740740452516975467, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764397196596926640, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766294624997875791, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4772865717641353093, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4788034280586730496, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4791984004251337343, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4798340351235224377, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803011925033584965, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837814303835174524, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4845099004591963206, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4872817869096412971, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901958788283452966, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4904860510214420598, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4905861997226283036, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 4908706250669699613, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966275656145251658, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5010976601287597988, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5031718998538598068, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5037491789529458131, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5056066051778449314, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5071964767806229065, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5081380719565760152, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083626771899667356, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5103991032735035638, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115227829393497609, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5124973640899916522, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5138079070303443963, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5141594794755178138, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5143062020066494414, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5144302706869500237, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5167788663602508629, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5169849894030863467, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199862186403044776, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5205645918846355209, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5228463418326535823, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5233017173856353643, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5261637283931051030, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5265453217966463556, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5265980381648599938, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309092676729251497, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5333658871513783441, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5334478186223925233, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5349398880035628106, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5360038323769541631, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370001528951815199, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5382477211149325346, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5388842803374391134, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5428995183655812476, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5451948565267071784, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5479361637821405529, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5492264678249384059, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5494691382504483541, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5502197481937578429, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5502449333273504352, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5549957373909145179, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5558695090406413054, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5559700493806551999, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5567636795697745685, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573560867157979947, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5607292715301983283, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5607926722003284314, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5623530164108490343, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5773449899870272074, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5843136541811979676, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869200523878476160, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5895095561244895274, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897709560890985345, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5921197327725580997, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5928809373441434478, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5949232151058875777, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5956260322476205280, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5968047430571320871, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5973759529182358859, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 5975879936985394831, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6009910976868062236, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6027328237393970799, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6031741997013171353, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055962170161569874, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6089130610227748885, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6089451482382922401, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6096962391655334265, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6103628652622044281, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6119546685080745741, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6138348430362869972, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6154703102473114470, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6181234895442746751, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6182038561887494847, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6187777561482989287, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190387193568776925, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204388637327643046, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6229573556626939916, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6299055866122455473, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6311952083942359994, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6326508535597046405, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6326852268177111660, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6399847167314533226, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6474563699609741806, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6488294374686586280, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6518372121137141487, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6523695913772089349, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6537463689532961426, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6563945971939705059, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617835615218423000, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617889102084423608, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6633148083586203659, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6642033349197258705, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6685418886859654899, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708296928591222593, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6727417971264023970, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6760207711383125867, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761309265263487231, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6784116078612738464, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6799000427287946524, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6803555574930250790, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6813038423180240251, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6817487032275807860, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6818386955047048246, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6837227724368843149, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6858632049944988064, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6876730747376026438, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6897575402694869149, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6897899369642480086, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 6932114061879186849, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6944064343223943000, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945519854053901634, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950939050786251092, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6988178631059620195, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6995833138995835600, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7006300393961257208, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7018534468548833315, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7026701111931438563, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7033677440517703943, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037985173372123144, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7050947635630398906, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7057126497380778893, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070833763605294491, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7078919191928946677, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7094500733565785718, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7098374843919632573, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7103937861585150881, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7129921692728295354, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7130542300859929620, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7131583380225501098, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7134804404574052123, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7145714305847404985, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7170124027099831042, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7185655443423950415, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7199675212704408062, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7223528301494061944, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7261727964599634528, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7267487297911320520, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7268492022296032156, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7268777258825982203, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7277097489445007513, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7297499908281659546, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7352488536235328859, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7377866515501847798, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7394031587514271337, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7402861108550380256, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7408807799241415596, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7440907388071277348, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7441220010550615207, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7512073349207344166, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7520832547813391091, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7540207012316559900, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7580942035358319613, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7581942270311895912, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605024185390851837, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7615350449882161879, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7621871852541889833, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624272186007610003, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7645769293968946984, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7648907942153334933, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652389594124287972, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7675212983821836132, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678550941790556592, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7693861337516900496, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7702237199898963474, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7722447005591021861, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723917872875933733, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7729669068714976035, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7734855729653156791, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7777854539024696620, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7786359794833605682, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7787761223328756281, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802569410899399274, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7812545096373180662, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7826951348497643444, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856336605056525090, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7857341472280814562, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875317308792644304, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7880732533492379829, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7888737579342044897, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7911938367122553793, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7925004738040280319, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 7980200652763309439, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8000475275667450069, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8002968088370300736, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017782636133767009, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8028842896876268497, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032660825569574629, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8033917814088238550, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8063153971158470971, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8093761842270969194, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8094857279628882813, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109448408226119560, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8125851574893617348, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8138572733698609068, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8155044838054002376, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8156457759357092392, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8162216173808529110, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8165916998956389714, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215946015308877050, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8250289760733072701, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8292635209570746151, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8301881103546579939, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8336483507041746253, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8421545229980097073, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8433672643123273781, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8441184900602067276, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444211978845856406, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455167539606470270, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455894736795767136, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8456038495486154602, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461233790531439921, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8471783731210042298, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8476550354360714894, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8583433018701489729, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8585268005617189712, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8593941093981613122, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8596389959318378937, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8610152701702769983, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8620625778389972759, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8644514925587649922, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8654444431597132193, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8660594744439057856, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8670472735017285612, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8690145032255403234, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8713724354899492999, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8724294906444679195, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8724988006685716148, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735072937314967092, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8743396146689300793, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781229285268306207, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8804602681657493032, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805464769640511950, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8821456512523355478, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8836619946226038853, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863922970000270808, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8880794786869379997, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887110826998652643, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8891205445902033597, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913854205746779771, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982958806281052930, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9003753772993637519, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9017830277180663160, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 9052579428560926962, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9055907183560972752, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 9068548540537894272, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9097732470706396740, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9098818491166396169, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100095985880842013, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9115245692703616812, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9183343163088208019, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 9187614215962946886, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189370096197142777, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 9217829423271661416, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    - target: {fileID: 9221965641585666270, guid: 01acf88605d09ba4b9940018c1d6ff4c,
-        type: 3}
-      propertyPath: m_Name
-      value: Tetrahedron
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 01acf88605d09ba4b9940018c1d6ff4c, type: 3}
 --- !u!1001 &1902891112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26165,6 +23600,251 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1943212367}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1946173158
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TetraMaterial (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
+  m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - DistortionVectors
+  - MOTIONVECTORS
+  - TransparentDepthPrepass
+  - TransparentDepthPostpass
+  - TransparentBackface
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AnisotropyMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BentNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BentNormalMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CoatMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionVectorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IridescenceMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IridescenceThicknessMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecularColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SubsurfaceMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TangentMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TangentMapOS:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThicknessMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceColorMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AORemapMax: 1
+    - _AORemapMin: 0
+    - _ATDistance: 1
+    - _AddPrecomputedVelocity: 0
+    - _AlbedoAffectEmissive: 0
+    - _AlphaCutoff: 0.5
+    - _AlphaCutoffEnable: 0
+    - _AlphaCutoffPostpass: 0.5
+    - _AlphaCutoffPrepass: 0.5
+    - _AlphaCutoffShadow: 0.5
+    - _AlphaDstBlend: 0
+    - _AlphaSrcBlend: 1
+    - _Anisotropy: 0
+    - _BlendMode: 0
+    - _CoatMask: 0
+    - _CullMode: 2
+    - _CullModeForward: 2
+    - _Cutoff: 0.5
+    - _DepthOffsetEnable: 0
+    - _DetailAlbedoScale: 1
+    - _DetailNormalScale: 1
+    - _DetailSmoothnessScale: 1
+    - _DiffusionProfile: 0
+    - _DiffusionProfileHash: 0
+    - _DisplacementLockObjectScale: 1
+    - _DisplacementLockTilingScale: 1
+    - _DisplacementMode: 0
+    - _DistortionBlendMode: 0
+    - _DistortionBlurBlendMode: 0
+    - _DistortionBlurDstBlend: 1
+    - _DistortionBlurRemapMax: 1
+    - _DistortionBlurRemapMin: 0
+    - _DistortionBlurScale: 1
+    - _DistortionBlurSrcBlend: 1
+    - _DistortionDepthTest: 1
+    - _DistortionDstBlend: 1
+    - _DistortionEnable: 0
+    - _DistortionScale: 1
+    - _DistortionSrcBlend: 1
+    - _DistortionVectorBias: -1
+    - _DistortionVectorScale: 2
+    - _DoubleSidedEnable: 0
+    - _DoubleSidedNormalMode: 1
+    - _DstBlend: 0
+    - _EmissiveColorMode: 1
+    - _EmissiveExposureWeight: 1
+    - _EmissiveIntensity: 0
+    - _EmissiveIntensityUnit: 0
+    - _EnableBlendModePreserveSpecularLighting: 1
+    - _EnableFogOnTransparent: 1
+    - _EnableGeometricSpecularAA: 0
+    - _EnergyConservingSpecularColor: 1
+    - _HeightAmplitude: 0.02
+    - _HeightCenter: 0.5
+    - _HeightMapParametrization: 0
+    - _HeightMax: 1
+    - _HeightMin: -1
+    - _HeightOffset: 0
+    - _HeightPoMAmplitude: 2
+    - _HeightTessAmplitude: 2
+    - _HeightTessCenter: 0.5
+    - _InvTilingScale: 1
+    - _Ior: 1.5
+    - _IridescenceMask: 1
+    - _IridescenceThickness: 1
+    - _LinkDetailsWithBase: 1
+    - _MaterialID: 1
+    - _Metallic: 0.41
+    - _NormalMapSpace: 0
+    - _NormalScale: 1
+    - _PPDLodThreshold: 5
+    - _PPDMaxSamples: 15
+    - _PPDMinSamples: 5
+    - _PPDPrimitiveLength: 1
+    - _PPDPrimitiveWidth: 1
+    - _ReceivesSSR: 1
+    - _RefractionModel: 0
+    - _SSRefractionProjectionModel: 0
+    - _Smoothness: 0.877
+    - _SmoothnessRemapMax: 1
+    - _SmoothnessRemapMin: 0
+    - _SpecularAAScreenSpaceVariance: 0.1
+    - _SpecularAAThreshold: 0.2
+    - _SpecularOcclusionMode: 1
+    - _SrcBlend: 1
+    - _StencilRef: 0
+    - _StencilRefDepth: 8
+    - _StencilRefDistortionVec: 4
+    - _StencilRefGBuffer: 10
+    - _StencilRefMV: 40
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDistortionVec: 4
+    - _StencilWriteMaskGBuffer: 14
+    - _StencilWriteMaskMV: 40
+    - _SubsurfaceMask: 1
+    - _SupportDecals: 1
+    - _SurfaceType: 0
+    - _TexWorldScale: 1
+    - _TexWorldScaleEmissive: 1
+    - _Thickness: 1
+    - _TransmissionEnable: 1
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentDepthPostpassEnable: 0
+    - _TransparentDepthPrepassEnable: 0
+    - _TransparentSortPriority: 0
+    - _TransparentWritingMotionVec: 0
+    - _TransparentZWrite: 0
+    - _UVBase: 0
+    - _UVDetail: 0
+    - _UVEmissive: 0
+    - _UseEmissiveIntensity: 1
+    - _UseShadowThreshold: 0
+    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestGBuffer: 4
+    - _ZTestModeDistortion: 4
+    - _ZTestTransparent: 4
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 1, g: 0, b: 3, a: 1}
+    - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 0, b: 3, a: 1}
+    - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissiveColor: {r: 1, g: 0, b: 3, a: 1}
+    - _EmissiveColorLDR: {r: 0.24313712, g: 1, b: 0, a: 1}
+    - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
+    - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
+    - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
+    - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1001 &1954835721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27122,6 +24802,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962d545bc45dcb7428998cddb00d7a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2012640211
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5321510664383864199, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_Name
+      value: ObjectPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321510664383864216, guid: 162868e7c72f7fe47afbde35223e9664,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 162868e7c72f7fe47afbde35223e9664, type: 3}
 --- !u!1001 &2022003953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27421,40 +25170,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2031517104}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &2037366901
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &2037728026
 PrefabInstance:
   m_ObjectHideFlags: 0
