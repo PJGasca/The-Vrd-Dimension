@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Objects;
+﻿using Assets.Scripts.Game;
+using Assets.Scripts.Objects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Assets.Scripts.Enemies
     [RequireComponent(typeof(OrderAgentReturning))]
     [RequireComponent(typeof(OrderAgentDying))]
     [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(AgentScaler))]
     public class OrderAgentSeeking : MonoBehaviour
     {
         private Rigidbody rb;
@@ -21,15 +23,13 @@ namespace Assets.Scripts.Enemies
         [SerializeField]
         private float targetObjectGrabRange;
 
-        [SerializeField]
-        [Tooltip("Distance from start point that an item has to be before it is considered displaced.")]
-        private float displacementRange;
-
         private Grabbable targetGrabbable;
 
         private OrderAgentReturning returningBehaviour;
 
         private OrderAgentDying dyingBehaviour;
+
+        private AgentScaler scaler;
 
         // Start is called before the first frame update
         void Awake()
@@ -38,6 +38,7 @@ namespace Assets.Scripts.Enemies
             mover = GetComponent<MoveTowardsPoint>();
             dyingBehaviour = GetComponent<OrderAgentDying>();
             returningBehaviour = GetComponent<OrderAgentReturning>();
+            scaler = GetComponent<AgentScaler>();
         }
 
         private void OnEnable()
@@ -53,20 +54,16 @@ namespace Assets.Scripts.Enemies
         {
             if(target == null || !target.activeSelf || targetGrabbable.IsGrabbed)
             {
-                if(target!=null)
-                {
-                    target.GetComponent<Tetrahedron>().targetedByAgent = false;
-                }
                 PickNewTarget();
             }
             else if(Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange)
             {
-                Debug.Log("Is in grab range");
                 Grabbable grabbable = target.GetComponent<Grabbable>();
                 if (!grabbable.IsGrabbed)
                 {
-                    Debug.Log("Grabbing");
+                    scaler.ScaleToTetra(target, 0.33f);
                     target.GetComponent<Grabbable>().Grab(transform);
+                    target.GetComponent<Tetrahedron>().targetedByAgent = false;
                     returningBehaviour.GrabbedObject = target;
                     returningBehaviour.enabled = true;
                     this.enabled = false;
@@ -86,37 +83,29 @@ namespace Assets.Scripts.Enemies
         {
             Tetrahedron[] tetras = Tetrahedron.All;
 
-            if(target!=null)
+            scaler.ScaleToInitial(0.33f);
+
+            if (target!=null)
             {
                 target.GetComponent<Tetrahedron>().targetedByAgent = false;
             }
 
-            target = null;
-            foreach(Tetrahedron tetra in tetras)
+            Tetrahedron tetra = GameManager.Instance.GetDisplacedUntargetedTetra();
+            if (tetra != null)
             {
-                if(IsDisplaced(tetra) && !tetra.targetedByAgent && !tetra.GetComponent<Grabbable>().IsGrabbed)
-                {
-                    target = tetra.gameObject;
-                    mover.targetPoint = target.transform.position;
-                    mover.enabled = true;
-                    targetGrabbable = target.GetComponent<Grabbable>();
-                    tetra.targetedByAgent = true;
-                    break;
-                }
+                target = tetra.gameObject;
+                mover.targetPoint = target.transform.position;
+                mover.enabled = true;
+                targetGrabbable = target.GetComponent<Grabbable>();
+                tetra.targetedByAgent = true;
             }
-
-            // Nothing to pick? My work here is done!
-            if (target == null)
+            else
             {
                 Debug.Log("Could not find valid target. Dying.");
+                target  = null;
                 mover.enabled = false;
                 Die();
             }
-        }
-
-        private bool IsDisplaced(Tetrahedron tetra)
-        {
-            return Vector3.Distance(tetra.transform.position, tetra.SpawnPosition) > displacementRange;
         }
 
         private void Die()

@@ -43,9 +43,9 @@ namespace Assets.Scripts.Enemies
             }
             else if(Vector3.Distance(transform.position, mover.targetPoint) < objectDropOffRange)
             {
-                Debug.Log("Dropping off");
                 // Drop off the object
                 GrabbedObject.GetComponent<Grabbable>().Release();
+                GrabbedObject.transform.position = mover.targetPoint;
                 seekingBehaviour.enabled = true;
                 this.enabled = false;
             }
