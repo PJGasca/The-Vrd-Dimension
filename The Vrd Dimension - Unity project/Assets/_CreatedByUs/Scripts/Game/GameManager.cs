@@ -57,6 +57,7 @@ namespace Assets.Scripts.Game
         private int liveChaosAgents;
 
         private bool recalculateEntropy = false;
+        private Coroutine agentSpawnCoroutine;
 
         public float EntropyPercentage
         {
@@ -70,6 +71,8 @@ namespace Assets.Scripts.Game
 
         public void OnEnable()
         {
+            EndChecker.OnGameWin += StopAgentSpawning;
+
             // Find all the manipulatable objects in the scene
             GameObject[] objects = GameObject.FindGameObjectsWithTag("Manipulatable");
 
@@ -97,7 +100,11 @@ namespace Assets.Scripts.Game
 
             maxObjects = maxTetras;
 
-            StartCoroutine(AgentSpawner());
+            agentSpawnCoroutine = StartCoroutine(AgentSpawner());
+        }
+
+        void OnDisable () {
+            EndChecker.OnGameWin -= StopAgentSpawning;
         }
 
         public void FixedUpdate()
@@ -244,6 +251,11 @@ namespace Assets.Scripts.Game
         private bool IsDisplaced(MergableObject tetra)
         {
             return Vector3.Distance(tetra.transform.position, tetra.SpawnPosition) > displacementRange;
+        }
+
+        private void StopAgentSpawning () {
+            StopCoroutine (agentSpawnCoroutine);
+            agentSpawnCoroutine = null;
         }
     }
 }
