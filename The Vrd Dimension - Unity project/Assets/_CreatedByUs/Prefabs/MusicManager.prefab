@@ -349,8 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectWallCollision:
   - {fileID: 8300000, guid: 7feaa40baaf4cf844b09417ee354e5a9, type: 3}
-  - {fileID: 8300000, guid: 78d4739808af4404cb8bf42d737703e3, type: 3}
   - {fileID: 8300000, guid: 23f2cb4e9b5cf5745ba7931398c8ad2d, type: 3}
+  - {fileID: 8300000, guid: 78d4739808af4404cb8bf42d737703e3, type: 3}
   holdRepel: {fileID: 8300000, guid: cce792a1136ce2040b7c4785c959e200, type: 3}
   holdAttract: {fileID: 8300000, guid: 78a49fbdd85e05d44a2160440e22e846, type: 3}
   grab: {fileID: 8300000, guid: a7b78a6ae8e3ae44f9994bb053d27e04, type: 3}

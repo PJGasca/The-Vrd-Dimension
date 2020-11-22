@@ -43,7 +43,7 @@ namespace Assets.Scripts.Objects
                     int r = UnityEngine.Random.Range(0, wallCollision.Count);
                     if (canChangePitch) audioSource.pitch = UnityEngine.Random.Range(.98f, 1.02f);
                     CompareClipLength(wallCollision[r].length);
-                    float v = Mathf.Clamp(rb.velocity.magnitude / 16, .1f, 1.2f);
+                    float v = Mathf.Clamp(rb.velocity.magnitude / 10, .1f, 1.4f);
                     audioSource.PlayOneShot(wallCollision[r], v);
                 }
             }
