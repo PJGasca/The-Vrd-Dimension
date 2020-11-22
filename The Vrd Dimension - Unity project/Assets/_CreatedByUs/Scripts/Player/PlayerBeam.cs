@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Objects;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -98,11 +99,29 @@ namespace Assets.Scripts.Player
         private void OnTriggerEnter(Collider other)
         {
             ObjectsInBeam.Add(other.gameObject);
+
+            Tetrahedron tetra = other.gameObject.GetComponent<Tetrahedron>();
+            if(tetra!=null)
+            {
+                tetra.OnTetrahedronDisabled += OnTetraDisabled;
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
             ObjectsInBeam.Remove(other.gameObject);
+
+            Tetrahedron tetra = other.gameObject.GetComponent<Tetrahedron>();
+            if (tetra != null)
+            {
+                tetra.OnTetrahedronDisabled -= OnTetraDisabled;
+            }
+        }
+
+        private void OnTetraDisabled(Tetrahedron tetra)
+        {
+            ObjectsInBeam.Remove(tetra.gameObject);
+            tetra.OnTetrahedronDisabled -= OnTetraDisabled;
         }
     }
 }

@@ -59,6 +59,12 @@ namespace Assets.Scripts.Player
                     HashSet<GameObject> objects = beam.ObjectsInBeam;
                     foreach (GameObject toAffect in objects)
                     {
+                        Grabbable grabbable = toAffect.GetComponent<Grabbable>();
+                        if(grabbable!=null && grabbable.IsGrabbed)
+                        {
+                            grabbable.Release();
+                        }
+
                         ApplyForceToObject(toAffect);
 
                         /*if (toAffect.CompareTag("EnemyAgent"))

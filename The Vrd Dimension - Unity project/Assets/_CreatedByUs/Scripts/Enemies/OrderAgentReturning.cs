@@ -11,7 +11,7 @@ namespace Assets.Scripts.Enemies
     {
         private Rigidbody rb;
         private MoveTowardsPoint mover;
-        public GameObject GrabbedObject = null;
+        public GameObject GrabbedObject;
         private OrderAgentSeeking seekingBehaviour;
 
         [SerializeField]
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Enemies
 
         public void FixedUpdate()
         {
-            if(!GrabbedObject.activeSelf)
+            if(!GrabbedObject.activeSelf || !GrabbedObject.transform.parent == transform)
             {
                 // Lost the object. Find a different one.
                 seekingBehaviour.enabled = true;
