@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Objects;
+using Assets.Scripts.Enemies;
 
 namespace Assets.Scripts.Player
 {
@@ -28,6 +29,12 @@ namespace Assets.Scripts.Player
 
         [SerializeField]
         private Transform attachmentPoint;
+
+        [SerializeField]
+        private float agentHealRate;
+
+        [SerializeField]
+        private float agentDamageRate;
 
         public void Awake()
         {
@@ -56,29 +63,49 @@ namespace Assets.Scripts.Player
 
                 if (attract ^ repel)    // XOR
                 {
-                    HashSet<GameObject> objects = beam.ObjectsInBeam;
-                    foreach (GameObject toAffect in objects)
+                    AffectObjectsInBeam();
+                }
+            }
+        }
+
+        private void AffectObjectsInBeam()
+        {
+            HashSet<GameObject> objects = beam.ObjectsInBeam;
+            foreach (GameObject toAffect in objects)
+            {
+                if (toAffect.CompareTag("ChaosAgent"))
+                {
+                    HealthTracker health = toAffect.GetComponent<HealthTracker>();
+                    if (attract)
                     {
-                        Grabbable grabbable = toAffect.GetComponent<Grabbable>();
-                        if(grabbable!=null && grabbable.IsGrabbed)
-                        {
-                            grabbable.Release();
-                        }
-
-                        ApplyForceToObject(toAffect);
-
-                        /*if (toAffect.CompareTag("EnemyAgent"))
-                        {
-                            if (toAffect.GetComponent<Enemies.ChaosAgent>() != null)
-                            {
-                                toAffect.GetComponent<Enemies.ChaosAgent>().InBeam(attract);
-                            }
-                            else // is order agent
-                            {
-                                toAffect.GetComponent<Enemies.OrderAgent>().InBeam(attract);
-                            }
-                        }*/
+                        health.InflictDamage(agentDamageRate * Time.fixedDeltaTime);
                     }
+                    else
+                    {
+                        health.Heal(agentDamageRate * Time.fixedDeltaTime);
+                    }
+                }
+                else if (toAffect.CompareTag("OrderAgent"))
+                {
+                    HealthTracker health = toAffect.GetComponent<HealthTracker>();
+                    if (repel)
+                    {
+                        health.InflictDamage(agentDamageRate * Time.fixedDeltaTime);
+                    }
+                    else
+                    {
+                        health.Heal(agentDamageRate * Time.fixedDeltaTime);
+                    }
+                }
+                else
+                {
+                    Grabbable grabbable = toAffect.GetComponent<Grabbable>();
+                    if (grabbable != null && grabbable.IsGrabbed)
+                    {
+                        grabbable.Release();
+                    }
+
+                    ApplyForceToObject(toAffect);
                 }
             }
         }

@@ -5490,10 +5490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6759da032cc5e2e42ab1ec8bb97f54ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neutralColor: {r: 1, g: 0, b: 0, a: 0.9019608}
-  attractingColor: {r: 0, g: 1, b: 0.007030964, a: 0.9019608}
-  repellingColor: {r: 0, g: 0.13757372, b: 1, a: 0.9019608}
-  bothColor: {r: 1, g: 0, b: 0.52186584, a: 0.9019608}
   laserPointer: {fileID: 614063056}
   attractBeam: {fileID: 1983639856}
   repelBeam: {fileID: 842692425}
@@ -5513,6 +5509,8 @@ MonoBehaviour:
   force: 1000
   repelBurstForce: 3000
   attachmentPoint: {fileID: 7192066457216066123}
+  agentHealRate: 20
+  agentDamageRate: 20
 --- !u!1 &4178522974409935062
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,13 +34,25 @@ namespace Assets.Scripts.Game
         private int maxOrderAgents;
 
         [SerializeField]
-        [Tooltip("Distance from start point that an item has to be before it is considered displaced.")]
+        private int maxChaosAgents;
+
+        [SerializeField]
+        [Tooltip("A higher value increases the likelihood of agents being spawned in any given attempt.")]
+        private float agentSpawnLikelihoodScale;
+
+        [SerializeField]
+        [Tooltip("The minimum amount of time between randomized rolls to decide whether or not to spawn an agent.")]
+        private float minimumSpawnAttemptTime;
+
+        [SerializeField]
+        [Tooltip("The maximum amount of time between randomized rolls to decide whether or not to spawn an agent.")]
+        private float maximumSpawnAttemptTime;
+
+        [SerializeField]
+        [Tooltip("Distance from start point that an item has to be before it is considered displaced by order agents.")]
         private float displacementRange;
 
         private int liveOrderAgents;
-
-        [SerializeField]
-        private int maxChaosAgents;
 
         private int liveChaosAgents;
 
@@ -141,15 +153,24 @@ namespace Assets.Scripts.Game
         {
             while(true)
             {
-                yield return new WaitForSeconds(Random.Range(1f, 5f));
+                yield return new WaitForSeconds(Random.Range(minimumSpawnAttemptTime, maximumSpawnAttemptTime));
 
-                if (liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage / 0.75f) && GetDisplacedUntargetedTetra()!=null)
+                bool spawned = false;
+                if (liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage * agentSpawnLikelihoodScale) && GetDisplacedUntargetedTetra()!=null)
                 {
                     SpawnOrderAgent();
+                    spawned = true;
                 }
 
-                if (liveChaosAgents < maxChaosAgents && Random.Range(0, 100) < ((100-EntropyPercentage) / 0.75f) && GetBreakableTetra() != null)
+                if (liveChaosAgents < maxChaosAgents && Random.Range(0, 100) < ((100-EntropyPercentage) * agentSpawnLikelihoodScale) && GetBreakableTetra() != null)
                 {
+                    if(spawned)
+                    {
+                        // We could potentially spawn a chaos and order agent in the same attempt, but it might look very obvious if both pop into existence at 
+                        // exactly the same time so wait just a little before spawning.
+                        yield return new WaitForSeconds(0.5f);
+                    }
+
                     SpawnChaosAgent();
                 }
             }

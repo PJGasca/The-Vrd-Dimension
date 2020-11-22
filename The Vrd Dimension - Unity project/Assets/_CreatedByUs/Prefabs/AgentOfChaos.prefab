@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 567892920}
   - component: {fileID: 567892919}
   - component: {fileID: -2295971458476173049}
+  - component: {fileID: 6301601343267849519}
   m_Layer: 12
   m_Name: AgentOfChaos
   m_TagString: ChaosAgent
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6314980951536169228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57831e069e67d9f428a0a29fec0b4481, type: 3}
   m_Name: 
@@ -248,7 +249,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6314980951536169228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d258d9b52af48642a1fd58a5bcd2f4f, type: 3}
   m_Name: 
@@ -279,3 +280,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41dde960dd113c24fbf31ae08cd79e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6301601343267849519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6314980951536169228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2afef6afd7925408691029efa474aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
