@@ -24,6 +24,12 @@ namespace Assets.Scripts.Player
         [SerializeField]
         private GameObject holdBeam;
 
+        [SerializeField]
+        private Color laserPointerNoItemsCol;
+
+        [SerializeField]
+        private Color laserPointerItemsCol;
+
         private Color invisible = new Color(0, 0, 0, 0);
 
         private BeamMode mode = BeamMode.NEUTRAL;
@@ -100,6 +106,7 @@ namespace Assets.Scripts.Player
         private void OnTriggerEnter(Collider other)
         {
             ObjectsInBeam.Add(other.gameObject);
+            SetLaserPointerCol(laserPointerItemsCol);
 
             NotifyOnDisable disableNotifier = other.gameObject.GetComponent<NotifyOnDisable>();
             if(disableNotifier != null)
@@ -112,6 +119,11 @@ namespace Assets.Scripts.Player
         {
             ObjectsInBeam.Remove(other.gameObject);
 
+            if (ObjectsInBeam.Count == 0)
+            {
+                SetLaserPointerCol(laserPointerNoItemsCol);
+            }
+
             NotifyOnDisable disableNotifier = other.gameObject.GetComponent<NotifyOnDisable>();
             if (disableNotifier != null)
             {
@@ -122,6 +134,18 @@ namespace Assets.Scripts.Player
         private void OnObjectInBeamDisabled(GameObject obj)
         {
             ObjectsInBeam.Remove(obj);
+
+            if(ObjectsInBeam.Count == 0)
+            {
+                SetLaserPointerCol(laserPointerNoItemsCol);
+            }
+        }
+
+        private void SetLaserPointerCol(Color newCol)
+        {
+            LineRenderer line = laserPointer.GetComponent<LineRenderer>();
+            line.startColor = newCol;
+            line.endColor = newCol;
         }
     }
 }
