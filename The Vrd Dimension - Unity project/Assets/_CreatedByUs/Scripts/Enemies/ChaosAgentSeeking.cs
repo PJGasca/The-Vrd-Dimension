@@ -16,6 +16,7 @@ namespace Assets.Scripts.Enemies
         private Grabbable targetGrabbable = null;
         private ChaosAgentDying dyingBehaviour;
         private AgentScaler scaler;
+        private AudioSource audioSource;
 
         // Start is called before the first frame update
         void Awake()
@@ -23,6 +24,7 @@ namespace Assets.Scripts.Enemies
             rb = GetComponent<Rigidbody>();
             mover = GetComponent<AccelerateTowardsPoint>();
             dyingBehaviour = GetComponent<ChaosAgentDying>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void OnEnable()
@@ -89,6 +91,7 @@ namespace Assets.Scripts.Enemies
             if(tetra!=null && tetra.gameObject.GetComponent<ObjectSize>().Size>1)
             {
                 tetra.Split();
+                audioSource.PlayOneShot(Utility.SoundEffectClips.instance.chaosBreak);
                 Die();
             }
         }

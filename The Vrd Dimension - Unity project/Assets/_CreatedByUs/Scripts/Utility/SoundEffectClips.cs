@@ -8,6 +8,7 @@ namespace Assets.Scripts.Utility
     {
         [Header("Objects")]
         public List<AudioClip> objectWallCollision;
+        public List<AudioClip> objectMerge;
 
         [Header("Beam")]
         public AudioClip holdRepel;
@@ -18,8 +19,13 @@ namespace Assets.Scripts.Utility
         [Header("Enemies")]
         public List<AudioClip> chaosSpawn;
         public List<AudioClip> chaosDeath;
+        public AudioClip chaosBreak;
         public List<AudioClip> orderSpawn;
         public List<AudioClip> orderDeath;
+        public AudioClip orderAbsorb;
+
+        [Header("Chaos")]
+        public List<AudioClip> chaosTracks;
 
         public static SoundEffectClips instance;
 

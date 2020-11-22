@@ -32,7 +32,8 @@ namespace Assets.Scripts.Enemies
                 collider.enabled = false;
             }
             spawningBehaviour = GetComponent<ChaosAgentSpawning>();
-            audioSource.PlayOneShot(SoundEffectClips.instance.chaosDeath[Random.Range(0, SoundEffectClips.instance.chaosDeath.Count)]);
+            audioSource.clip = SoundEffectClips.instance.orderDeath[Random.Range(0, SoundEffectClips.instance.orderDeath.Count)];
+            audioSource.PlayOneShot(audioSource.clip, 3);
             StartCoroutine(ShrinkRoutine());
         }
 
@@ -41,7 +42,7 @@ namespace Assets.Scripts.Enemies
             AgentScaler scaler = GetComponent<AgentScaler>();
             scaler.SetScale(Vector3.zero, shrinkTime);
 
-            yield return new WaitForSeconds(shrinkTime);
+            yield return new WaitForSeconds(audioSource.clip.length);
 
             // Reset to default size
             spawningBehaviour.enabled = true;
