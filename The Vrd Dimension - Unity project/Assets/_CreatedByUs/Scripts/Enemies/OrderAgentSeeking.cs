@@ -18,10 +18,16 @@ namespace Assets.Scripts.Enemies
 
         private Vector3 defaultScale;
 
-        private GameObject target = null;
+        public GameObject target = null;
 
         [SerializeField]
         private float targetObjectGrabRange;
+
+        [SerializeField]
+        private float agentRescaleRange;
+
+        [SerializeField]
+        private float agentRescaleTime;
 
         private Grabbable targetGrabbable;
 
@@ -56,12 +62,15 @@ namespace Assets.Scripts.Enemies
             {
                 PickNewTarget();
             }
-            else if(Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange)
+            else if (!scaler.IsScaling && Vector3.Distance(transform.position, target.transform.position) < agentRescaleRange && transform.localScale != scaler.GetAgentTetraScale(target))
+            {
+                scaler.ScaleToTetra(target, agentRescaleTime);
+            }
+            else if(!scaler.IsScaling && Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange && transform.localScale == scaler.GetAgentTetraScale(target))
             {
                 Grabbable grabbable = target.GetComponent<Grabbable>();
                 if (!grabbable.IsGrabbed)
                 {
-                    scaler.ScaleToTetra(target, 0.33f);
                     target.GetComponent<Grabbable>().Grab(transform);
                     target.GetComponent<Tetrahedron>().targetedByAgent = false;
                     returningBehaviour.GrabbedObject = target;
@@ -81,9 +90,13 @@ namespace Assets.Scripts.Enemies
 
         private void PickNewTarget()
         {
+            Debug.Log("Pick new target");
             Tetrahedron[] tetras = Tetrahedron.All;
 
-            scaler.ScaleToInitial(0.33f);
+            if(!scaler.IsScaling)
+            {
+                scaler.ScaleToInitial(agentRescaleTime);
+            }
 
             if (target!=null)
             {

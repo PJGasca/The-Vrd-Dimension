@@ -142,7 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b49193e9a6abf247a913fed75d599be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   targetObjectGrabRange: 1
+  agentRescaleRange: 2
+  agentRescaleTime: 0.33
 --- !u!114 &299723563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9425241a437ab243b0939a07e4c1e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tetraScaleFactor: 0.04
+  tetraScaleFactor: 0.025
 --- !u!114 &7730279837663083981
 MonoBehaviour:
   m_ObjectHideFlags: 0
