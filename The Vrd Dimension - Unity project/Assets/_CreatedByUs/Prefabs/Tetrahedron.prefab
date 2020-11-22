@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 6293018026067029962}
   m_Layer: 8
   m_Name: Tetrahedron
-  m_TagString: Untagged
+  m_TagString: Manipulatable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

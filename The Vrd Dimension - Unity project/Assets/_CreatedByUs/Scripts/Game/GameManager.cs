@@ -12,9 +12,12 @@ namespace Assets.Scripts.Game
 
         private int minObjects = 1; // Assume all tetras can be merged into 1
 
-        public HashSet<GameObject> objects;
+        public HashSet<GameObject> objects = new HashSet<GameObject>();
 
         public static GameManager Instance { get; private set; }
+
+        [SerializeField]
+        private float agentSpawnRadius;
 
         [SerializeField]
         private GameObject tetraSizeWarning;
@@ -24,11 +27,21 @@ namespace Assets.Scripts.Game
 
         private int liveOrderAgents;
 
+        [SerializeField]
+        private int maxChaosAgents;
+
+        private int liveChaosAgents;
+
         private bool recalculateEntropy = false;
 
         public float EntropyPercentage
         {
             get; private set;
+        }
+
+        public void Awake()
+        {
+            Instance = this;
         }
 
         public void OnEnable()
@@ -68,7 +81,7 @@ namespace Assets.Scripts.Game
             {
                 int maxRange = maxObjects - minObjects;
                 int totalInRange = objects.Count - minObjects;
-                EntropyPercentage = totalInRange / (maxRange / 100);
+                EntropyPercentage = totalInRange / (maxRange / 100f);
                 recalculateEntropy = false;
                 Debug.Log("Entropy percentage = " + EntropyPercentage);
             }
@@ -104,6 +117,7 @@ namespace Assets.Scripts.Game
         public void OnObjectAdded(GameObject obj)
         {
             objects.Add(obj);
+            Debug.Log("Object added to game manager");
             recalculateEntropy = true;
         }
 
@@ -113,12 +127,32 @@ namespace Assets.Scripts.Game
             recalculateEntropy = true;
         }
 
-        private IEnumerable AgentSpawner()
+        private IEnumerator AgentSpawner()
         {
             while(true)
             {
-                yield return new WaitForSeconds(Random.Range(1f, 3f));
+                yield return new WaitForSeconds(Random.Range(1f, 5f));
+
+                if(liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage/0.75f))
+                {
+                    SpawnOrderAgent();
+                }
+
+                if (liveChaosAgents < maxChaosAgents && Random.Range(0, 100) < ((100-EntropyPercentage) / 0.75f))
+                {
+                    SpawnChaosAgent();
+                }
             }
+        }
+
+        private void SpawnOrderAgent()
+        {
+            Vector3 spawnPoint = Random.onUnitSphere * agentSpawnRadius;
+        }
+
+        private void SpawnChaosAgent()
+        {
+
         }
     }
 }
