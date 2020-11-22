@@ -5,7 +5,6 @@ using UnityEngine;
 namespace Assets.Scripts.Objects {
     public class TetrahedronManager : MonoBehaviour
     {
-        private const float mergeRadius = 0.5f;
 
         public static TetrahedronManager Instance {
             get {
@@ -16,6 +15,7 @@ namespace Assets.Scripts.Objects {
         private static TetrahedronManager _Instance { get; set; }
 
 
+        public float baseMergeRadius = 0.5f;
         public int countForMerge = 2;
         public float minimumScale = 30f;    
         public bool mergeOnlyEqualSizes = false;
@@ -59,6 +59,7 @@ namespace Assets.Scripts.Objects {
             foreach (Tetrahedron t in all) {
                 if (!unused.Contains (t)) { continue; }
 
+                float mergeRadius = baseMergeRadius * t.transform.localScale.x / minimumScale;
                 var inRange = unused.Where (u => Vector3.Distance (u.transform.position, t.transform.position) < mergeRadius).ToArray ();
                 if (inRange.Length < countForMerge) { continue; }
 
