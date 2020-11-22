@@ -9,8 +9,8 @@ namespace Assets.Scripts.Objects {
         public const float mergeRadius = 0.5f;
 
 
-        void Start () {
-            InvokeRepeating ("CheckForMerges", 1f, 5f);
+        void FixedUpdate () {
+            CheckForMerges ();
         }
 
 
@@ -49,13 +49,20 @@ namespace Assets.Scripts.Objects {
         void Merge (Tetrahedron[] tetrahedra) {            
             int newSize = tetrahedra[0].GetComponent<ObjectSize> ().Size * countForMerge;
             tetrahedra[0].SetSize (newSize);
-            tetrahedra[0].transform.position = tetrahedra
-                .Select (t => t.transform.position)
-                .Aggregate (Vector3.zero, (p, acc) => acc + p) / countForMerge;
+            Vector3 mergedPosition = MergedTetrahedronPosition (tetrahedra);
+            tetrahedra[0].transform.position = mergedPosition;
+            // TODO: Instantiate particle prefab at mergedPosition
 
             for (int i = 1; i < tetrahedra.Length; i++) {
                 PoolTetrahedron (tetrahedra[i]);
             }
+        }
+
+
+        Vector3 MergedTetrahedronPosition (Tetrahedron[] tetrahedra) {
+            return tetrahedra
+                .Select (t => t.transform.position)
+                .Aggregate (Vector3.zero, (p, acc) => acc + p) / countForMerge;
         }
 
 
