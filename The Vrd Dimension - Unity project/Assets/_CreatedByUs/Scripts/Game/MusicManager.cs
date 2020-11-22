@@ -23,19 +23,17 @@ namespace Assets.Scripts.Game
         {
             instance = this;
             AudioSource[] getMusicPlayers = GetComponents<AudioSource>();
-            musicPlayers.Add("chaos", getMusicPlayers[0]);
-            musicPlayers.Add("mid", getMusicPlayers[1]);
-            musicPlayers.Add("order", getMusicPlayers[2]);
+            musicPlayers.Add("mid", getMusicPlayers[0]);
+            musicPlayers.Add("order", getMusicPlayers[1]);
         }
 
         private void Start()
         {
             gm = GameManager.Instance;
             lastEntropy = gm.EntropyPercentage * .01f;
-            musicPlayers["order"].volume = .02f + (.18f * lastEntropy);
-            musicPlayers["mid"].volume = .2f - (Mathf.Abs(lastEntropy - .5f) * 2 * .15f);
-            chaosVolume = .02f + (.18f * (1 - lastEntropy));
-            musicPlayers["chaos"].volume = chaosVolume;
+            musicPlayers["order"].volume = .01f + (.14f * (1 - lastEntropy));
+            musicPlayers["mid"].volume = .15f - (Mathf.Abs(lastEntropy - .5f) * 2 * .13f);
+            chaosVolume = .2f + (.7f * lastEntropy);
         }
 
         private void Update()
@@ -65,15 +63,15 @@ namespace Assets.Scripts.Game
 
         IEnumerator VolumeTransition()
         {
-            // order gets louder the closer it gets to 100%, midstate to 50%, chaos to 0%
-            float targetOrderVol = .02f + (.18f * lastEntropy);
-            float targetMidVol = .2f - (Mathf.Abs(lastEntropy - .5f) * 2 * .15f);
-            chaosVolume = .02f + (.18f * (1 - lastEntropy));
+            // order gets louder the closer it gets to 0%, midstate to 50%, chaos to 100%
+            float targetOrderVol = .01f + (.14f * (1 - lastEntropy));
+            float targetMidVol = .15f - (Mathf.Abs(lastEntropy - .5f) * 2 * .13f);
+            float targetchaosVol = .2f + (.7f * lastEntropy);
 
             float transitionTimer = 1;
             while (transitionTimer > 0)
             {
-                musicPlayers["chaos"].volume = Mathf.SmoothDamp(musicPlayers["chaos"].volume, chaosVolume, ref chaosVel, 1);
+                chaosVolume = Mathf.SmoothDamp(chaosVolume, targetchaosVol, ref chaosVel, 1);
                 musicPlayers["order"].volume = Mathf.SmoothDamp(musicPlayers["order"].volume, targetOrderVol, ref orderVel, 1);
                 musicPlayers["mid"].volume = Mathf.SmoothDamp(musicPlayers["mid"].volume, targetMidVol, ref midVel, 1);
 

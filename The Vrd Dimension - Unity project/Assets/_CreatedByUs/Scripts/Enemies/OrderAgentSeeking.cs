@@ -37,6 +37,9 @@ namespace Assets.Scripts.Enemies
 
         private AgentScaler scaler;
 
+        private bool mergeSoundPlayed;
+        private AudioSource audioSource;
+
         // Start is called before the first frame update
         void Awake()
         {
@@ -45,6 +48,7 @@ namespace Assets.Scripts.Enemies
             dyingBehaviour = GetComponent<OrderAgentDying>();
             returningBehaviour = GetComponent<OrderAgentReturning>();
             scaler = GetComponent<AgentScaler>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void OnEnable()
@@ -56,6 +60,7 @@ namespace Assets.Scripts.Enemies
             targetGrabbable = null;
             target = null;
             GetComponent<Collider>().enabled = true;
+            mergeSoundPlayed = false;
         }
 
         public void FixedUpdate()
@@ -66,6 +71,11 @@ namespace Assets.Scripts.Enemies
             }
             else if (!scaler.IsScaling && Vector3.Distance(transform.position, target.transform.position) < agentRescaleRange && transform.localScale != scaler.GetAgentTetraScale(target))
             {
+                if (!mergeSoundPlayed)
+                {
+                    mergeSoundPlayed = true;
+                    audioSource.PlayOneShot(Utility.SoundEffectClips.instance.orderAbsorb);
+                }
                 scaler.ScaleToTetra(target, agentRescaleTime);
             }
             else if(!scaler.IsScaling && Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange && transform.localScale == scaler.GetAgentTetraScale(target))
@@ -94,6 +104,7 @@ namespace Assets.Scripts.Enemies
         {
             //Debug.Log("Pick new target");
             MergableObject[] tetras = MergableObject.All;
+            mergeSoundPlayed = false;
 
             if(!scaler.IsScaling)
             {

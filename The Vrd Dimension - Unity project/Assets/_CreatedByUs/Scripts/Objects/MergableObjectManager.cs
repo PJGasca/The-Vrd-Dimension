@@ -114,6 +114,7 @@ namespace Assets.Scripts.Objects {
 
             GameObject mergeParticles = ObjectPool.Instance.GetObjectForType("TriangularImplosion");
             mergeParticles.transform.position = toMerge[0].transform.position;
+            toMerge[0].GetComponent<AudioSource>().PlayOneShot(SoundEffectClips.instance.objectMerge[Random.Range(0, SoundEffectClips.instance.objectMerge.Count)], 2);
 
             for (int i = 1; i < toMerge.Length; i++) {
                 PoolShape (toMerge[i]);
