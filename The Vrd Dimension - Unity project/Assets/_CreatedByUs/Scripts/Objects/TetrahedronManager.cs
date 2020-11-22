@@ -5,7 +5,8 @@ using UnityEngine;
 namespace Assets.Scripts.Objects {
     public class TetrahedronManager : MonoBehaviour
     {
-        public const float mergeRadius = 0.5f;
+        [SerializeField]
+        private float mergeRadius = 0.5f;
 
 
         public static TetrahedronManager Instance {
@@ -17,15 +18,25 @@ namespace Assets.Scripts.Objects {
         private static TetrahedronManager _Instance { get; set; }
 
 
-        public int countForMerge = 4;
+        public int countForMerge = 2;
         public bool mergeOnlyEqualSizes = false;
 
+        public void OnEnable()
+        {
+            StartCoroutine(IntermittentCheckForMerges());
+        }
 
-        void FixedUpdate () {
-            if (mergeOnlyEqualSizes)
-                CheckForMergesBySize ();
-            else
-                CheckForMerges (Tetrahedron.All);
+        System.Collections.IEnumerator IntermittentCheckForMerges() {
+            WaitForSeconds wait = new WaitForSeconds(0.1f);
+            while(true)
+            {
+                if (mergeOnlyEqualSizes)
+                    CheckForMergesBySize();
+                else
+                    CheckForMerges(Tetrahedron.All);
+
+                yield return wait;
+            }
         }
 
 
@@ -41,6 +52,7 @@ namespace Assets.Scripts.Objects {
 
 
         void CheckForMerges (Tetrahedron[] all) {
+            Debug.Log("Checking for merges");
             all = all.Where (t => t.CanMerge).ToArray ();
             if (all.Length < countForMerge) { return; }
 
