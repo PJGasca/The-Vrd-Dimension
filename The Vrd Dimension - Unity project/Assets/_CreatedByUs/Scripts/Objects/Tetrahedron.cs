@@ -60,6 +60,7 @@ namespace Assets.Scripts.Objects {
 
         [SerializeField] private ObjectSize _sizeComponent;
         private Coroutine _mergeTimerCoroutine;
+        private bool _didWatchPositionCheck;
 
 
         void Awake () {
@@ -84,6 +85,9 @@ namespace Assets.Scripts.Objects {
                 _allBySize[_sizeComponent.Size].Remove (this);
             }
             Game.GameManager.Instance?.OnObjectRemoved (this.gameObject);
+
+            if (_didWatchPositionCheck) { _HasMovedFromScenePosition = true; }
+            else { Debug.LogWarning ("Tetrahedron called OnDisable before calling Start()!"); }
         }
 
 
@@ -205,6 +209,7 @@ namespace Assets.Scripts.Objects {
 
 
         IEnumerator WatchPositionInScene () {
+            _didWatchPositionCheck = true;
             Vector3 positionInScene = transform.position;
             do {
                 yield return new WaitForEndOfFrame ();
