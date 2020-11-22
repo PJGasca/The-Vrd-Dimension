@@ -15,6 +15,14 @@ namespace Assets.Scripts.Enemies
         [SerializeField]
         private float tetraScaleFactor;
 
+        public bool IsScaling
+        {
+            get
+            {
+                return scaleRoutine != null;
+            }
+        }
+
         private void OnEnable()
         {
             initialScale = transform.localScale;
@@ -32,7 +40,12 @@ namespace Assets.Scripts.Enemies
 
         public void ScaleToTetra(GameObject tetra, float time)
         {
-            SetScale(tetra.transform.localScale * tetraScaleFactor, time);
+            SetScale(GetAgentTetraScale(tetra), time);
+        }
+
+        public Vector3 GetAgentTetraScale(GameObject tetra)
+        {
+            return tetra.transform.localScale * tetraScaleFactor;
         }
 
         public void SetScale(Vector3 newScale, float time)
@@ -55,11 +68,6 @@ namespace Assets.Scripts.Enemies
                 yield return null;
                 elapsed += Time.deltaTime;
                 float t = elapsed / time;
-                t = Mathf.Sin(t * Mathf.PI * 0.5f);
-                if(t>1)
-                {
-                    t = 1;
-                }
                 Vector3 newScale = Vector3.Lerp(initialScale, destScale, t);
                 transform.localScale = newScale;
             }

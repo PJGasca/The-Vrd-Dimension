@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObjectGrabRange: 1
-  agentRescaleRange: 1.2
+  agentRescaleRange: 2
   agentRescaleTime: 0.33
 --- !u!114 &299723563
 MonoBehaviour:

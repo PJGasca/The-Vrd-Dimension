@@ -18,7 +18,7 @@ namespace Assets.Scripts.Enemies
 
         private Vector3 defaultScale;
 
-        private GameObject target = null;
+        public GameObject target = null;
 
         [SerializeField]
         private float targetObjectGrabRange;
@@ -62,16 +62,15 @@ namespace Assets.Scripts.Enemies
             {
                 PickNewTarget();
             }
-            else if (Vector3.Distance(transform.position, target.transform.position) < agentRescaleRange && transform.localScale != target.transform.localScale)
+            else if (!scaler.IsScaling && Vector3.Distance(transform.position, target.transform.position) < agentRescaleRange && transform.localScale != scaler.GetAgentTetraScale(target))
             {
-                scaler.SetScale(target.transform.localScale, agentRescaleTime);
+                scaler.ScaleToTetra(target, agentRescaleTime);
             }
-            else if(Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange && transform.localScale == target.transform.localScale)
+            else if(!scaler.IsScaling && Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange && transform.localScale == scaler.GetAgentTetraScale(target))
             {
                 Grabbable grabbable = target.GetComponent<Grabbable>();
                 if (!grabbable.IsGrabbed)
                 {
-                    scaler.ScaleToTetra(target, 0.33f);
                     target.GetComponent<Grabbable>().Grab(transform);
                     target.GetComponent<Tetrahedron>().targetedByAgent = false;
                     returningBehaviour.GrabbedObject = target;
@@ -91,9 +90,13 @@ namespace Assets.Scripts.Enemies
 
         private void PickNewTarget()
         {
+            Debug.Log("Pick new target");
             Tetrahedron[] tetras = Tetrahedron.All;
 
-            scaler.ScaleToInitial(0.33f);
+            if(!scaler.IsScaling)
+            {
+                scaler.ScaleToInitial(agentRescaleTime);
+            }
 
             if (target!=null)
             {
