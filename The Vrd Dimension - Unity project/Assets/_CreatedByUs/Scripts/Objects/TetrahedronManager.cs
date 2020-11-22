@@ -5,10 +5,19 @@ using UnityEngine;
 namespace Assets.Scripts.Objects {
     public class TetrahedronManager : MonoBehaviour
     {
-        public const int countForMerge = 4;
         public const float mergeRadius = 0.5f;
 
 
+        public static TetrahedronManager Instance {
+            get {
+                if (_Instance == null) { _Instance = FindObjectOfType<TetrahedronManager> (); }
+                return _Instance;
+            }
+        }
+        private static TetrahedronManager _Instance { get; set; }
+
+
+        public int countForMerge = 4;
         public bool mergeOnlyEqualSizes = false;
 
 
@@ -32,6 +41,7 @@ namespace Assets.Scripts.Objects {
 
 
         void CheckForMerges (Tetrahedron[] all) {
+            all = all.Where (t => t.CanMerge).ToArray ();
             if (all.Length < countForMerge) { return; }
 
             List<Tetrahedron> unused = all.ToList ();

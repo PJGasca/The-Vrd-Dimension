@@ -11,6 +11,10 @@ namespace Assets.Scripts.Objects {
 #region Constants and static members
         public const float minimumScale = 30f;
         public const float baseSplitVelocity = 0.5f;
+        public const float splitRadius = 0.2f;
+
+
+        private const float _mergeCooldown = 2f;
 
 
         public static Tetrahedron[] All => _all.ToArray ();
@@ -44,11 +48,18 @@ namespace Assets.Scripts.Objects {
 
 
         public Vector3 SpawnPosition { get; private set; }
+        public bool CanMerge => _HasMovedFromScenePosition && !_OnMergeCooldown;
+
+
+        private bool _OnMergeCooldown { get; set; }
+        private bool _HasMovedFromScenePosition { get; set; }
+
 
         public bool targetedByAgent;
 
 
         [SerializeField] private ObjectSize _sizeComponent;
+        private Coroutine _mergeTimerCoroutine;
 
 
         void Awake () {
@@ -59,22 +70,30 @@ namespace Assets.Scripts.Objects {
         void OnEnable () {
             SpawnPosition = transform.position;
             _all.Add (this);
-            InitializeSize ();
             Game.GameManager.Instance?.OnObjectAdded (this.gameObject);
+            InitializeSize ();
+
             if (OnTetrahedronEnabled != null) { OnTetrahedronEnabled (this); }
         }
 
 
         void OnDisable () {
             targetedByAgent = false;
-            _all.Remove (this);
-            _allBySize[_sizeComponent.Size].Remove (this);
+            if (_all.Contains (this)) { _all.Remove (this); }
+            if (_allBySize.ContainsKey (_sizeComponent.Size) && _allBySize[_sizeComponent.Size].Contains (this)) {
+                _allBySize[_sizeComponent.Size].Remove (this);
+            }
             Game.GameManager.Instance?.OnObjectRemoved (this.gameObject);
         }
 
 
+        void Start () {
+            StartCoroutine (WatchPositionInScene ());
+        }
+
+
         public void Split () {
-            if (_sizeComponent.Size < TetrahedronManager.countForMerge) { return; }
+            if (_sizeComponent.Size < TetrahedronManager.Instance.countForMerge) { return; }
 
             GameObject particles = ObjectPool.Instance.GetObjectForType("SplitParticles");
             particles.transform.position = transform.position;
@@ -101,6 +120,7 @@ namespace Assets.Scripts.Objects {
             SetSize (newSize, _sizeComponent.Size);
         }
         public void SetSize (int newSize, int oldSize) {
+            StartMergeCooldownTimer ();
             _sizeComponent.Size = newSize;
 
             SetScale (newSize);
@@ -113,15 +133,30 @@ namespace Assets.Scripts.Objects {
         }
 
 
+        void StartMergeCooldownTimer () {
+            if (_mergeTimerCoroutine != null) { return; }
+
+            _OnMergeCooldown = true;
+            _mergeTimerCoroutine = StartCoroutine (RunMergeCooldownTimer ());            
+        }
+
+
+        IEnumerator RunMergeCooldownTimer () {
+            yield return new WaitForSeconds (_mergeCooldown);
+            _OnMergeCooldown = false;
+            _mergeTimerCoroutine = null;
+        }
+
+
         void SetScale (int newSize) {
-            transform.localScale = minimumScale * (1 + Mathf.Log (newSize, TetrahedronManager.countForMerge)) * Vector3.one;
+            transform.localScale = minimumScale * (1 + Mathf.Log (newSize, TetrahedronManager.Instance.countForMerge)) * Vector3.one;
         }
 
 
         Tetrahedron[] TetrahedraForSplit () {
-            Tetrahedron[] newTetrahedra = new Tetrahedron[TetrahedronManager.countForMerge];
+            Tetrahedron[] newTetrahedra = new Tetrahedron[TetrahedronManager.Instance.countForMerge];
             newTetrahedra[0] = this;
-            for (int i = 1; i < TetrahedronManager.countForMerge; i++) {
+            for (int i = 1; i < TetrahedronManager.Instance.countForMerge; i++) {
                 newTetrahedra[i] = GetTetrahedronFromPool ();
             }
 
@@ -130,10 +165,10 @@ namespace Assets.Scripts.Objects {
 
 
         int[] SplitSizes () {
-            int[] sizes = new int[TetrahedronManager.countForMerge];
+            int[] sizes = new int[TetrahedronManager.Instance.countForMerge];
 
-            int average = _sizeComponent.Size / TetrahedronManager.countForMerge;
-            int remainder = _sizeComponent.Size % TetrahedronManager.countForMerge;
+            int average = _sizeComponent.Size / TetrahedronManager.Instance.countForMerge;
+            int remainder = _sizeComponent.Size % TetrahedronManager.Instance.countForMerge;
 
             sizes[0] = average + remainder;
             for (int i = 1; i < sizes.Length; i++) { sizes[i] = average; }
@@ -151,7 +186,7 @@ namespace Assets.Scripts.Objects {
 
 
         Vector3 PositionForSplit (Vector3 normalizedOffset, Vector3 center) {
-            return center + normalizedOffset * 1.2f * TetrahedronManager.mergeRadius;
+            return center + normalizedOffset * splitRadius;
         }
 
 
@@ -166,6 +201,16 @@ namespace Assets.Scripts.Objects {
 
             if (!_allBySize.ContainsKey (oldSize)) { return; }
             if (_allBySize[oldSize].Contains (this)) { _allBySize[oldSize].Remove (this); }
+        }
+
+
+        IEnumerator WatchPositionInScene () {
+            Vector3 positionInScene = transform.position;
+            do {
+                yield return new WaitForEndOfFrame ();
+            } while (Vector3.Distance (transform.position, positionInScene) < 0.05f);
+            
+            _HasMovedFromScenePosition = true;
         }
 
 
