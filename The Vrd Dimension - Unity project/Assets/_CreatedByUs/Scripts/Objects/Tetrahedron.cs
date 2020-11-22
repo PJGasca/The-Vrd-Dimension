@@ -40,7 +40,6 @@ namespace Assets.Scripts.Objects {
 #region Instance members
 
         public event System.Action<Tetrahedron> OnTetrahedronEnabled;
-        public event System.Action<Tetrahedron> OnTetrahedronDisabled;
         public event System.Action<Tetrahedron> OnTetrahedronSplit;
 
 
@@ -71,7 +70,6 @@ namespace Assets.Scripts.Objects {
             _all.Remove (this);
             _allBySize[_sizeComponent.Size].Remove (this);
             Game.GameManager.Instance?.OnObjectRemoved (this.gameObject);
-            if (OnTetrahedronDisabled != null) { OnTetrahedronDisabled (this); }
         }
 
 

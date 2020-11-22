@@ -90,7 +90,7 @@ namespace Assets.Scripts.Enemies
 
         private void PickNewTarget()
         {
-            Debug.Log("Pick new target");
+            //Debug.Log("Pick new target");
             Tetrahedron[] tetras = Tetrahedron.All;
 
             if(!scaler.IsScaling)

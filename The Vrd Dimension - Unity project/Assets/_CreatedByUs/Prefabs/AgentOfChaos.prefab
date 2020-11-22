@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 567892921}
   - component: {fileID: 567892920}
   - component: {fileID: 567892919}
+  - component: {fileID: -2295971458476173049}
   m_Layer: 12
   m_Name: AgentOfChaos
   m_TagString: ChaosAgent
@@ -266,3 +267,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInTime: 0.33
+--- !u!114 &-2295971458476173049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6314980951536169228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41dde960dd113c24fbf31ae08cd79e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

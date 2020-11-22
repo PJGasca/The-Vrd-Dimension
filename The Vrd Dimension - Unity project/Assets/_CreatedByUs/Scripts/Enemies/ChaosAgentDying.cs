@@ -33,7 +33,7 @@ namespace Assets.Scripts.Enemies
             // Reset to default size
             spawningBehaviour.enabled = true;
             scaler.ResetScale();
-            Debug.Log("Agent dying");
+            //Debug.Log("Agent dying");
             if (OnDeath != null)
             {
                 OnDeath(gameObject);

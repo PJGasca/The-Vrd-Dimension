@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Objects;
+using Assets.Scripts.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -100,10 +101,10 @@ namespace Assets.Scripts.Player
         {
             ObjectsInBeam.Add(other.gameObject);
 
-            Tetrahedron tetra = other.gameObject.GetComponent<Tetrahedron>();
-            if(tetra!=null)
+            NotifyOnDisable disableNotifier = other.gameObject.GetComponent<NotifyOnDisable>();
+            if(disableNotifier != null)
             {
-                tetra.OnTetrahedronDisabled += OnTetraDisabled;
+                disableNotifier.OnObjectDisabled += OnObjectInBeamDisabled;
             }
         }
 
@@ -111,17 +112,16 @@ namespace Assets.Scripts.Player
         {
             ObjectsInBeam.Remove(other.gameObject);
 
-            Tetrahedron tetra = other.gameObject.GetComponent<Tetrahedron>();
-            if (tetra != null)
+            NotifyOnDisable disableNotifier = other.gameObject.GetComponent<NotifyOnDisable>();
+            if (disableNotifier != null)
             {
-                tetra.OnTetrahedronDisabled -= OnTetraDisabled;
+                disableNotifier.OnObjectDisabled -= OnObjectInBeamDisabled;
             }
         }
 
-        private void OnTetraDisabled(Tetrahedron tetra)
+        private void OnObjectInBeamDisabled(GameObject obj)
         {
-            ObjectsInBeam.Remove(tetra.gameObject);
-            tetra.OnTetrahedronDisabled -= OnTetraDisabled;
+            ObjectsInBeam.Remove(obj);
         }
     }
 }
