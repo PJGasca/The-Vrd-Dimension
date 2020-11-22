@@ -51,6 +51,7 @@ namespace Assets.Scripts.Objects {
 
         [SerializeField] private ObjectSize _sizeComponent;
 
+
         void Awake () {
             if (_sizeComponent == null) { _sizeComponent = GetComponent<ObjectSize> (); }
         }
@@ -83,14 +84,14 @@ namespace Assets.Scripts.Objects {
             Tetrahedron[] newTetrahedra = TetrahedraForSplit ();
 
             Vector3 center = transform.position;
-            int newSize = _sizeComponent.Size / TetrahedronManager.countForMerge;
+            int[] sizes = SplitSizes ();
 
             Vector3[] vertices = VertexOffsets (center);
 
             for (int i = 0; i < newTetrahedra.Length; i++) {
                 newTetrahedra[i].transform.position = PositionForSplit (vertices[i], center);
                 newTetrahedra[i].GetComponent<Rigidbody> ().velocity = VelocityForSplit (vertices[i]);
-                newTetrahedra[i].SetSize (newSize, _sizeComponent.Size);
+                newTetrahedra[i].SetSize (sizes[i], _sizeComponent.Size);
                 newTetrahedra[i].gameObject.SetActive (true);
             }
 
@@ -115,7 +116,7 @@ namespace Assets.Scripts.Objects {
 
 
         void SetScale (int newSize) {
-            transform.localScale = minimumScale * (1 + Mathf.Log (newSize, 4)) * Vector3.one;
+            transform.localScale = minimumScale * (1 + Mathf.Log (newSize, TetrahedronManager.countForMerge)) * Vector3.one;
         }
 
 
@@ -127,6 +128,19 @@ namespace Assets.Scripts.Objects {
             }
 
             return newTetrahedra;
+        }
+
+
+        int[] SplitSizes () {
+            int[] sizes = new int[TetrahedronManager.countForMerge];
+
+            int average = _sizeComponent.Size / TetrahedronManager.countForMerge;
+            int remainder = _sizeComponent.Size % TetrahedronManager.countForMerge;
+
+            sizes[0] = average + remainder;
+            for (int i = 1; i < sizes.Length; i++) { sizes[i] = average; }
+
+            return sizes;
         }
 
 
