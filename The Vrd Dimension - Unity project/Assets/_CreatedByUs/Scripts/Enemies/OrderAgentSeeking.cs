@@ -37,6 +37,7 @@ namespace Assets.Scripts.Enemies
             rb = GetComponent<Rigidbody>();
             mover = GetComponent<MoveTowardsPoint>();
             dyingBehaviour = GetComponent<OrderAgentDying>();
+            returningBehaviour = GetComponent<OrderAgentReturning>();
         }
 
         private void OnEnable()
@@ -52,17 +53,27 @@ namespace Assets.Scripts.Enemies
         {
             if(target == null || !target.activeSelf || targetGrabbable.IsGrabbed)
             {
+                if(target!=null)
+                {
+                    target.GetComponent<Tetrahedron>().targetedByAgent = false;
+                }
                 PickNewTarget();
             }
             else if(Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange)
             {
+                Debug.Log("Is in grab range");
                 Grabbable grabbable = target.GetComponent<Grabbable>();
                 if (!grabbable.IsGrabbed)
                 {
+                    Debug.Log("Grabbing");
                     target.GetComponent<Grabbable>().Grab(transform);
                     returningBehaviour.GrabbedObject = target;
                     returningBehaviour.enabled = true;
                     this.enabled = false;
+                }
+                else
+                {
+                    PickNewTarget();
                 }
             }
             else
@@ -74,15 +85,22 @@ namespace Assets.Scripts.Enemies
         private void PickNewTarget()
         {
             Tetrahedron[] tetras = Tetrahedron.All;
-            Debug.Log("Found " + tetras.Length + " tetras");
+
+            if(target!=null)
+            {
+                target.GetComponent<Tetrahedron>().targetedByAgent = false;
+            }
+
+            target = null;
             foreach(Tetrahedron tetra in tetras)
             {
-                if(IsDisplaced(tetra))
+                if(IsDisplaced(tetra) && !tetra.targetedByAgent && !tetra.GetComponent<Grabbable>().IsGrabbed)
                 {
                     target = tetra.gameObject;
                     mover.targetPoint = target.transform.position;
                     mover.enabled = true;
                     targetGrabbable = target.GetComponent<Grabbable>();
+                    tetra.targetedByAgent = true;
                     break;
                 }
             }
@@ -90,6 +108,7 @@ namespace Assets.Scripts.Enemies
             // Nothing to pick? My work here is done!
             if (target == null)
             {
+                Debug.Log("Could not find valid target. Dying.");
                 mover.enabled = false;
                 Die();
             }

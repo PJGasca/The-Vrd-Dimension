@@ -45,16 +45,18 @@ namespace Assets.Scripts.Objects {
 
         public Vector3 SpawnPosition { get; private set; }
 
+        public bool targetedByAgent;
+
 
         [SerializeField] private ObjectSize _sizeComponent;
 
         void Awake () {
             if (_sizeComponent == null) { _sizeComponent = GetComponent<ObjectSize> (); }
-            SpawnPosition = transform.position;
         }
 
 
         void OnEnable () {
+            SpawnPosition = transform.position;
             _all.Add (this);
             InitializeSize ();
             Game.GameManager.Instance?.OnObjectAdded (this.gameObject);
@@ -63,6 +65,7 @@ namespace Assets.Scripts.Objects {
 
 
         void OnDisable () {
+            targetedByAgent = false;
             _all.Remove (this);
             _allBySize[_sizeComponent.Size].Remove (this);
             Game.GameManager.Instance?.OnObjectRemoved (this.gameObject);

@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Objects;
+﻿using Assets.Scripts.Enemies;
+using Assets.Scripts.Objects;
+using Assets.Scripts.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,6 +20,12 @@ namespace Assets.Scripts.Game
 
         [SerializeField]
         private float agentSpawnRadius;
+
+        [SerializeField]
+        private float minAgentSpawnHeight;
+
+        [SerializeField]
+        private float maxAgentSpawnHeight;
 
         [SerializeField]
         private GameObject tetraSizeWarning;
@@ -117,7 +125,7 @@ namespace Assets.Scripts.Game
         public void OnObjectAdded(GameObject obj)
         {
             objects.Add(obj);
-            Debug.Log("Object added to game manager");
+            //Debug.Log("Object added to game manager");
             recalculateEntropy = true;
         }
 
@@ -133,7 +141,7 @@ namespace Assets.Scripts.Game
             {
                 yield return new WaitForSeconds(Random.Range(1f, 5f));
 
-                if(liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage/0.75f))
+                if (liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage / 0.75f))
                 {
                     SpawnOrderAgent();
                 }
@@ -147,12 +155,24 @@ namespace Assets.Scripts.Game
 
         private void SpawnOrderAgent()
         {
-            Vector3 spawnPoint = Random.onUnitSphere * agentSpawnRadius;
+            Vector3 pointOnSphere = Random.onUnitSphere * agentSpawnRadius;
+            Vector3 spawnPoint = new Vector3(pointOnSphere.x, Random.Range(minAgentSpawnHeight, maxAgentSpawnHeight), pointOnSphere.z);
+            GameObject agent = ObjectPool.Instance.GetObjectForType("AgentOfOrder");
+            agent.transform.position = spawnPoint;
+            liveOrderAgents++;
+            agent.GetComponent<OrderAgentSpawning>().Spawn();
+            agent.GetComponent<OrderAgentDying>().OnDeath += OnOrderAgentDeath;
         }
 
         private void SpawnChaosAgent()
         {
 
+        }
+
+        private void OnOrderAgentDeath(GameObject agent)
+        {
+            agent.GetComponent<OrderAgentDying>().OnDeath -= OnOrderAgentDeath;
+            liveOrderAgents--;
         }
     }
 }

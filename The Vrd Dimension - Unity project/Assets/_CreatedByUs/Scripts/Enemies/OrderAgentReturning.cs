@@ -29,6 +29,8 @@ namespace Assets.Scripts.Enemies
         {
             // Put a bit of spin on it
             rb.AddRelativeTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)));
+            mover.enabled = true;
+            mover.targetPoint = GrabbedObject.GetComponent<Tetrahedron>().SpawnPosition;
         }
 
         public void FixedUpdate()
@@ -39,14 +41,14 @@ namespace Assets.Scripts.Enemies
                 seekingBehaviour.enabled = true;
                 this.enabled = false;
             }
+            else if(Vector3.Distance(transform.position, mover.targetPoint) < objectDropOffRange)
+            {
+                Debug.Log("Dropping off");
+                // Drop off the object
+                GrabbedObject.GetComponent<Grabbable>().Release();
+                seekingBehaviour.enabled = true;
+                this.enabled = false;
+            }
         }
-
-       
-
-        private void Die()
-        {
-            Debug.Log("Dieing");
-        }
-
     }
 }

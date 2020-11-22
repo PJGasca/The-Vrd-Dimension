@@ -7,24 +7,28 @@ using UnityEngine;
 namespace Assets.Scripts.Enemies
 {
     [RequireComponent(typeof(Collider))]
-    [RequireComponent(typeof(OrderAgentSpawning))]
+    [RequireComponent(typeof(OrderAgentSeeking))]
     [RequireComponent(typeof(AgentScaler))]
-    public class OrderAgentDying : MonoBehaviour
+    public class OrderAgentSpawning : MonoBehaviour
     {
-        private OrderAgentSpawning spawningBehaviour;
-
-        public System.Action<GameObject> OnDeath;
+        private OrderAgentSeeking seekingBehaviour;
 
         [SerializeField]
-        private float shrinkTime;
+        private float spawnInTime;
 
-        private void OnEnable()
+        public void Spawn()
         {
-            spawningBehaviour = GetComponent<OrderAgentSpawning>();
-            StartCoroutine(ShrinkRoutine());
+            seekingBehaviour = GetComponent<OrderAgentSeeking>();
+            StartCoroutine(SpawnInRoutine());
         }
 
-       private IEnumerator ShrinkRoutine()
+        private IEnumerator SpawnInRoutine()
+        {
+            yield return new WaitForSeconds(spawnInTime);
+            seekingBehaviour.enabled = true;
+        }
+
+      /* private IEnumerator ShrinkRoutine()
        {
             AgentScaler scaler = GetComponent<AgentScaler>();
             scaler.SetScale(Vector3.zero, shrinkTime);
@@ -32,7 +36,7 @@ namespace Assets.Scripts.Enemies
             yield return new WaitForSeconds(shrinkTime);
 
             // Reset to default size
-            spawningBehaviour.enabled = true;
+            seekingBehaviour.enabled = true;
             scaler.ResetScale();
             Debug.Log("Agent dying");
             if (OnDeath != null)
@@ -45,6 +49,6 @@ namespace Assets.Scripts.Enemies
             }
             ObjectPool.Instance.PoolObject(gameObject);
             this.enabled = false;
-        }
+        }*/
     }
 }
