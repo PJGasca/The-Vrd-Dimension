@@ -155,6 +155,8 @@ namespace Assets.Scripts.Game
             {
                 yield return new WaitForSeconds(Random.Range(minimumSpawnAttemptTime, maximumSpawnAttemptTime));
 
+                Debug.Log("Spawn check.  Entropy: " + EntropyPercentage);
+
                 bool spawned = false;
                 if (liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage * agentSpawnLikelihoodScale) && GetDisplacedUntargetedTetra()!=null)
                 {
@@ -189,6 +191,7 @@ namespace Assets.Scripts.Game
 
         private void SpawnChaosAgent()
         {
+            Debug.Log("Spawning chaos agent");
             Vector3 pointOnSphere = Random.onUnitSphere * agentSpawnRadius;
             Vector3 spawnPoint = new Vector3(pointOnSphere.x, Random.Range(minAgentSpawnHeight, maxAgentSpawnHeight), pointOnSphere.z);
             GameObject agent = ObjectPool.Instance.GetObjectForType("AgentOfChaos");

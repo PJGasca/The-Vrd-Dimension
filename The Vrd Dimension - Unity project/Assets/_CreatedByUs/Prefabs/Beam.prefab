@@ -5494,6 +5494,8 @@ MonoBehaviour:
   attractBeam: {fileID: 1983639856}
   repelBeam: {fileID: 842692425}
   holdBeam: {fileID: 2042064941}
+  laserPointerNoItemsCol: {r: 1, g: 0, b: 0, a: 1}
+  laserPointerItemsCol: {r: 0.7169812, g: 0.28689882, b: 0, a: 1}
 --- !u!114 &4182140476493688332
 MonoBehaviour:
   m_ObjectHideFlags: 0
