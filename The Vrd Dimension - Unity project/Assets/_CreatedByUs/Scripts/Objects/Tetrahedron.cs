@@ -1,3 +1,4 @@
+using Assets.Scripts.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,9 @@ namespace Assets.Scripts.Objects {
 
         public void Split () {
             if (_sizeComponent.Size < TetrahedronManager.countForMerge) { return; }
+
+            GameObject particles = ObjectPool.Instance.GetObjectForType("SplitParticles");
+            particles.transform.position = transform.position;
 
             Tetrahedron[] newTetrahedra = TetrahedraForSplit ();
 

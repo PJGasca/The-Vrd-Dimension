@@ -65,11 +65,9 @@ namespace Assets.Scripts.Objects {
                 .Aggregate (Vector3.zero, (p, acc) => acc + p) / countForMerge;
         }
 
-
-        // TODO: ENABLE POOLING
         void PoolTetrahedron (Tetrahedron tetrahedron) {
-            // Utility.ObjectPool.Instance.PoolObject (tetrahedron.gameObject);
-            Destroy (tetrahedron.gameObject);
+            Utility.ObjectPool.Instance.PoolObject (tetrahedron.gameObject);
+            //Destroy (tetrahedron.gameObject);
         }
     }
 }

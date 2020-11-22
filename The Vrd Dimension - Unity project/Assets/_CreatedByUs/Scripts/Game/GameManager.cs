@@ -148,7 +148,7 @@ namespace Assets.Scripts.Game
                     SpawnOrderAgent();
                 }
 
-                if (liveChaosAgents < maxChaosAgents && Random.Range(0, 100) < ((100-EntropyPercentage) / 0.75f))
+                if (liveChaosAgents < maxChaosAgents && Random.Range(0, 100) < ((100-EntropyPercentage) / 0.75f) && GetBreakableTetra() != null)
                 {
                     SpawnChaosAgent();
                 }
@@ -168,13 +168,25 @@ namespace Assets.Scripts.Game
 
         private void SpawnChaosAgent()
         {
-
+            Vector3 pointOnSphere = Random.onUnitSphere * agentSpawnRadius;
+            Vector3 spawnPoint = new Vector3(pointOnSphere.x, Random.Range(minAgentSpawnHeight, maxAgentSpawnHeight), pointOnSphere.z);
+            GameObject agent = ObjectPool.Instance.GetObjectForType("AgentOfChaos");
+            agent.transform.position = spawnPoint;
+            liveChaosAgents++;
+            agent.GetComponent<ChaosAgentSpawning>().Spawn();
+            agent.GetComponent<ChaosAgentDying>().OnDeath += OnChaosAgentDeath;
         }
 
         private void OnOrderAgentDeath(GameObject agent)
         {
             agent.GetComponent<OrderAgentDying>().OnDeath -= OnOrderAgentDeath;
             liveOrderAgents--;
+        }
+
+        private void OnChaosAgentDeath(GameObject agent)
+        {
+            agent.GetComponent<ChaosAgentDying>().OnDeath -= OnChaosAgentDeath;
+            liveChaosAgents--;
         }
 
         public Tetrahedron GetDisplacedUntargetedTetra()
@@ -189,6 +201,20 @@ namespace Assets.Scripts.Game
                 }
             }
             return displaced;
+        }
+
+        public Tetrahedron GetBreakableTetra()
+        {
+            Tetrahedron breakable = null;
+            foreach (Tetrahedron tetra in Tetrahedron.All)
+            {
+                if (tetra.gameObject.GetComponent<ObjectSize>().Size > 1 && !tetra.targetedByAgent && !tetra.GetComponent<Grabbable>().IsGrabbed)
+                {
+                    breakable = tetra;
+                    break;
+                }
+            }
+            return breakable;
         }
 
         private bool IsDisplaced(Tetrahedron tetra)
