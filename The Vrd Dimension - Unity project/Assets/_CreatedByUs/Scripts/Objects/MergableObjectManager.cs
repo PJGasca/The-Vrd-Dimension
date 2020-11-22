@@ -6,6 +6,8 @@ using UnityEngine;
 namespace Assets.Scripts.Objects {
     public class MergableObjectManager : MonoBehaviour
     {
+        public static event System.Action<int> OnMergeUpdate;
+
 
         public static MergableObjectManager Instance {
             get {
@@ -35,6 +37,7 @@ namespace Assets.Scripts.Objects {
                 else
                     CheckForMerges(MergableObject.All);
 
+                if (OnMergeUpdate != null) { OnMergeUpdate (MergableObject.Count); }
                 yield return wait;
             }
         }

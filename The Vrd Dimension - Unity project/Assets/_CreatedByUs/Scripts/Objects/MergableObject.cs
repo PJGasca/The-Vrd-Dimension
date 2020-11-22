@@ -19,6 +19,7 @@ namespace Assets.Scripts.Objects {
         private const float _mergeCooldown = 2f;
 
 
+        public static int Count => _all.Count;
         public static MergableObject[] All => _all.ToArray ();
         public static Dictionary<int, MergableObject[]> AllBySize {
             get {
