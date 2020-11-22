@@ -16,10 +16,13 @@ namespace Assets.Scripts.Objects {
         private static MergableObjectManager _Instance { get; set; }
 
 
-        public float baseMergeRadius = 0.5f;
+        public float baseMergeRadius = 0.25f;
         public int countForMerge = 2;
         public float minimumScale = 30f;    
         public bool mergeOnlyEqualSizes = false;
+
+        [SerializeField]
+        private bool debugMergeRadii;
 
         public void OnEnable()
         {
@@ -59,7 +62,6 @@ namespace Assets.Scripts.Objects {
             List<MergableObject> unused = all.ToList ();
             foreach (MergableObject t in all) {
                 if (!unused.Contains (t)) { continue; }
-
                 float mergeRadius = baseMergeRadius * t.transform.localScale.x / minimumScale;
                 var inRange = unused.Where (u => Vector3.Distance (u.transform.position, t.transform.position) < mergeRadius).ToArray ();
                 if (inRange.Length < countForMerge) { continue; }
@@ -69,6 +71,21 @@ namespace Assets.Scripts.Objects {
                 foreach (var merged in merging) { unused.Remove (merged); }
 
                 //Debug.Log ($"{unused.Count} tetrahedra remaining in merging group");
+            }
+        }
+
+        public void OnDrawGizmos()
+        {
+            if(debugMergeRadii)
+            {
+                MergableObject[] all = MergableObject.All.Where(t => t.CanMerge).ToArray();
+
+                Gizmos.color = new Color(1f, 1f, 0f, 0.5f);
+                foreach (MergableObject obj in all)
+                {
+                    float mergeRadius = baseMergeRadius * obj.transform.localScale.x / minimumScale;
+                    Gizmos.DrawSphere(obj.transform.transform.position, mergeRadius);
+                }
             }
         }
 

@@ -74,6 +74,7 @@ namespace Assets.Scripts.Objects {
 
 
         void OnEnable () {
+            targetedByAgent = false;
             SpawnPosition = transform.position;
             _all.Add (this);
             Game.GameManager.Instance?.OnObjectAdded (this.gameObject);

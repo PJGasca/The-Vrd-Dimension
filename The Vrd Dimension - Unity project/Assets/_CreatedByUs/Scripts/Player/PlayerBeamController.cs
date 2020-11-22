@@ -44,6 +44,9 @@ namespace Assets.Scripts.Player
         [SerializeField]
         private float autoGrabRange;
 
+        [SerializeField]
+        private float maxGrabSize;
+
         public void Awake()
         {
             beam = GetComponent<PlayerBeam>();
@@ -246,7 +249,7 @@ namespace Assets.Scripts.Player
         {
             bool grabbed = false;
             Grabbable grabbable = toGrab.GetComponent<Grabbable>();
-            if (grabbable != null)
+            if (grabbable != null && toGrab.GetComponent<ObjectSize>().Size <= maxGrabSize)
             {
                 grabbable.Grab(attachmentPoint);
                 grabbedObject = grabbable;
