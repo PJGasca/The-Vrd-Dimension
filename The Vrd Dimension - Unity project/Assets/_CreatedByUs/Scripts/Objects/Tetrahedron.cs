@@ -9,9 +9,9 @@ namespace Assets.Scripts.Objects {
     public class Tetrahedron : MonoBehaviour
     {
 #region Constants and static members
-        public const float minimumScale = 30f;
+
         public const float baseSplitVelocity = 0.5f;
-        public const float splitRadius = 0.2f;
+        public const float splitRadius = 0.01f;
 
 
         private const float _mergeCooldown = 2f;
@@ -111,7 +111,7 @@ namespace Assets.Scripts.Objects {
 
             for (int i = 0; i < newTetrahedra.Length; i++) {
                 newTetrahedra[i].transform.position = PositionForSplit (vertices[i], center);
-                newTetrahedra[i].GetComponent<Rigidbody> ().velocity = VelocityForSplit (vertices[i]);
+                // newTetrahedra[i].GetComponent<Rigidbody> ().velocity = VelocityForSplit (vertices[i]);
                 newTetrahedra[i].SetSize (sizes[i], _sizeComponent.Size);
                 newTetrahedra[i].gameObject.SetActive (true);
             }
@@ -153,7 +153,8 @@ namespace Assets.Scripts.Objects {
 
 
         void SetScale (int newSize) {
-            transform.localScale = minimumScale * (1 + Mathf.Log (newSize, TetrahedronManager.Instance.countForMerge)) * Vector3.one;
+            TetrahedronManager manager = TetrahedronManager.Instance;
+            transform.localScale = manager.minimumScale * (1 + Mathf.Log (newSize, manager.countForMerge)) * Vector3.one;
         }
 
 
@@ -194,9 +195,9 @@ namespace Assets.Scripts.Objects {
         }
 
 
-        Vector3 VelocityForSplit (Vector3 normalizedOffset) {
-            return normalizedOffset * baseSplitVelocity / _sizeComponent.Size;
-        }
+        // Vector3 VelocityForSplit (Vector3 normalizedOffset) {
+        //     return normalizedOffset * baseSplitVelocity / _sizeComponent.Size;
+        // }
 
 
         void RegisterBySize (int newSize, int oldSize) {

@@ -5,9 +5,7 @@ using UnityEngine;
 namespace Assets.Scripts.Objects {
     public class TetrahedronManager : MonoBehaviour
     {
-        [SerializeField]
-        private float mergeRadius = 0.5f;
-
+        private const float mergeRadius = 0.5f;
 
         public static TetrahedronManager Instance {
             get {
@@ -19,6 +17,7 @@ namespace Assets.Scripts.Objects {
 
 
         public int countForMerge = 2;
+        public float minimumScale = 30f;    
         public bool mergeOnlyEqualSizes = false;
 
         public void OnEnable()
