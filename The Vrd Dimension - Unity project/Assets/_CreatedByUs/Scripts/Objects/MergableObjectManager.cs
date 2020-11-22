@@ -25,10 +25,17 @@ namespace Assets.Scripts.Objects {
 
         [SerializeField]
         private bool debugMergeRadii;
+        private Coroutine mergeCoroutine;
 
         public void OnEnable()
         {
-            StartCoroutine(IntermittentCheckForMerges());
+            Game.EndChecker.OnGameWin += DoBigBang;
+            mergeCoroutine = StartCoroutine(IntermittentCheckForMerges());
+        }
+
+        void OnDisable () {
+            Game.EndChecker.OnGameWin -= DoBigBang;
+            StopMergeCoroutine ();
         }
 
         System.Collections.IEnumerator IntermittentCheckForMerges() {
@@ -133,6 +140,22 @@ namespace Assets.Scripts.Objects {
         void PoolShape (MergableObject tetrahedron) {
             Utility.ObjectPool.Instance.PoolObject (tetrahedron.gameObject);
             //Destroy (tetrahedron.gameObject);
+        }
+
+        void DoBigBang () {
+            foreach (MergableObject mergeableObject in MergableObject.All) {
+                mergeableObject.Explode ();
+            }
+
+            StopMergeCoroutine ();
+        }
+
+
+        void StopMergeCoroutine () {
+            if (mergeCoroutine != null) {
+                StopCoroutine (mergeCoroutine);
+                mergeCoroutine = null;
+            }
         }
     }
 }
