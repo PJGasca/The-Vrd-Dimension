@@ -29,6 +29,11 @@ namespace Assets.Scripts.Game
             get; private set;
         }
 
+        private void Awake()
+        {
+            Instance = this;
+        }
+
         public void OnEnable()
         {
             // Find all the manipulatable objects in the scene
