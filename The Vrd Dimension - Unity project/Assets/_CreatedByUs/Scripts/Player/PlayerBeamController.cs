@@ -133,7 +133,10 @@ namespace Assets.Scripts.Player
                 {
                     if (attractTime <= CLICK_TIME)
                     {
-                        GrabClosestObject();
+                        if(!GrabClosestObject())
+                        {
+                            beam.Mode = PlayerBeam.BeamMode.NEUTRAL;
+                        }
                     }
                     else
                     {
@@ -206,17 +209,21 @@ namespace Assets.Scripts.Player
             toApply.GetComponent<Rigidbody>().AddForce(forceToApply);
         }
 
-        private void GrabClosestObject()
+        private bool GrabClosestObject()
         {
             GameObject closest = FindClosestObjectInBeam();
+            bool grabbed = false;
             if(closest!=null && closest.activeSelf)
             {
-                GrabObject(closest);
+                grabbed = GrabObject(closest);
             }
+
+            return grabbed;
         }
 
-        private void GrabObject(GameObject toGrab)
+        private bool GrabObject(GameObject toGrab)
         {
+            bool grabbed = false;
             Grabbable grabbable = toGrab.GetComponent<Grabbable>();
             if (grabbable != null)
             {
@@ -225,7 +232,11 @@ namespace Assets.Scripts.Player
                 beam.Mode = PlayerBeam.BeamMode.OFF;
                 attract = false;
                 repel = false;
+                grabbed = true;
             }
+
+            return grabbed;
+
         }
 
         private void ReleaseGrabbedObject()
