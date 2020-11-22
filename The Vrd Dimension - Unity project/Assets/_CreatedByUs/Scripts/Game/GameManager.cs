@@ -112,6 +112,14 @@ namespace Assets.Scripts.Game
             objects.Remove(obj);
             recalculateEntropy = true;
         }
+
+        private IEnumerable AgentSpawner()
+        {
+            while(true)
+            {
+                yield return new WaitForSeconds(Random.Range(1f, 3f));
+            }
+        }
     }
 }
 
