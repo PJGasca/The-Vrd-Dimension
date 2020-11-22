@@ -30,7 +30,7 @@ namespace Assets.Scripts.Enemies
                 OnDamaged(health);
             }
 
-            if(health <= 0)
+            if(health <= 0 && OnDestroyed != null)
             {
                 OnDestroyed(gameObject);
             }

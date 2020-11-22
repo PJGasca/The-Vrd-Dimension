@@ -36,11 +36,21 @@ namespace Assets.Scripts.Enemies
             mover.targetPoint = GrabbedObject.GetComponent<Tetrahedron>().SpawnPosition;
         }
 
+        public void OnDisable()
+        {
+            // If we still have an object, make sure we drop it.
+            if(GrabbedObject != null)
+            {
+                GrabbedObject.GetComponent<Grabbable>().Release();
+            }
+        }
+
         public void FixedUpdate()
         {
             if(!GrabbedObject.activeSelf || !GrabbedObject.transform.parent == transform)
             {
                 // Lost the object. Find a different one.
+                GrabbedObject = null;
                 seekingBehaviour.enabled = true;
                 this.enabled = false;
             }
@@ -49,6 +59,7 @@ namespace Assets.Scripts.Enemies
                 // Drop off the object
                 GrabbedObject.GetComponent<Grabbable>().Release();
                 GrabbedObject.transform.position = mover.targetPoint;
+                GrabbedObject = null;
                 dyingBehaviour.enabled = true;
                 this.enabled = false;
             }

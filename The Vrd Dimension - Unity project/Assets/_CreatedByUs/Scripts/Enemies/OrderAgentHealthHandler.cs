@@ -5,62 +5,47 @@ using Assets.Scripts.Utility;
 namespace Assets.Scripts.Enemies
 {
     [RequireComponent(typeof(HealthTracker))]
-    [RequireComponent(typeof(ChaosAgentDying))]
-    [RequireComponent(typeof(ChaosAgentSeeking))]
-    [RequireComponent(typeof(SpriteRenderer))]
-    public class ChaosAgentHealthHandler : MonoBehaviour
+    public class OrderAgentHealthHandler : MonoBehaviour
     {
         private HealthTracker health;
 
-        private SpriteRenderer sprite;
-
         private float damageEffectTimer;
 
-        private float healEffectTimer;
+        //private float healEffectTimer;
 
         private static readonly float DAMAGE_COOLDOWN = 0.25f;
 
-        private static readonly float HEAL_COOLDOWN = 0.25f;
+        //private static readonly float HEAL_COOLDOWN = 0.25f;
 
         private Coroutine damageEffectRoutine;
 
-        private Coroutine healEffectRoutine;
+        //private Coroutine healEffectRoutine;
 
-        [SerializeField]
-        private Color damageColor;
+        //[SerializeField]
+        //private GameObject damageParticles;
 
-        [SerializeField]
-        private Color healingColor;
-
-        [SerializeField]
-        private GameObject damageParticles;
-
-        [SerializeField]
-        private GameObject healingParticles;
+        //[SerializeField]
+        //private GameObject healingParticles;
 
         public void OnEnable()
         {
-            sprite = GetComponent<SpriteRenderer>();
-            sprite.color = Color.white;
             health = GetComponent<HealthTracker>();
-            health.OnDamaged += OnDamaged;
+            //health.OnDamaged += OnDamaged;
             health.OnDestroyed += OnDestroyed;
-            health.OnHealed += OnHealed;
+            //health.OnHealed += OnHealed;
         }
 
         public void OnDisable()
         {
-            damageParticles.SetActive(false);
-            healingParticles.SetActive(false);
-            health.OnDamaged -= OnDamaged;
+            //damageParticles.SetActive(false);
+            //healingParticles.SetActive(false);
+            //health.OnDamaged -= OnDamaged;
             health.OnDestroyed -= OnDestroyed;
-            health.OnHealed -= OnHealed;
+            //health.OnHealed -= OnHealed;
         }
 
-        private void OnDamaged(float newHealth)
+     /*   private void OnDamaged(float newHealth)
         {
-           // SetScaleFromHealth(newHealth);
-
             damageEffectTimer = 0;
 
             if (healEffectRoutine != null)
@@ -74,45 +59,23 @@ namespace Assets.Scripts.Enemies
                 damageEffectRoutine = StartCoroutine(DamageEffect());
             }
             
-        }
+        }*/
 
         private void OnDestroyed(GameObject obj)
         {
             health.OnDestroyed -= OnDestroyed;
             GameObject particles = ObjectPool.Instance.GetObjectForType("AgentExplosion");
             particles.transform.position = transform.position;
-            GetComponent<ChaosAgentDying>().enabled = true;
-            GetComponent<ChaosAgentSeeking>().enabled = false;
+            GetComponent<OrderAgentDying>().enabled = true;
+            GetComponent<OrderAgentSeeking>().enabled = false;
+            GetComponent<OrderAgentReturning>().enabled = false;
         }
 
-        private void OnHealed(float newHealth)
-        {
-            SetScaleFromHealth(newHealth);
 
-            healEffectTimer = 0;
-
-            if (damageEffectRoutine != null)
-            {
-                StopCoroutine(damageEffectRoutine);
-                damageParticles.SetActive(false);
-            }
-
-            if (healEffectRoutine == null)
-            {
-                healEffectRoutine = StartCoroutine(HealEffect());
-            }
-        }
-
-        private void SetScaleFromHealth(float health)
-        {
-            float scale = Mathf.Min(health + 25, 100f) / 100;
-            transform.localScale = Vector3.one * scale;
-        }
-
-        private IEnumerator DamageEffect()
+        /*private IEnumerator DamageEffect()
         {
             sprite.color = damageColor;
-            //damageParticles.SetActive(true);
+            damageParticles.SetActive(true);
 
             while (damageEffectTimer < DAMAGE_COOLDOWN)
             {
@@ -139,6 +102,6 @@ namespace Assets.Scripts.Enemies
             sprite.color = Color.white;
             healingParticles.SetActive(false);
             healEffectRoutine = null;
-        }
+        }*/
     }
 }

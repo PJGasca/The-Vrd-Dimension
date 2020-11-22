@@ -56,3 +56,6 @@ MonoBehaviour:
   - numberToPool: 5
     prefab: {fileID: 2239869560650396335, guid: 0f219d84ce46c164abf7d4989558d040,
       type: 3}
+  - numberToPool: 2
+    prefab: {fileID: 3805132945333781977, guid: 7cc649958058c054cbb0e37f5add1a7c,
+      type: 3}
