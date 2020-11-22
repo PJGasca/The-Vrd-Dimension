@@ -17,6 +17,7 @@ namespace Assets.Scripts.Objects {
         private static TetrahedronManager _Instance { get; set; }
 
 
+        public float minimumScale = 30f;
         public int countForMerge = 4;
         public bool mergeOnlyEqualSizes = false;
 
