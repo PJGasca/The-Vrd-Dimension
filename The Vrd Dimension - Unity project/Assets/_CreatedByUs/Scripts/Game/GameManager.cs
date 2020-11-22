@@ -33,6 +33,10 @@ namespace Assets.Scripts.Game
         [SerializeField]
         private int maxOrderAgents;
 
+        [SerializeField]
+        [Tooltip("Distance from start point that an item has to be before it is considered displaced.")]
+        private float displacementRange;
+
         private int liveOrderAgents;
 
         [SerializeField]
@@ -141,7 +145,7 @@ namespace Assets.Scripts.Game
             {
                 yield return new WaitForSeconds(Random.Range(1f, 5f));
 
-                if (liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage / 0.75f))
+                if (liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage / 0.75f) && GetDisplacedUntargetedTetra()!=null)
                 {
                     SpawnOrderAgent();
                 }
@@ -173,6 +177,25 @@ namespace Assets.Scripts.Game
         {
             agent.GetComponent<OrderAgentDying>().OnDeath -= OnOrderAgentDeath;
             liveOrderAgents--;
+        }
+
+        public Tetrahedron GetDisplacedUntargetedTetra()
+        {
+            Tetrahedron displaced = null;
+            foreach (Tetrahedron tetra in Tetrahedron.All)
+            {
+                if (IsDisplaced(tetra) && !tetra.targetedByAgent && !tetra.GetComponent<Grabbable>().IsGrabbed)
+                {
+                    displaced = tetra;
+                    break;
+                }
+            }
+            return displaced;
+        }
+
+        private bool IsDisplaced(Tetrahedron tetra)
+        {
+            return Vector3.Distance(tetra.transform.position, tetra.SpawnPosition) > displacementRange;
         }
     }
 }

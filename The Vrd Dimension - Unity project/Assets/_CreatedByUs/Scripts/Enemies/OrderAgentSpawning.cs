@@ -18,37 +18,17 @@ namespace Assets.Scripts.Enemies
 
         public void Spawn()
         {
+            transform.localScale = Vector3.zero;
             seekingBehaviour = GetComponent<OrderAgentSeeking>();
             StartCoroutine(SpawnInRoutine());
         }
 
         private IEnumerator SpawnInRoutine()
         {
+            GetComponent<AgentScaler>().ScaleToInitial(spawnInTime);
             yield return new WaitForSeconds(spawnInTime);
             seekingBehaviour.enabled = true;
-        }
-
-      /* private IEnumerator ShrinkRoutine()
-       {
-            AgentScaler scaler = GetComponent<AgentScaler>();
-            scaler.SetScale(Vector3.zero, shrinkTime);
-
-            yield return new WaitForSeconds(shrinkTime);
-
-            // Reset to default size
-            seekingBehaviour.enabled = true;
-            scaler.ResetScale();
-            Debug.Log("Agent dying");
-            if (OnDeath != null)
-            {
-                OnDeath(gameObject);
-            }
-            else
-            {
-                Debug.Log("No delegate");
-            }
-            ObjectPool.Instance.PoolObject(gameObject);
             this.enabled = false;
-        }*/
+        }
     }
 }

@@ -12,6 +12,9 @@ namespace Assets.Scripts.Enemies
 
         private Coroutine scaleRoutine;
 
+        [SerializeField]
+        private float tetraScaleFactor;
+
         private void OnEnable()
         {
             initialScale = transform.localScale;
@@ -20,6 +23,16 @@ namespace Assets.Scripts.Enemies
         public void ResetScale()
         {
             this.transform.localScale = initialScale;
+        }
+
+        public void ScaleToInitial(float time)
+        {
+            SetScale(initialScale, time);
+        }
+
+        public void ScaleToTetra(GameObject tetra, float time)
+        {
+            SetScale(tetra.transform.localScale * tetraScaleFactor, time);
         }
 
         public void SetScale(Vector3 newScale, float time)
@@ -43,6 +56,10 @@ namespace Assets.Scripts.Enemies
                 elapsed += Time.deltaTime;
                 float t = elapsed / time;
                 t = Mathf.Sin(t * Mathf.PI * 0.5f);
+                if(t>1)
+                {
+                    t = 1;
+                }
                 Vector3 newScale = Vector3.Lerp(initialScale, destScale, t);
                 transform.localScale = newScale;
             }
