@@ -68,12 +68,12 @@ namespace Assets.Scripts.Game
             // order gets louder the closer it gets to 100%, midstate to 50%, chaos to 0%
             float targetOrderVol = .02f + (.18f * lastEntropy);
             float targetMidVol = .2f - (Mathf.Abs(lastEntropy - .5f) * 2 * .15f);
-            float targetChaosVol = .02f + (.18f * (1 - lastEntropy));
+            chaosVolume = .02f + (.18f * (1 - lastEntropy));
 
             float transitionTimer = 1;
             while (transitionTimer > 0)
             {
-                musicPlayers["chaos"].volume = Mathf.SmoothDamp(chaosVolume, targetChaosVol, ref chaosVel, 1);
+                musicPlayers["chaos"].volume = Mathf.SmoothDamp(musicPlayers["chaos"].volume, chaosVolume, ref chaosVel, 1);
                 musicPlayers["order"].volume = Mathf.SmoothDamp(musicPlayers["order"].volume, targetOrderVol, ref orderVel, 1);
                 musicPlayers["mid"].volume = Mathf.SmoothDamp(musicPlayers["mid"].volume, targetMidVol, ref midVel, 1);
 

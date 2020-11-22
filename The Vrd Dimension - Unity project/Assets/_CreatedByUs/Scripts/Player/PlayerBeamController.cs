@@ -307,7 +307,7 @@ namespace Assets.Scripts.Player
 
             yield return new WaitUntil(() => attractTime > CLICK_TIME || repelTime > CLICK_TIME || beam.Mode == PlayerBeam.BeamMode.NEUTRAL);
 
-            if (beam.Mode != PlayerBeam.BeamMode.NEUTRAL)
+            if (beam.Mode != PlayerBeam.BeamMode.NEUTRAL && grabbedObject == null)
             {
                 if (attract) audioSources[0].Play();
                 if (repel) audioSources[1].Play();
