@@ -23,6 +23,12 @@ namespace Assets.Scripts.Enemies
         [SerializeField]
         private float targetObjectGrabRange;
 
+        [SerializeField]
+        private float agentRescaleRange;
+
+        [SerializeField]
+        private float agentRescaleTime;
+
         private Grabbable targetGrabbable;
 
         private OrderAgentReturning returningBehaviour;
@@ -56,7 +62,11 @@ namespace Assets.Scripts.Enemies
             {
                 PickNewTarget();
             }
-            else if(Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange)
+            else if (Vector3.Distance(transform.position, target.transform.position) < agentRescaleRange && transform.localScale != target.transform.localScale)
+            {
+                scaler.SetScale(target.transform.localScale, agentRescaleTime);
+            }
+            else if(Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange && transform.localScale == target.transform.localScale)
             {
                 Grabbable grabbable = target.GetComponent<Grabbable>();
                 if (!grabbable.IsGrabbed)
