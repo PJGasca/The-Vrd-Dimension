@@ -97,12 +97,12 @@ MonoBehaviour:
     m_Value: 0
   minSmoothness:
     m_OverrideState: 1
-    m_Value: 0.066
+    m_Value: 0.327
     min: 0
     max: 1
   smoothnessFadeStart:
     m_OverrideState: 1
-    m_Value: 0.941
+    m_Value: 0.915
     min: 0
     max: 1
   reflectSky:
@@ -110,7 +110,7 @@ MonoBehaviour:
     m_Value: 0
   depthBufferThickness:
     m_OverrideState: 1
-    m_Value: 0.062
+    m_Value: 0.001
     min: 0
     max: 1
   screenFadeDistance:
@@ -194,11 +194,11 @@ MonoBehaviour:
     min: 0
   upperHemisphereLuxValue:
     m_OverrideState: 0
-    m_Value: 0.15815218
+    m_Value: 0.063443996
     min: 0
   upperHemisphereLuxColor:
     m_OverrideState: 0
-    m_Value: {x: 0.265667, y: 0.093084276, z: 0.5}
+    m_Value: {x: 0.487709, y: 0.5, z: 0.34882304}
   desiredLuxValue:
     m_OverrideState: 0
     m_Value: 20000
@@ -214,7 +214,7 @@ MonoBehaviour:
     m_Value: 0
   hdriSky:
     m_OverrideState: 1
-    m_Value: {fileID: 8900000, guid: a743f766be3056e468c5bcd268331d4c, type: 3}
+    m_Value: {fileID: 8900000, guid: 97a67a74dcaba114e9d10aac0960d233, type: 3}
   enableBackplate:
     m_OverrideState: 0
     m_Value: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   skyType:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   skyAmbientMode:
     m_OverrideState: 1
     m_Value: 0
@@ -397,16 +397,16 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.84
+    m_Value: 13.68
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.12
+    m_Value: 0.011
     min: 0
     max: 1
   scatter:
     m_OverrideState: 1
-    m_Value: 0.321
+    m_Value: 0.036
     min: 0
     max: 1
   tint:

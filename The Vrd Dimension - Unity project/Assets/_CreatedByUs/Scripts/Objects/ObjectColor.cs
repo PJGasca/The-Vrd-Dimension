@@ -18,29 +18,42 @@ namespace Assets.Scripts.Objects
         // Start is called before the first frame update
         void Start()
         {
+            List<int> colorRGB = new List<int>();
             if (manualColor.a != 0)
             {
                 randomColor = manualColor;
             }
             else
             {
-                float r = UnityEngine.Random.Range(0, 255);
-                float g = UnityEngine.Random.Range(0, 255);
-                float b = UnityEngine.Random.Range(0, 255);
-                randomColor = new Color(r, g, b, 1);
+                List<int> randomizer = new List<int> { 0, 1, 2 };
+                for (int i = 0; i < 3; i++)
+                {
+                    int random = UnityEngine.Random.Range(0, randomizer.Count);
+                    colorRGB.Add(randomizer[random]);
+                    randomizer.RemoveAt(random);
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    if (colorRGB[i] == 2)
+                    {
+                        colorRGB[i] = UnityEngine.Random.Range(0, 40);
+                    }
+                }
             }
 
+            randomColor = new Color(colorRGB[0], colorRGB[1], colorRGB[2], 1);
             tetraMaterial = GetComponent<MeshRenderer>().material;
             tetraMaterial.SetColor("_BaseColor", randomColor);
             tetraMaterial.SetColor("_EmissiveColor", randomColor);
+            tetraMaterial.SetColor("_Color", randomColor);
             if (!functionCall)
             {
                 functionCall = true;
                 StartCoroutine(WaitOneFrame(r => Resources.UnloadUnusedAssets()));
             }
-        }
 
-        public IEnumerator WaitOneFrame(Action<bool> assigner)
+        }
+        IEnumerator WaitOneFrame(Action<bool> assigner)
         {
             yield return null;
             assigner(true);

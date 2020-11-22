@@ -10,6 +10,11 @@ namespace Assets.Scripts.Game
         float timer = 0;
         Dictionary<string, AudioSource> musicPlayers = new Dictionary<string, AudioSource>();
         float chaosVel, orderVel, midVel;
+        float lastEntropy;
+
+        public float chaosVolume { get; private set; }
+
+        GameManager gm;
 
         public static MusicManager instance;
 
@@ -25,10 +30,12 @@ namespace Assets.Scripts.Game
 
         private void Start()
         {
-            float currentEntropy = GameManager.Instance.EntropyPercentage;
-            musicPlayers["order"].volume = .05f + (.95f * currentEntropy);
-            musicPlayers["mid"].volume = 1 - (Mathf.Abs(currentEntropy - .5f) * 2 * .9f);
-            musicPlayers["chaos"].volume = .05f + (.95f * (1 - currentEntropy));
+            gm = GameManager.Instance;
+            lastEntropy = gm.EntropyPercentage * .01f;
+            musicPlayers["order"].volume = .02f + (.18f * lastEntropy);
+            musicPlayers["mid"].volume = .2f - (Mathf.Abs(lastEntropy - .5f) * 2 * .15f);
+            chaosVolume = .02f + (.18f * (1 - lastEntropy));
+            musicPlayers["chaos"].volume = chaosVolume;
         }
 
         private void Update()
@@ -40,9 +47,9 @@ namespace Assets.Scripts.Game
             else
             {
                 timer = 1.2f;
-                float targetOrderVolume = .05f + (.95f * GameManager.Instance.EntropyPercentage);
-                if (musicPlayers["order"].volume - .001f < targetOrderVolume || musicPlayers["order"].volume + .001f > targetOrderVolume)
+                if (gm.EntropyPercentage * .01f != lastEntropy)
                 {
+                    lastEntropy = gm.EntropyPercentage * .01f;
                     //Debug.Log(GameManager.Instance.EntropyPercentage);
                     UpdateMusicVolume();
                 }
@@ -59,20 +66,14 @@ namespace Assets.Scripts.Game
         IEnumerator VolumeTransition()
         {
             // order gets louder the closer it gets to 100%, midstate to 50%, chaos to 0%
-            float currentEntropy = GameManager.Instance.EntropyPercentage;
-
-            float targetOrderVol = .05f + (.95f * currentEntropy);
-            float targetMidVol = 1 - (Mathf.Abs(currentEntropy - .5f) * 2 * .9f);
-            float targetChaosVol = .05f + (.95f * (1 - currentEntropy));
-
-            targetOrderVol = musicPlayers["order"].volume - targetOrderVol;
-            targetMidVol = musicPlayers["mid"].volume - targetMidVol;
-            targetChaosVol = musicPlayers["chaos"].volume - targetChaosVol;
+            float targetOrderVol = .02f + (.18f * lastEntropy);
+            float targetMidVol = .2f - (Mathf.Abs(lastEntropy - .5f) * 2 * .15f);
+            chaosVolume = .02f + (.18f * (1 - lastEntropy));
 
             float transitionTimer = 1;
             while (transitionTimer > 0)
             {
-                musicPlayers["chaos"].volume = Mathf.SmoothDamp(musicPlayers["chaos"].volume, targetChaosVol, ref chaosVel, 1);
+                musicPlayers["chaos"].volume = Mathf.SmoothDamp(musicPlayers["chaos"].volume, chaosVolume, ref chaosVel, 1);
                 musicPlayers["order"].volume = Mathf.SmoothDamp(musicPlayers["order"].volume, targetOrderVol, ref orderVel, 1);
                 musicPlayers["mid"].volume = Mathf.SmoothDamp(musicPlayers["mid"].volume, targetMidVol, ref midVel, 1);
 

@@ -110,17 +110,23 @@ namespace Assets.Scripts.Utility
         /// </param>
         public void PoolObject(GameObject obj)
         {
-            //Debug.Log("PoolObject");
-            //Debug.Log("obj.name=" + obj.name);
             if (obj == null)
             {
                 Debug.Log("Trying to pool a null object.  Was it destroyed?");
             }
             else
             {
+                string poolName = obj.name;
+
+                Poolable poolable = obj.GetComponent<Poolable>();
+                if(poolable!=null)
+                {
+                    poolName = poolable.PoolName;
+                }
+
                 for (int i = 0; i < poolableObjects.Length; i++)
                 {
-                    if (poolableObjects[i].prefab.name == obj.name)
+                    if (poolableObjects[i].prefab.name == poolName)
                     {
                         obj.SetActive(false);
                         obj.transform.SetParent(transform);
@@ -133,7 +139,7 @@ namespace Assets.Scripts.Utility
                 }
             }
 
-            //Debug.Log("Attempt to pool object " + obj.name + " but no pool was found.");
+            Debug.Log("Attempt to pool object " + obj.name + " but no pool was found.");
         }
 
         public void PoolObject(GameObject obj, float delay)

@@ -52,14 +52,14 @@ namespace Assets.Scripts.Enemies
 
         private void PickNewTarget()
         {
-            Tetrahedron[] tetras = Tetrahedron.All;
+            MergableObject[] tetras = MergableObject.All;
 
             if (target!=null)
             {
-                target.GetComponent<Tetrahedron>().targetedByAgent = false;
+                target.GetComponent<MergableObject>().targetedByAgent = false;
             }
 
-            Tetrahedron tetra = GameManager.Instance.GetBreakableTetra();
+            MergableObject tetra = GameManager.Instance.GetBreakableTetra();
             if (tetra != null)
             {
                 target = tetra.gameObject;
@@ -85,7 +85,7 @@ namespace Assets.Scripts.Enemies
 
         public void OnCollisionEnter(Collision collision)
         {
-            Tetrahedron tetra = collision.gameObject.GetComponent<Tetrahedron>();
+            MergableObject tetra = collision.gameObject.GetComponent<MergableObject>();
             if(tetra!=null && tetra.gameObject.GetComponent<ObjectSize>().Size>1)
             {
                 tetra.Split();

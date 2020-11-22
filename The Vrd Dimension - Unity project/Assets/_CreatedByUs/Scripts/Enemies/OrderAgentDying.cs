@@ -18,10 +18,19 @@ namespace Assets.Scripts.Enemies
         [SerializeField]
         private float shrinkTime;
 
+        private AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+
         private void OnEnable()
         {
             GetComponent<Collider>().enabled = false;
             spawningBehaviour = GetComponent<OrderAgentSpawning>();
+            audioSource.PlayOneShot(SoundEffectClips.instance.orderDeath[Random.Range(0, SoundEffectClips.instance.orderDeath.Count)], 2);
             StartCoroutine(ShrinkRoutine());
         }
 

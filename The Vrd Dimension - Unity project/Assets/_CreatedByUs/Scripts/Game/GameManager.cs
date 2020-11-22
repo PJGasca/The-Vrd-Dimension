@@ -57,6 +57,7 @@ namespace Assets.Scripts.Game
         private int liveChaosAgents;
 
         private bool recalculateEntropy = false;
+        private Coroutine agentSpawnCoroutine;
 
         public float EntropyPercentage
         {
@@ -70,6 +71,8 @@ namespace Assets.Scripts.Game
 
         public void OnEnable()
         {
+            EndChecker.OnGameWin += StopAgentSpawning;
+
             // Find all the manipulatable objects in the scene
             GameObject[] objects = GameObject.FindGameObjectsWithTag("Manipulatable");
 
@@ -97,7 +100,11 @@ namespace Assets.Scripts.Game
 
             maxObjects = maxTetras;
 
-            StartCoroutine(AgentSpawner());
+            agentSpawnCoroutine = StartCoroutine(AgentSpawner());
+        }
+
+        void OnDisable () {
+            EndChecker.OnGameWin -= StopAgentSpawning;
         }
 
         public void FixedUpdate()
@@ -155,6 +162,8 @@ namespace Assets.Scripts.Game
             {
                 yield return new WaitForSeconds(Random.Range(minimumSpawnAttemptTime, maximumSpawnAttemptTime));
 
+                Debug.Log("Spawn check.  Entropy: " + EntropyPercentage);
+
                 bool spawned = false;
                 if (liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage * agentSpawnLikelihoodScale) && GetDisplacedUntargetedTetra()!=null)
                 {
@@ -189,6 +198,7 @@ namespace Assets.Scripts.Game
 
         private void SpawnChaosAgent()
         {
+            Debug.Log("Spawning chaos agent");
             Vector3 pointOnSphere = Random.onUnitSphere * agentSpawnRadius;
             Vector3 spawnPoint = new Vector3(pointOnSphere.x, Random.Range(minAgentSpawnHeight, maxAgentSpawnHeight), pointOnSphere.z);
             GameObject agent = ObjectPool.Instance.GetObjectForType("AgentOfChaos");
@@ -210,10 +220,10 @@ namespace Assets.Scripts.Game
             liveChaosAgents--;
         }
 
-        public Tetrahedron GetDisplacedUntargetedTetra()
+        public MergableObject GetDisplacedUntargetedTetra()
         {
-            Tetrahedron displaced = null;
-            foreach (Tetrahedron tetra in Tetrahedron.All)
+            MergableObject displaced = null;
+            foreach (MergableObject tetra in MergableObject.All)
             {
                 if (IsDisplaced(tetra) && !tetra.targetedByAgent && !tetra.GetComponent<Grabbable>().IsGrabbed)
                 {
@@ -224,10 +234,10 @@ namespace Assets.Scripts.Game
             return displaced;
         }
 
-        public Tetrahedron GetBreakableTetra()
+        public MergableObject GetBreakableTetra()
         {
-            Tetrahedron breakable = null;
-            foreach (Tetrahedron tetra in Tetrahedron.All)
+            MergableObject breakable = null;
+            foreach (MergableObject tetra in MergableObject.All)
             {
                 if (tetra.gameObject.GetComponent<ObjectSize>().Size > 1 && !tetra.targetedByAgent && !tetra.GetComponent<Grabbable>().IsGrabbed)
                 {
@@ -238,9 +248,14 @@ namespace Assets.Scripts.Game
             return breakable;
         }
 
-        private bool IsDisplaced(Tetrahedron tetra)
+        private bool IsDisplaced(MergableObject tetra)
         {
             return Vector3.Distance(tetra.transform.position, tetra.SpawnPosition) > displacementRange;
+        }
+
+        private void StopAgentSpawning () {
+            StopCoroutine (agentSpawnCoroutine);
+            agentSpawnCoroutine = null;
         }
     }
 }

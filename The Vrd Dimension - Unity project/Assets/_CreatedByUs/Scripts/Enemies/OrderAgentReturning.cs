@@ -33,7 +33,7 @@ namespace Assets.Scripts.Enemies
             // Put a bit of spin on it
             rb.AddRelativeTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)));
             mover.enabled = true;
-            mover.targetPoint = GrabbedObject.GetComponent<Tetrahedron>().SpawnPosition;
+            mover.targetPoint = GrabbedObject.GetComponent<MergableObject>().SpawnPosition;
         }
 
         public void OnDisable()
