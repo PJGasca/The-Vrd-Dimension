@@ -22,12 +22,11 @@ namespace Assets.Scripts.Objects {
                 return allBySize;
             }
         }
-        public static int[] Sizes => _sizes.ToArray ();
+        public static int[] Sizes => AllBySize.Where (kvp => kvp.Value.Length > 0).Select (kvp => kvp.Key).ToArray ();
 
 
         private static List<Tetrahedron> _all = new List<Tetrahedron> ();
         private static Dictionary<int, List<Tetrahedron>> _allBySize = new Dictionary<int, List<Tetrahedron>> ();
-        private static List<int> _sizes = new List<int> ();
 
 
         public static Tetrahedron[] AllForSize (int size) {
@@ -50,13 +49,14 @@ namespace Assets.Scripts.Objects {
         [SerializeField] private ObjectSize _sizeComponent;
 
         void Awake () {
-            SetSize (GetComponent<ObjectSize> ().Size);
+            if (_sizeComponent == null) { _sizeComponent = GetComponent<ObjectSize> (); }
             SpawnPosition = transform.position;
         }
 
 
         void OnEnable () {
             _all.Add (this);
+            InitializeSize ();
             Game.GameManager.Instance?.OnObjectAdded (this.gameObject);
             if (OnTetrahedronEnabled != null) { OnTetrahedronEnabled (this); }
         }
@@ -83,7 +83,7 @@ namespace Assets.Scripts.Objects {
             for (int i = 0; i < newTetrahedra.Length; i++) {
                 newTetrahedra[i].transform.position = PositionForSplit (vertices[i], center);
                 newTetrahedra[i].GetComponent<Rigidbody> ().velocity = VelocityForSplit (vertices[i]);
-                newTetrahedra[i].SetSize (newSize);
+                newTetrahedra[i].SetSize (newSize, _sizeComponent.Size);
                 newTetrahedra[i].gameObject.SetActive (true);
             }
 
@@ -92,7 +92,9 @@ namespace Assets.Scripts.Objects {
 
 
         public void SetSize (int newSize) {
-            int oldSize = _sizeComponent.Size;
+            SetSize (newSize, _sizeComponent.Size);
+        }
+        public void SetSize (int newSize, int oldSize) {
             _sizeComponent.Size = newSize;
 
             SetScale (newSize);
@@ -100,8 +102,13 @@ namespace Assets.Scripts.Objects {
         }
 
 
+        void InitializeSize () {
+            SetSize (_sizeComponent.Size, -1);
+        }
+
+
         void SetScale (int newSize) {
-            transform.localScale = minimumScale * Mathf.Log (newSize, 4) * Vector3.one;
+            transform.localScale = minimumScale * (1 + Mathf.Log (newSize, 4)) * Vector3.one;
         }
 
 
@@ -109,7 +116,7 @@ namespace Assets.Scripts.Objects {
             Tetrahedron[] newTetrahedra = new Tetrahedron[TetrahedronManager.countForMerge];
             newTetrahedra[0] = this;
             for (int i = 1; i < TetrahedronManager.countForMerge; i++) {
-                newTetrahedra[i] = Utility.ObjectPool.Instance.GetObjectForType ("Tetrahedron", true).GetComponent<Tetrahedron> ();
+                newTetrahedra[i] = GetTetrahedronFromPool ();
             }
 
             return newTetrahedra;
@@ -137,11 +144,23 @@ namespace Assets.Scripts.Objects {
         void RegisterBySize (int newSize, int oldSize) {
             if (!_allBySize.ContainsKey (newSize)) { _allBySize.Add (newSize, new List<Tetrahedron> ()); }
             _allBySize[newSize].Add (this);
-            if (!_sizes.Contains (newSize)) { _sizes.Add (newSize); }
 
             if (!_allBySize.ContainsKey (oldSize)) { return; }
             if (_allBySize[oldSize].Contains (this)) { _allBySize[oldSize].Remove (this); }
-            if (_allBySize[oldSize].Count == 0) { _sizes.Remove (oldSize); }
+        }
+
+
+        // TODO: ENABLE POOLING
+        Tetrahedron GetTetrahedronFromPool () {
+            // return Utility.ObjectPool.Instance.GetObjectForType ("Tetrahedron", true).GetComponent<Tetrahedron> ();
+            return Instantiate (this);
+        }
+
+
+        public bool IsDisplaced()
+        {
+            // TODO: Work out if we have moved from our start position
+            return true;
         }
 #endregion
     }
