@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Objects;
+using Assets.Scripts.Utility;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -98,11 +100,28 @@ namespace Assets.Scripts.Player
         private void OnTriggerEnter(Collider other)
         {
             ObjectsInBeam.Add(other.gameObject);
+
+            NotifyOnDisable disableNotifier = other.gameObject.GetComponent<NotifyOnDisable>();
+            if(disableNotifier != null)
+            {
+                disableNotifier.OnObjectDisabled += OnObjectInBeamDisabled;
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
             ObjectsInBeam.Remove(other.gameObject);
+
+            NotifyOnDisable disableNotifier = other.gameObject.GetComponent<NotifyOnDisable>();
+            if (disableNotifier != null)
+            {
+                disableNotifier.OnObjectDisabled -= OnObjectInBeamDisabled;
+            }
+        }
+
+        private void OnObjectInBeamDisabled(GameObject obj)
+        {
+            ObjectsInBeam.Remove(obj);
         }
     }
 }

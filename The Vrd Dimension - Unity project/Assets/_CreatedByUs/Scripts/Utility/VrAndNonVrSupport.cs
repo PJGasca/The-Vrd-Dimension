@@ -21,9 +21,12 @@ namespace Assets.Scripts.Utility
         private GameObject vrCameraRig;
 
         [SerializeField]
+        private GameObject vrCamera;
+
+        [SerializeField]
         private GameObject nonVRCameraRig;
 
-        public GameObject currentCameraObj { get; private set; }
+        public static GameObject CurrentCameraObj { get; private set; }
 
         private static bool vrDetected = false;
 
@@ -46,7 +49,7 @@ namespace Assets.Scripts.Utility
                         SteamVR_Behaviour.instance.gameObject.SetActive(true);
                         nonVRCameraRig.SetActive(false);
                         vrCameraRig.SetActive(true);
-                        currentCameraObj = vrCameraRig;
+                        CurrentCameraObj = vrCamera;
                     }
                     else
                     {
@@ -62,7 +65,7 @@ namespace Assets.Scripts.Utility
                     {
                         SteamVR_Behaviour.instance.gameObject.SetActive(false);
                     }
-                    currentCameraObj = nonVRCameraRig;
+                    CurrentCameraObj = nonVRCameraRig;
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Objects;
+﻿using Assets.Scripts.Game;
+using Assets.Scripts.Objects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,9 @@ namespace Assets.Scripts.Enemies
 {
     [RequireComponent(typeof(MoveTowardsPoint))]
     [RequireComponent(typeof(OrderAgentReturning))]
+    [RequireComponent(typeof(OrderAgentDying))]
+    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(AgentScaler))]
     public class OrderAgentSeeking : MonoBehaviour
     {
         private Rigidbody rb;
@@ -14,28 +18,44 @@ namespace Assets.Scripts.Enemies
 
         private Vector3 defaultScale;
 
-        private GameObject target = null;
+        public GameObject target = null;
 
         [SerializeField]
         private float targetObjectGrabRange;
+
+        [SerializeField]
+        private float agentRescaleRange;
+
+        [SerializeField]
+        private float agentRescaleTime;
 
         private Grabbable targetGrabbable;
 
         private OrderAgentReturning returningBehaviour;
 
+        private OrderAgentDying dyingBehaviour;
+
+        private AgentScaler scaler;
+
         // Start is called before the first frame update
         void Awake()
         {
-            defaultScale = transform.localScale;
             rb = GetComponent<Rigidbody>();
             mover = GetComponent<MoveTowardsPoint>();
+            dyingBehaviour = GetComponent<OrderAgentDying>();
             returningBehaviour = GetComponent<OrderAgentReturning>();
+            scaler = GetComponent<AgentScaler>();
         }
 
         private void OnEnable()
         {
+            GetComponent<Collider>().enabled = true;
+
             // Put a bit of spin on it
             rb.AddRelativeTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)));
+            targetGrabbable = null;
+            target = null;
+            GetComponent<Collider>().enabled = true;
         }
 
         public void FixedUpdate()
@@ -44,34 +64,60 @@ namespace Assets.Scripts.Enemies
             {
                 PickNewTarget();
             }
-            else if(Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange)
+            else if (!scaler.IsScaling && Vector3.Distance(transform.position, target.transform.position) < agentRescaleRange && transform.localScale != scaler.GetAgentTetraScale(target))
+            {
+                scaler.ScaleToTetra(target, agentRescaleTime);
+            }
+            else if(!scaler.IsScaling && Vector3.Distance(transform.position, target.transform.position) < targetObjectGrabRange && transform.localScale == scaler.GetAgentTetraScale(target))
             {
                 Grabbable grabbable = target.GetComponent<Grabbable>();
                 if (!grabbable.IsGrabbed)
                 {
                     target.GetComponent<Grabbable>().Grab(transform);
+                    target.GetComponent<Tetrahedron>().targetedByAgent = false;
+                    returningBehaviour.GrabbedObject = target;
+                    returningBehaviour.enabled = true;
+                    this.enabled = false;
                 }
+                else
+                {
+                    PickNewTarget();
+                }
+            }
+            else
+            {
+                mover.targetPoint = target.transform.position;
             }
         }
 
         private void PickNewTarget()
         {
+            //Debug.Log("Pick new target");
             Tetrahedron[] tetras = Tetrahedron.All;
-            foreach(Tetrahedron tetra in tetras)
+
+            if(!scaler.IsScaling)
             {
-                if(tetra.IsDisplaced())
-                {
-                    target = tetra.gameObject;
-                    mover.targetPoint = target.transform.position;
-                    mover.enabled = true;
-                    targetGrabbable = target.GetComponent<Grabbable>();
-                    break;
-                }
+                scaler.ScaleToInitial(agentRescaleTime);
             }
 
-            // Nothing to pick? My work here is done!
-            if (target == null)
+            if (target!=null)
             {
+                target.GetComponent<Tetrahedron>().targetedByAgent = false;
+            }
+
+            Tetrahedron tetra = GameManager.Instance.GetDisplacedUntargetedTetra();
+            if (tetra != null)
+            {
+                target = tetra.gameObject;
+                mover.targetPoint = target.transform.position;
+                mover.enabled = true;
+                targetGrabbable = target.GetComponent<Grabbable>();
+                tetra.targetedByAgent = true;
+            }
+            else
+            {
+                Debug.Log("Could not find valid target. Dying.");
+                target  = null;
                 mover.enabled = false;
                 Die();
             }
@@ -79,82 +125,8 @@ namespace Assets.Scripts.Enemies
 
         private void Die()
         {
-            Debug.Log("Dieing");
+            this.enabled = false;
+            dyingBehaviour.enabled = true;
         }
-
-
-        /*
-           public void InBeam(bool attract) // if false, is repelling
-           {
-               caughtInBeam = true;
-
-               if (releaseFromBeam != null) StopCoroutine(releaseFromBeam);
-               releaseFromBeam = Utility.Helpers.instance.WaitOneFrame(release => caughtInBeam = false);
-               StartCoroutine(releaseFromBeam);
-
-               if (!attract) // repelling damages
-               {
-                   transform.localScale -= defaultScale * (1 - percentageAtDeath) / timeToDeath * Time.deltaTime;
-                   if (transform.localScale.x <= defaultScale.x * percentageAtDeath)
-                   {
-                       Die(true);
-                   }
-               }
-               else // attracting damages
-               {
-                   if (transform.localScale.x < defaultScale.x) // should be enough to just check for one value
-                   {
-                       transform.localScale += defaultScale * (1 - percentageAtDeath) / timeToDeath * Time.deltaTime;
-                   }
-                   else if (transform.localScale.x > defaultScale.x)
-                   {
-                       transform.localScale = defaultScale;
-                   }
-               }
-           }
-
-           void Die(bool killedByPlayer = false)
-           {
-               // particles, sound, etc
-               gameObject.SetActive(false);
-           }
-
-           public void TakeEnemyDamage()
-           {
-               transform.localScale -= defaultScale * (1 - enemyDamagePercentage);
-               if (transform.localScale.x <= defaultScale.x * percentageAtDeath)
-               {
-                   Die();
-               }
-           }
-
-           private void OnCollisionEnter(Collision c)
-           {// chaos agents damage whatever they collide with, even if not actual target
-            // order agents pass through colliders that aren't their targets
-               if (c.transform == target)
-               {
-                   if (c.gameObject.CompareTag("EnemyAgent"))
-                   {
-                       c.gameObject.GetComponent<ChaosAgent>().TakeEnemyDamage();
-                   }
-                   else
-                   {
-                       // break up object
-                   }
-                   Die();
-               }
-               else
-               {
-                   if (c.gameObject.CompareTag("EnemyAgent"))
-                   {
-                       TakeEnemyDamage();
-                   }
-                   else
-                   {
-                       ignoredColliders.Add(c.collider);
-                       Physics.IgnoreCollision(coll, c.collider, true);
-                   }
-               }
-           }*/
     }
 }
