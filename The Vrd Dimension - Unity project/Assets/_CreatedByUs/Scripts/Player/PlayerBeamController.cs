@@ -200,12 +200,12 @@ namespace Assets.Scripts.Player
 
                 if (!attract)
                 {
-                    if (repelTime <= CLICK_TIME)
+                   /* if (repelTime <= CLICK_TIME)
                     {
                         // Fast repel
                         FastRepelClosestObject();
                         audioSources[2].PlayOneShot(sfx.fastRepel);
-                    }
+                    }*/
 
                     beam.Mode = PlayerBeam.BeamMode.NEUTRAL;
                 }

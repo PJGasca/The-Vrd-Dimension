@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7090288249047418123}
   - component: {fileID: 8123310109228325352}
   - component: {fileID: 6709280009974768055}
+  - component: {fileID: -6118914994623383992}
   m_Layer: 8
   m_Name: Tetrahedron
   m_TagString: Manipulatable
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetedByAgent: 0
+  shapeType: 0
   _sizeComponent: {fileID: 695591714873645205}
 --- !u!114 &695591714873645205
 MonoBehaviour:
@@ -183,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5abb94b40f809d4b949fd4f4f76ac88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallCollision: {fileID: 8300000, guid: 7feaa40baaf4cf844b09417ee354e5a9, type: 3}
 --- !u!82 &8123310109228325352
 AudioSource:
   m_ObjectHideFlags: 0
@@ -292,3 +293,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41dde960dd113c24fbf31ae08cd79e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6118914994623383992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393603012428654830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c60b2d72b9215145bbf668af732aa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: Tetrahedron

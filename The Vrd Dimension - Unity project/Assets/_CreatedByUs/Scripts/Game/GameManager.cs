@@ -213,10 +213,10 @@ namespace Assets.Scripts.Game
             liveChaosAgents--;
         }
 
-        public Tetrahedron GetDisplacedUntargetedTetra()
+        public MergableObject GetDisplacedUntargetedTetra()
         {
-            Tetrahedron displaced = null;
-            foreach (Tetrahedron tetra in Tetrahedron.All)
+            MergableObject displaced = null;
+            foreach (MergableObject tetra in MergableObject.All)
             {
                 if (IsDisplaced(tetra) && !tetra.targetedByAgent && !tetra.GetComponent<Grabbable>().IsGrabbed)
                 {
@@ -227,10 +227,10 @@ namespace Assets.Scripts.Game
             return displaced;
         }
 
-        public Tetrahedron GetBreakableTetra()
+        public MergableObject GetBreakableTetra()
         {
-            Tetrahedron breakable = null;
-            foreach (Tetrahedron tetra in Tetrahedron.All)
+            MergableObject breakable = null;
+            foreach (MergableObject tetra in MergableObject.All)
             {
                 if (tetra.gameObject.GetComponent<ObjectSize>().Size > 1 && !tetra.targetedByAgent && !tetra.GetComponent<Grabbable>().IsGrabbed)
                 {
@@ -241,7 +241,7 @@ namespace Assets.Scripts.Game
             return breakable;
         }
 
-        private bool IsDisplaced(Tetrahedron tetra)
+        private bool IsDisplaced(MergableObject tetra)
         {
             return Vector3.Distance(tetra.transform.position, tetra.SpawnPosition) > displacementRange;
         }

@@ -74,7 +74,7 @@ namespace Assets.Scripts.Enemies
                 if (!grabbable.IsGrabbed)
                 {
                     target.GetComponent<Grabbable>().Grab(transform);
-                    target.GetComponent<Tetrahedron>().targetedByAgent = false;
+                    target.GetComponent<MergableObject>().targetedByAgent = false;
                     returningBehaviour.GrabbedObject = target;
                     returningBehaviour.enabled = true;
                     this.enabled = false;
@@ -93,7 +93,7 @@ namespace Assets.Scripts.Enemies
         private void PickNewTarget()
         {
             //Debug.Log("Pick new target");
-            Tetrahedron[] tetras = Tetrahedron.All;
+            MergableObject[] tetras = MergableObject.All;
 
             if(!scaler.IsScaling)
             {
@@ -102,10 +102,10 @@ namespace Assets.Scripts.Enemies
 
             if (target!=null)
             {
-                target.GetComponent<Tetrahedron>().targetedByAgent = false;
+                target.GetComponent<MergableObject>().targetedByAgent = false;
             }
 
-            Tetrahedron tetra = GameManager.Instance.GetDisplacedUntargetedTetra();
+            MergableObject tetra = GameManager.Instance.GetDisplacedUntargetedTetra();
             if (tetra != null)
             {
                 target = tetra.gameObject;
