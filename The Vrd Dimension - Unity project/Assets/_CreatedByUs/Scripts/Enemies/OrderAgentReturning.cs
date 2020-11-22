@@ -7,12 +7,14 @@ namespace Assets.Scripts.Enemies
 {
     [RequireComponent(typeof(MoveTowardsPoint))]
     [RequireComponent(typeof(OrderAgentSeeking))]
+    [RequireComponent(typeof(OrderAgentDying))]
     public class OrderAgentReturning : MonoBehaviour
     {
         private Rigidbody rb;
         private MoveTowardsPoint mover;
         public GameObject GrabbedObject;
         private OrderAgentSeeking seekingBehaviour;
+        private OrderAgentDying dyingBehaviour;
 
         [SerializeField]
         private float objectDropOffRange;
@@ -23,6 +25,7 @@ namespace Assets.Scripts.Enemies
             rb = GetComponent<Rigidbody>();
             mover = GetComponent<MoveTowardsPoint>();
             seekingBehaviour = GetComponent<OrderAgentSeeking>();
+            dyingBehaviour = GetComponent<OrderAgentDying>();
         }
 
         private void OnEnable()
@@ -46,7 +49,7 @@ namespace Assets.Scripts.Enemies
                 // Drop off the object
                 GrabbedObject.GetComponent<Grabbable>().Release();
                 GrabbedObject.transform.position = mover.targetPoint;
-                seekingBehaviour.enabled = true;
+                dyingBehaviour.enabled = true;
                 this.enabled = false;
             }
         }
