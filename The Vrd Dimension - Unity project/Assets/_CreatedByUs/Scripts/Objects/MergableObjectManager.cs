@@ -57,20 +57,23 @@ namespace Assets.Scripts.Objects {
         }
 
 
-        void CheckForMerges (MergableObject[] all) {
+        void CheckForMerges (MergableObject[] all)
+        {
            // Debug.Log("Checking for merges");
             all = all.Where (t => t.CanMerge).ToArray ();
             if (all.Length < countForMerge) { return; }
 
             List<MergableObject> unused = all.ToList ();
-            foreach (MergableObject t in all) {
+            foreach (MergableObject t in all) 
+            {
                 if (!unused.Contains (t)) { continue; }
-                float mergeRadius = baseMergeRadius * t.transform.localScale.x / minimumScale;
-                var inRange = unused.Where (u => Vector3.Distance (u.transform.position, t.transform.position) < mergeRadius && 
-                    t.GetComponent<MergableObject>().GetShapeType() == u.GetComponent<MergableObject>().GetShapeType()).ToArray ();
-                if (inRange.Length < countForMerge) { continue; }
+               
+                HashSet<MergableObject> inRange = t.OverlappingMergeTriggers;
+                if (inRange.Count + 1 < countForMerge) { continue; }
+                List<MergableObject> toMerge = new List<MergableObject>(inRange);
+                toMerge.Add(t);
+                MergableObject[] merging = toMerge.ToArray();
 
-                MergableObject[] merging = inRange.Take (countForMerge).ToArray ();
                 Merge (merging);
                 foreach (var merged in merging) { unused.Remove (merged); }
 
@@ -78,7 +81,7 @@ namespace Assets.Scripts.Objects {
             }
         }
 
-        public void OnDrawGizmos()
+        /*public void OnDrawGizmos()
         {
             if(debugMergeRadii)
             {
@@ -91,7 +94,7 @@ namespace Assets.Scripts.Objects {
                     Gizmos.DrawSphere(obj.transform.transform.position, mergeRadius);
                 }
             }
-        }
+        }*/
 
 
         void Merge (MergableObject[] toMerge) {

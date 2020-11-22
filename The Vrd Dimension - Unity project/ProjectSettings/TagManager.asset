@@ -7,6 +7,7 @@ TagManager:
   - Manipulatable
   - OrderAgent
   - ChaosAgent
+  - ShapeMergeRadius
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Player
   - ChaosAgent
   - OrderAgent
-  - 
+  - TetraMergeRadius
   - 
   - 
   - 

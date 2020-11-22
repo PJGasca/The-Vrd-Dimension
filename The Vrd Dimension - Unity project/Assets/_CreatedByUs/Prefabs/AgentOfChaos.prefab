@@ -9740,7 +9740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {x: 0, y: 0, z: 0}
-  force: 1000
+  force: 2500
 --- !u!114 &567892921
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,7 +38,11 @@ namespace Assets.Scripts.Game
 
         [SerializeField]
         [Tooltip("A higher value increases the likelihood of agents being spawned in any given attempt.")]
-        private float agentSpawnLikelihoodScale;
+        private float chaosAgentSpawnLikelihoodScale;
+
+        [SerializeField]
+        [Tooltip("A higher value increases the likelihood of agents being spawned in any given attempt.")]
+        private float orderAgentSpawnLikelihoodScale;
 
         [SerializeField]
         [Tooltip("The minimum amount of time between randomized rolls to decide whether or not to spawn an agent.")]
@@ -162,16 +166,16 @@ namespace Assets.Scripts.Game
             {
                 yield return new WaitForSeconds(Random.Range(minimumSpawnAttemptTime, maximumSpawnAttemptTime));
 
-                Debug.Log("Spawn check.  Entropy: " + EntropyPercentage);
+                Debug.Log("Spawn check.  Entropy: " + EntropyPercentage + " Live chaos: " + liveChaosAgents + " Live order: " + liveOrderAgents);
 
                 bool spawned = false;
-                if (liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage * agentSpawnLikelihoodScale) && GetDisplacedUntargetedTetra()!=null)
+                if (liveOrderAgents < maxOrderAgents && Random.Range(0, 100) < (EntropyPercentage * orderAgentSpawnLikelihoodScale) && GetDisplacedUntargetedTetra()!=null)
                 {
                     SpawnOrderAgent();
                     spawned = true;
                 }
 
-                if (liveChaosAgents < maxChaosAgents && Random.Range(0, 100) < ((100-EntropyPercentage) * agentSpawnLikelihoodScale) && GetBreakableTetra() != null)
+                if (liveChaosAgents < maxChaosAgents && Random.Range(0, 100) < ((100-EntropyPercentage) * chaosAgentSpawnLikelihoodScale) && GetBreakableTetra() != null)
                 {
                     if(spawned)
                     {

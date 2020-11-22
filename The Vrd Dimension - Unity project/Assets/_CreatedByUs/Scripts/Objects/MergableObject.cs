@@ -1,4 +1,5 @@
 using Assets.Scripts.Utility;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace Assets.Scripts.Objects {
     public class MergableObject : MonoBehaviour
     {
         public enum ShapeType { Tetrahedron, Octohedron }
+
+        public HashSet<MergableObject> OverlappingMergeTriggers
+        {
+            get; private set;
+        } = new HashSet<MergableObject>();
 
 #region Constants and static members
 
@@ -85,6 +91,7 @@ namespace Assets.Scripts.Objects {
 
 
         void OnDisable () {
+            OverlappingMergeTriggers.Clear();
             targetedByAgent = false;
             if (_all.Contains (this)) { _all.Remove (this); }
             if (_allBySize.ContainsKey (_sizeComponent.Size) && _allBySize[_sizeComponent.Size].Contains (this)) {
@@ -130,7 +137,11 @@ namespace Assets.Scripts.Objects {
             SetSize (newSize, _sizeComponent.Size);
         }
         public void SetSize (int newSize, int oldSize) {
-            StartMergeCooldownTimer ();
+
+            if(newSize <= oldSize)
+            {
+                StartMergeCooldownTimer();
+            }
             _sizeComponent.Size = newSize;
 
             SetScale (newSize);
@@ -237,6 +248,31 @@ namespace Assets.Scripts.Objects {
             return shapeType;
         }
 
-#endregion
+        public void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject.CompareTag("ShapeMergeRadius"))
+            {
+                GameObject otherShape = other.gameObject.transform.parent.gameObject;
+                otherShape.GetComponent<NotifyOnDisable>().OnObjectDisabled += OnOverlappedDisabled;
+                OverlappingMergeTriggers.Add(otherShape.GetComponent<MergableObject>());
+            }
+        }
+
+        public void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("ShapeMergeRadius"))
+            {
+                GameObject otherShape = other.gameObject.transform.parent.gameObject;
+                otherShape.GetComponent<NotifyOnDisable>().OnObjectDisabled += OnOverlappedDisabled;
+                OverlappingMergeTriggers.Remove(otherShape.GetComponent<MergableObject>());
+            }
+        }
+
+        public void OnOverlappedDisabled(GameObject other)
+        {
+            OverlappingMergeTriggers.Remove(other.gameObject.GetComponent<MergableObject>());
+        }
+
+        #endregion
     }
 }
