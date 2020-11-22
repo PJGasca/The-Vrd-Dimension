@@ -20,6 +20,7 @@ namespace Assets.Scripts.Enemies
 
         private void OnEnable()
         {
+            GetComponent<Collider>().enabled = false;
             spawningBehaviour = GetComponent<OrderAgentSpawning>();
             StartCoroutine(ShrinkRoutine());
         }
@@ -41,7 +42,7 @@ namespace Assets.Scripts.Enemies
             }
             else
             {
-                Debug.Log("No delegate");
+                Debug.LogWarning("No delegate for order agent death");
             }
             ObjectPool.Instance.PoolObject(gameObject);
             this.enabled = false;

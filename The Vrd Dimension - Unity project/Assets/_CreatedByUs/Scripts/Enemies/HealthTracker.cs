@@ -10,9 +10,9 @@ namespace Assets.Scripts.Enemies
 
         private float health;
 
-        public event System.Action<GameObject> OnHealed;
+        public event System.Action<float> OnHealed;
 
-        public event System.Action<GameObject> OnDamaged;
+        public event System.Action<float> OnDamaged;
 
         public event System.Action<GameObject> OnDestroyed;
 
@@ -27,7 +27,7 @@ namespace Assets.Scripts.Enemies
 
             if(OnDamaged!=null)
             {
-                OnDamaged(gameObject);
+                OnDamaged(health);
             }
 
             if(health <= 0)
@@ -47,7 +47,7 @@ namespace Assets.Scripts.Enemies
 
             if (OnHealed != null)
             {
-                OnHealed(gameObject);
+                OnHealed(health);
             }
         }
 

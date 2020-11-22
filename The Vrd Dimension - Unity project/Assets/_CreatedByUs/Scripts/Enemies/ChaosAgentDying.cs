@@ -8,6 +8,7 @@ namespace Assets.Scripts.Enemies
 {
     [RequireComponent(typeof(ChaosAgentSpawning))]
     [RequireComponent(typeof(AgentScaler))]
+    [RequireComponent(typeof(Collider))]
     public class ChaosAgentDying : MonoBehaviour
     {
         private ChaosAgentSpawning spawningBehaviour;
@@ -19,6 +20,11 @@ namespace Assets.Scripts.Enemies
 
         private void OnEnable()
         {
+            Collider[] colliders = GetComponents<Collider>();
+            foreach (Collider collider in colliders)
+            {
+                collider.enabled = false;
+            }
             spawningBehaviour = GetComponent<ChaosAgentSpawning>();
             StartCoroutine(ShrinkRoutine());
         }
@@ -40,7 +46,7 @@ namespace Assets.Scripts.Enemies
             }
             else
             {
-                Debug.Log("No delegate");
+                Debug.LogWarning("No delegate for chaos agent death");
             }
             ObjectPool.Instance.PoolObject(gameObject);
             this.enabled = false;

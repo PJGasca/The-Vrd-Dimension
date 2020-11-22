@@ -213,7 +213,7 @@ namespace Assets.Scripts.Player
         private void GrabClosestObject()
         {
             GameObject closest = FindClosestObjectInBeam();
-            if(closest!=null)
+            if(closest!=null && closest.activeSelf)
             {
                 Grabbable grabbable = closest.GetComponent<Grabbable>();
                 if (grabbable != null)
