@@ -66,7 +66,8 @@ namespace Assets.Scripts.Objects {
             foreach (MergableObject t in all) {
                 if (!unused.Contains (t)) { continue; }
                 float mergeRadius = baseMergeRadius * t.transform.localScale.x / minimumScale;
-                var inRange = unused.Where (u => Vector3.Distance (u.transform.position, t.transform.position) < mergeRadius).ToArray ();
+                var inRange = unused.Where (u => Vector3.Distance (u.transform.position, t.transform.position) < mergeRadius && 
+                    t.GetComponent<MergableObject>().GetShapeType() == u.GetComponent<MergableObject>().GetShapeType()).ToArray ();
                 if (inRange.Length < countForMerge) { continue; }
 
                 MergableObject[] merging = inRange.Take (countForMerge).ToArray ();

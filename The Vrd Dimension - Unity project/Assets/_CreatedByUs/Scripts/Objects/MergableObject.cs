@@ -73,7 +73,6 @@ namespace Assets.Scripts.Objects {
             if (_sizeComponent == null) { _sizeComponent = GetComponent<ObjectSize> (); }
         }
 
-
         void OnEnable () {
             targetedByAgent = false;
             SpawnPosition = transform.position;
@@ -229,10 +228,13 @@ namespace Assets.Scripts.Objects {
         }
 
 
-        // TODO: ENABLE POOLING
         MergableObject GetShapeFromPool () {
             return Utility.ObjectPool.Instance.GetObjectForType (shapeType.ToString(), true).GetComponent<MergableObject> ();
-            //return Instantiate (this);
+        }
+
+        public ShapeType GetShapeType()
+        {
+            return shapeType;
         }
 
 #endregion
