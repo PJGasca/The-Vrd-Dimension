@@ -15,6 +15,13 @@ namespace Assets.Scripts.Enemies
 
         [SerializeField]
         private float spawnInTime;
+        
+        private AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         public void Spawn()
         {
@@ -22,6 +29,7 @@ namespace Assets.Scripts.Enemies
 
             transform.localScale = Vector3.zero;
             seekingBehaviour = GetComponent<OrderAgentSeeking>();
+            audioSource.PlayOneShot(SoundEffectClips.instance.orderSpawn[Random.Range(0, SoundEffectClips.instance.orderSpawn.Count)]);
             StartCoroutine(SpawnInRoutine());
         }
 

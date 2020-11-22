@@ -33,6 +33,7 @@ namespace Assets.Scripts.Objects
             tetraMaterial = GetComponent<MeshRenderer>().material;
             tetraMaterial.SetColor("_BaseColor", randomColor);
             tetraMaterial.SetColor("_EmissiveColor", randomColor);
+            tetraMaterial.SetColor("_Color", randomColor);
             if (!functionCall)
             {
                 functionCall = true;
@@ -40,7 +41,7 @@ namespace Assets.Scripts.Objects
             }
         }
 
-        public IEnumerator WaitOneFrame(Action<bool> assigner)
+        IEnumerator WaitOneFrame(Action<bool> assigner)
         {
             yield return null;
             assigner(true);

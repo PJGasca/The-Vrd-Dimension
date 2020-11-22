@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7143032872905785132}
   - component: {fileID: 2621231289286118780}
   - component: {fileID: 1830340124273610765}
+  - component: {fileID: 4734170778311160789}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -44,7 +45,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9d96549fe446b0046b4a6dfafb05f356, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a6a541c125a2e1a4abfc74b252e3db4c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -334,3 +335,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7525f1b33c8cfff4db32e5633b83abce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4734170778311160789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003033707957975211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506e7b79e76f38442af8e36fb2c8a174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectWallCollision:
+  - {fileID: 8300000, guid: 7feaa40baaf4cf844b09417ee354e5a9, type: 3}
+  - {fileID: 8300000, guid: 78d4739808af4404cb8bf42d737703e3, type: 3}
+  - {fileID: 8300000, guid: 23f2cb4e9b5cf5745ba7931398c8ad2d, type: 3}
+  holdRepel: {fileID: 8300000, guid: cce792a1136ce2040b7c4785c959e200, type: 3}
+  holdAttract: {fileID: 8300000, guid: 78a49fbdd85e05d44a2160440e22e846, type: 3}
+  grab: {fileID: 8300000, guid: a7b78a6ae8e3ae44f9994bb053d27e04, type: 3}
+  fastRepel: {fileID: 8300000, guid: df5e385eb04d7474abc326ca992957cd, type: 3}
+  chaosSpawn:
+  - {fileID: 8300000, guid: 7da9f19dc76d1be4eb573d5b6a1488f9, type: 3}
+  - {fileID: 8300000, guid: c7935d269c7744541b89a0c5be3a08f8, type: 3}
+  chaosDeath:
+  - {fileID: 8300000, guid: 62689c2816aacba4ea1521e801b6243d, type: 3}
+  - {fileID: 8300000, guid: ec30c7e73299f3e4a9d9e14544f28fe6, type: 3}
+  orderSpawn:
+  - {fileID: 8300000, guid: 2507caf31a52b7d4a83d048613e5bbf2, type: 3}
+  - {fileID: 8300000, guid: a492ea30dc792ed4d9ed98f1f4b37283, type: 3}
+  orderDeath:
+  - {fileID: 8300000, guid: e6548f021430cbc41a6e224f766dc96d, type: 3}
+  - {fileID: 8300000, guid: 222b9bc41e9c06f47a827baaa38be538, type: 3}

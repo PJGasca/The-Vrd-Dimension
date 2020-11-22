@@ -21,6 +21,11 @@ namespace Assets.Scripts.Player
 
         private Grabbable grabbedObject = null;
 
+        private AudioSource[] audioSources;
+        bool trailingOff;
+        IEnumerator playAudio;
+        Utility.SoundEffectClips sfx;
+
         [SerializeField]
         private float force;
 
@@ -42,17 +47,23 @@ namespace Assets.Scripts.Player
         public void Awake()
         {
             beam = GetComponent<PlayerBeam>();
+            audioSources = GetComponents<AudioSource>();
         }
 
         // Use this for initialization
         void Start()
         {
-
+            sfx = Utility.SoundEffectClips.instance;
+            if (sfx != null)
+            {
+                if (sfx.holdAttract != null) audioSources[0].clip = sfx.holdAttract;
+                if (sfx.holdRepel != null) audioSources[1].clip = sfx.holdRepel;
+            }
         }
 
         void FixedUpdate()
         {
-            if(grabbedObject == null)
+            if (grabbedObject == null)
             {
                 if (attract)
                 {
@@ -77,7 +88,7 @@ namespace Assets.Scripts.Player
             foreach (GameObject toAffect in objects)
             {
                 HealthTracker health = toAffect.GetComponent<HealthTracker>();
-                if(health)
+                if (health)
                 {
                     health.InflictDamage(agentDamageRate * Time.deltaTime);
                 }
@@ -88,7 +99,7 @@ namespace Assets.Scripts.Player
                     {
                         grabbable.Release();
                     }
-                    else if(attract && !repel && Vector3.Distance(toAffect.transform.position, attachmentPoint.transform.position) <= autoGrabRange)
+                    else if (attract && !repel && Vector3.Distance(toAffect.transform.position, attachmentPoint.transform.position) <= autoGrabRange)
                     {
                         GrabObject(toAffect);
                     }
@@ -102,7 +113,7 @@ namespace Assets.Scripts.Player
 
         public void OnAttractStart()
         {
-            if(grabbedObject == null)
+            if (grabbedObject == null)
             {
                 attract = true;
 
@@ -114,18 +125,22 @@ namespace Assets.Scripts.Player
                 {
                     beam.Mode = PlayerBeam.BeamMode.ATTRACT;
                 }
+
+                if (playAudio != null) StopCoroutine(playAudio);
+                playAudio = PlayLoopingAudio();
+                StartCoroutine(playAudio);
             }
             else
             {
                 ReleaseGrabbedObject();
-                attractTime = CLICK_TIME+1; // Make sure we don't accidentally grab it again
+                attractTime = CLICK_TIME + 1; // Make sure we don't accidentally grab it again
             }
 
         }
 
         public void OnAttractEnd()
         {
-            if(grabbedObject == null)
+            if (grabbedObject == null)
             {
                 attract = false;
 
@@ -133,10 +148,11 @@ namespace Assets.Scripts.Player
                 {
                     if (attractTime <= CLICK_TIME)
                     {
-                        if(!GrabClosestObject())
+                        if (!GrabClosestObject())
                         {
                             beam.Mode = PlayerBeam.BeamMode.NEUTRAL;
                         }
+                        audioSources[2].PlayOneShot(sfx.grab);
                     }
                     else
                     {
@@ -156,10 +172,10 @@ namespace Assets.Scripts.Player
         public void OnRepelStart()
         {
             repel = true;
-            if(grabbedObject!=null)
+            if (grabbedObject != null)
             {
                 ReleaseGrabbedObject();
-                repelTime = CLICK_TIME+1; // Don't pulse
+                repelTime = CLICK_TIME + 1; // Don't pulse
             }
 
             if (attract)
@@ -170,11 +186,15 @@ namespace Assets.Scripts.Player
             {
                 beam.Mode = PlayerBeam.BeamMode.REPEL;
             }
+
+            if (playAudio != null) StopCoroutine(playAudio);
+            playAudio = PlayLoopingAudio();
+            StartCoroutine(playAudio);
         }
 
         public void OnRepelEnd()
         {
-            if(grabbedObject==null)
+            if (grabbedObject == null)
             {
                 repel = false;
 
@@ -184,6 +204,7 @@ namespace Assets.Scripts.Player
                     {
                         // Fast repel
                         FastRepelClosestObject();
+                        audioSources[2].PlayOneShot(sfx.fastRepel);
                     }
 
                     beam.Mode = PlayerBeam.BeamMode.NEUTRAL;
@@ -201,7 +222,7 @@ namespace Assets.Scripts.Player
         {
             Vector3 forceToApply = transform.forward * force * Time.fixedDeltaTime;
 
-            if(attract)
+            if (attract)
             {
                 forceToApply *= -1;
             }
@@ -213,7 +234,7 @@ namespace Assets.Scripts.Player
         {
             GameObject closest = FindClosestObjectInBeam();
             bool grabbed = false;
-            if(closest!=null && closest.activeSelf)
+            if (closest != null && closest.activeSelf)
             {
                 grabbed = GrabObject(closest);
             }
@@ -241,7 +262,7 @@ namespace Assets.Scripts.Player
 
         private void ReleaseGrabbedObject()
         {
-            if(grabbedObject!=null)
+            if (grabbedObject != null)
             {
                 grabbedObject.Release();
                 grabbedObject = null;
@@ -251,7 +272,7 @@ namespace Assets.Scripts.Player
         private void FastRepelClosestObject()
         {
             GameObject closest = FindClosestObjectInBeam();
-            if(closest != null)
+            if (closest != null)
             {
                 Vector3 forceToApply = transform.forward * repelBurstForce;
                 closest.GetComponent<Rigidbody>().AddForce(forceToApply);
@@ -262,7 +283,7 @@ namespace Assets.Scripts.Player
         {
             GameObject closest = null;
             float closestDistance = 0;
-            foreach(GameObject obj in beam.ObjectsInBeam)
+            foreach (GameObject obj in beam.ObjectsInBeam)
             {
                 float distance = Vector3.Distance(transform.position, obj.transform.position);
                 if (closest == null || distance < closestDistance)
@@ -273,6 +294,43 @@ namespace Assets.Scripts.Player
             }
 
             return closest;
+        }
+
+        IEnumerator PlayLoopingAudio()
+        {
+            yield return new WaitUntil(() => !trailingOff);
+
+            foreach (AudioSource s in audioSources)
+            {
+                s.volume = 1;
+            }
+
+            yield return new WaitUntil(() => attractTime > CLICK_TIME || repelTime > CLICK_TIME || beam.Mode == PlayerBeam.BeamMode.NEUTRAL);
+
+            if (beam.Mode != PlayerBeam.BeamMode.NEUTRAL)
+            {
+                if (attract) audioSources[0].Play();
+                if (repel) audioSources[1].Play();
+            }
+
+            yield return new WaitUntil(() => beam.Mode == PlayerBeam.BeamMode.NEUTRAL || grabbedObject != null);
+
+            if (audioSources[0].isPlaying || audioSources[1].isPlaying)
+            {
+                StartCoroutine(TrailOffAudio());
+            }
+        }
+
+        IEnumerator TrailOffAudio()
+        {
+            trailingOff = true;
+            while (audioSources[0].volume != 0)
+            {
+                audioSources[0].volume -= .05f;
+                audioSources[1].volume -= .05f;
+                yield return null;
+            }
+            trailingOff = false;
         }
     }
 }

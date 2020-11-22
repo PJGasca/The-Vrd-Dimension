@@ -15,8 +15,14 @@ namespace Assets.Scripts.Enemies
 
         public System.Action<GameObject> OnDeath;
 
+        private AudioSource audioSource;
+
         [SerializeField]
         private float shrinkTime;
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         private void OnEnable()
         {
@@ -26,6 +32,7 @@ namespace Assets.Scripts.Enemies
                 collider.enabled = false;
             }
             spawningBehaviour = GetComponent<ChaosAgentSpawning>();
+            audioSource.PlayOneShot(SoundEffectClips.instance.chaosDeath[Random.Range(0, SoundEffectClips.instance.chaosDeath.Count)]);
             StartCoroutine(ShrinkRoutine());
         }
 

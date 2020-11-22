@@ -15,6 +15,13 @@ namespace Assets.Scripts.Enemies
         [SerializeField]
         private float spawnInTime;
 
+        private AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         public void Spawn()
         {
             transform.localScale = Vector3.zero;
@@ -24,7 +31,8 @@ namespace Assets.Scripts.Enemies
             {
                 collider.enabled = false;
             }
-            
+
+            audioSource.PlayOneShot(SoundEffectClips.instance.chaosSpawn[Random.Range(0, SoundEffectClips.instance.chaosSpawn.Count)]);
             StartCoroutine(SpawnInRoutine());
         }
 
