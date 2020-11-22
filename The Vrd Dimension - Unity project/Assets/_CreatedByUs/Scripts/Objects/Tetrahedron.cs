@@ -8,7 +8,7 @@ namespace Assets.Scripts.Objects {
     public class Tetrahedron : MonoBehaviour
     {
 #region Constants and static members
-        public const float minimumScale = 2f;
+        public const float minimumScale = 30f;
         public const float baseSplitVelocity = 0.5f;
 
 
@@ -101,7 +101,7 @@ namespace Assets.Scripts.Objects {
 
 
         void SetScale (int newSize) {
-            transform.localScale = minimumScale * Mathf.Log (newSize, 4) * Vector3.one;
+            transform.localScale = minimumScale * Mathf.Log (newSize+1, 4) * Vector3.one;
         }
 
 

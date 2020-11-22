@@ -22,6 +22,8 @@ namespace Assets.Scripts.Game
         [SerializeField]
         private int maxOrderAgents;
 
+        private int liveOrderAgents;
+
         private bool recalculateEntropy = false;
 
         public float EntropyPercentage
@@ -56,6 +58,8 @@ namespace Assets.Scripts.Game
             }
 
             maxObjects = maxTetras;
+
+            StartCoroutine(AgentSpawner());
         }
 
         public void FixedUpdate()
