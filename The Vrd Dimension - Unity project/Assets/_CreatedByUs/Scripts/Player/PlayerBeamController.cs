@@ -36,6 +36,9 @@ namespace Assets.Scripts.Player
         [SerializeField]
         private float agentDamageRate;
 
+        [SerializeField]
+        private float autoGrabRange;
+
         public void Awake()
         {
             beam = GetComponent<PlayerBeam>();
@@ -85,8 +88,14 @@ namespace Assets.Scripts.Player
                     {
                         grabbable.Release();
                     }
-
-                    ApplyForceToObject(toAffect);
+                    else if(attract && !repel && Vector3.Distance(toAffect.transform.position, attachmentPoint.transform.position) <= autoGrabRange)
+                    {
+                        GrabObject(toAffect);
+                    }
+                    else
+                    {
+                        ApplyForceToObject(toAffect);
+                    }
                 }
             }
         }
@@ -105,6 +114,11 @@ namespace Assets.Scripts.Player
                 {
                     beam.Mode = PlayerBeam.BeamMode.ATTRACT;
                 }
+            }
+            else
+            {
+                ReleaseGrabbedObject();
+                attractTime = CLICK_TIME+1; // Make sure we don't accidentally grab it again
             }
 
         }
@@ -142,6 +156,7 @@ namespace Assets.Scripts.Player
             if(grabbedObject!=null)
             {
                 ReleaseGrabbedObject();
+                repelTime = CLICK_TIME+1; // Don't pulse
             }
 
             if (attract)
@@ -196,15 +211,21 @@ namespace Assets.Scripts.Player
             GameObject closest = FindClosestObjectInBeam();
             if(closest!=null && closest.activeSelf)
             {
-                Grabbable grabbable = closest.GetComponent<Grabbable>();
-                if (grabbable != null)
-                {
-                    grabbable.Grab(attachmentPoint);
-                    grabbedObject = grabbable;
-                    beam.Mode = PlayerBeam.BeamMode.OFF;
-                }
+                GrabObject(closest);
             }
+        }
 
+        private void GrabObject(GameObject toGrab)
+        {
+            Grabbable grabbable = toGrab.GetComponent<Grabbable>();
+            if (grabbable != null)
+            {
+                grabbable.Grab(attachmentPoint);
+                grabbedObject = grabbable;
+                beam.Mode = PlayerBeam.BeamMode.OFF;
+                attract = false;
+                repel = false;
+            }
         }
 
         private void ReleaseGrabbedObject()
