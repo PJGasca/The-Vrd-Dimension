@@ -74,9 +74,12 @@ namespace Assets.Scripts.Objects {
         private Coroutine _mergeTimerCoroutine;
         private bool _didWatchPositionCheck;
 
+        private Rigidbody rb;
+
 
         void Awake () {
             if (_sizeComponent == null) { _sizeComponent = GetComponent<ObjectSize> (); }
+            rb = GetComponent<Rigidbody>();
         }
 
         void OnEnable () {
@@ -136,6 +139,7 @@ namespace Assets.Scripts.Objects {
         public void SetSize (int newSize) {
             SetSize (newSize, _sizeComponent.Size);
         }
+
         public void SetSize (int newSize, int oldSize) {
 
             if(newSize <= oldSize)
@@ -146,6 +150,7 @@ namespace Assets.Scripts.Objects {
 
             SetScale (newSize);
             RegisterBySize (newSize, oldSize);
+            rb.mass = newSize;
         }
 
 
