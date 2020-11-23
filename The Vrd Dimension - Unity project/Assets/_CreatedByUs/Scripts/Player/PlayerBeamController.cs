@@ -308,15 +308,15 @@ namespace Assets.Scripts.Player
                 s.volume = 1;
             }
 
-            yield return new WaitUntil(() => attractTime > CLICK_TIME || repelTime > CLICK_TIME || beam.Mode == PlayerBeam.BeamMode.NEUTRAL);
+            yield return new WaitUntil(() => attractTime > CLICK_TIME + .1f || repelTime > CLICK_TIME + .1f || beam.Mode == PlayerBeam.BeamMode.NEUTRAL || beam.Mode == PlayerBeam.BeamMode.OFF || grabbedObject != null);
 
-            if (beam.Mode != PlayerBeam.BeamMode.NEUTRAL && grabbedObject == null)
+            if (beam.Mode != PlayerBeam.BeamMode.NEUTRAL && grabbedObject == null && beam.Mode != PlayerBeam.BeamMode.OFF)
             {
                 if (attract) audioSources[0].Play();
                 if (repel) audioSources[1].Play();
             }
 
-            yield return new WaitUntil(() => beam.Mode == PlayerBeam.BeamMode.NEUTRAL || grabbedObject != null);
+            yield return new WaitUntil(() => beam.Mode == PlayerBeam.BeamMode.NEUTRAL || beam.Mode == PlayerBeam.BeamMode.OFF || grabbedObject != null);
 
             if (audioSources[0].isPlaying || audioSources[1].isPlaying)
             {
