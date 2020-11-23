@@ -33,11 +33,13 @@ namespace Assets.Scripts.Objects
             wallCollision = sfx.objectWallCollision;
             chaosLoop = sfx.chaosTracks[UnityEngine.Random.Range(0, sfx.chaosTracks.Count)];
             audioSources[1].clip = chaosLoop;
+            audioSources[1].time = Time.realtimeSinceStartup % chaosLoop.length;
             audioSources[1].Play();
         }
 
         private void OnEnable()
         {
+            audioSources[1].time = Time.realtimeSinceStartup % chaosLoop.length;
             audioSources[1].Play();
         }
 

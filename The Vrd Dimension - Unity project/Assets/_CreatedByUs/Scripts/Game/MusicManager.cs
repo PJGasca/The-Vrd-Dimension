@@ -34,7 +34,7 @@ namespace Assets.Scripts.Game
             lastEntropy = gm.EntropyPercentage * .01f;
             musicPlayers["order"].volume = .01f + (.14f * (1 - lastEntropy));
             musicPlayers["mid"].volume = .15f - (Mathf.Abs(lastEntropy - .5f) * 2 * .13f);
-            chaosVolume = .2f + (.7f * lastEntropy);
+            chaosVolume = .1f + (.6f * lastEntropy);
         }
 
         private void Update()
@@ -72,7 +72,7 @@ namespace Assets.Scripts.Game
             // order gets louder the closer it gets to 0%, midstate to 50%, chaos to 100%
             float targetOrderVol = .01f + (.14f * (1 - lastEntropy));
             float targetMidVol = .15f - (Mathf.Abs(lastEntropy - .5f) * 2 * .13f);
-            float targetchaosVol = .2f + (.7f * lastEntropy);
+            float targetchaosVol = .1f + (.6f * lastEntropy);
 
             float transitionTimer = 1;
             while (transitionTimer > 0)
