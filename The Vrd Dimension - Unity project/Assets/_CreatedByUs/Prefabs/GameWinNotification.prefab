@@ -107,7 +107,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Congrats, you have created a new universe!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d07073856c1fa414c991ecae09f95773, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_margin: {x: 1.7075834, y: -8.0796995, z: 2.041894, w: 6.3954353}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 1778122360885816822}
   m_maskType: 0
   _SortingLayerID: 0
