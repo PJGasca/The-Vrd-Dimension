@@ -28,6 +28,7 @@ namespace Assets.Scripts.Enemies
 
         private void OnEnable()
         {
+            Debug.Log("Order agent dying");
             GetComponent<Collider>().enabled = false;
             spawningBehaviour = GetComponent<OrderAgentSpawning>();
             audioSource.clip = SoundEffectClips.instance.orderDeath[Random.Range(0, SoundEffectClips.instance.orderDeath.Count)];
@@ -45,7 +46,6 @@ namespace Assets.Scripts.Enemies
             // Reset to default size
             spawningBehaviour.enabled = true;
             scaler.ResetScale();
-            Debug.Log("Agent dying");
             if (OnDeath != null)
             {
                 OnDeath(gameObject);

@@ -60,6 +60,7 @@ namespace Assets.Scripts.Enemies
                 GrabbedObject.GetComponent<Grabbable>().Release();
                 GrabbedObject.transform.position = mover.targetPoint;
                 GrabbedObject = null;
+                Debug.Log("Order agent dropped off.  Dying.");
                 dyingBehaviour.enabled = true;
                 this.enabled = false;
             }

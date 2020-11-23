@@ -127,7 +127,7 @@ namespace Assets.Scripts.Enemies
             }
             else
             {
-                Debug.Log("Could not find valid target. Dying.");
+                Debug.Log("Order agent could not find valid target. Dying.");
                 target  = null;
                 mover.enabled = false;
                 Die();

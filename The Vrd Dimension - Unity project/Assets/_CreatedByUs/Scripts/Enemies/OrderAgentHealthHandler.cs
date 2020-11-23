@@ -63,6 +63,7 @@ namespace Assets.Scripts.Enemies
 
         private void OnDestroyed(GameObject obj)
         {
+            Debug.Log("Order agent out of health");
             health.OnDestroyed -= OnDestroyed;
             GameObject particles = ObjectPool.Instance.GetObjectForType("AgentExplosion");
             particles.transform.position = transform.position;

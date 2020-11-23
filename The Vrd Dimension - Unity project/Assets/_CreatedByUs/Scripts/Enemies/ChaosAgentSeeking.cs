@@ -72,7 +72,7 @@ namespace Assets.Scripts.Enemies
             }
             else
             {
-                Debug.Log("Could not find valid target. Dying.");
+                Debug.Log("Chaos agent could not find valid target. Dying.");
                 target  = null;
                 mover.enabled = false;
                 Die();
@@ -92,6 +92,7 @@ namespace Assets.Scripts.Enemies
             {
                 tetra.Split();
                 audioSource.PlayOneShot(Utility.SoundEffectClips.instance.chaosBreak);
+                Debug.Log("Chaos agent collided.")
                 Die();
             }
         }

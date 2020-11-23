@@ -26,6 +26,7 @@ namespace Assets.Scripts.Enemies
 
         private void OnEnable()
         {
+            Debug.Log("Chaos agent dying");
             Collider[] colliders = GetComponents<Collider>();
             foreach (Collider collider in colliders)
             {
