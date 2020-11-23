@@ -18,7 +18,7 @@ namespace Assets.Scripts.Objects {
         private static MergableObjectManager _Instance { get; set; }
 
 
-        public float baseMergeRadius = 0.25f;
+        //public float baseMergeRadius = 0.25f;
         public int countForMerge = 2;
         public float minimumScale = 30f;    
         public bool mergeOnlyEqualSizes = false;
