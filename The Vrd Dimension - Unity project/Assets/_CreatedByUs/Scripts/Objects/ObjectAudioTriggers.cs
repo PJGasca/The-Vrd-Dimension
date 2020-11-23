@@ -39,8 +39,11 @@ namespace Assets.Scripts.Objects
 
         private void OnEnable()
         {
-            audioSources[1].time = Time.realtimeSinceStartup % chaosLoop.length;
-            audioSources[1].Play();
+            if (chaosLoop != null)
+            {
+                audioSources[1].time = Time.realtimeSinceStartup % chaosLoop.length;
+                audioSources[1].Play();
+            }
         }
 
         private void Update()
