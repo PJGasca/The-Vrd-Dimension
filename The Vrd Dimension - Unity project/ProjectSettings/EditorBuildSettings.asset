@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_CreatedByUs/Scenes/TheVrdDimension.unity
+    guid: b65f7b1c2232e4644b329dd880f47e76
   m_configObjects: {}
