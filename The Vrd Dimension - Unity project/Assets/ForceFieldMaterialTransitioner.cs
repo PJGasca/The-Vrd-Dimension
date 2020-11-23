@@ -33,7 +33,7 @@ namespace Assets.Scripts.Game
         {
             gm = GameManager.Instance;
             lastEntropy = gm.EntropyPercentage * .01f;
-            forceField.SetFloat("Vector1_EF88822F", 3 - ((1 - lastEntropy) * 3));
+            forceField.SetFloat("Vector1_EF88822F", Mathf.Clamp(3 - ((1 - lastEntropy) * 3), .1f, 3));
             Color newColor = mainWallMaterial.GetColor("_BaseColor");
             newColor.a = 1 - lastEntropy;
             mainWallMaterial.SetColor("_BaseColor", newColor);
@@ -62,6 +62,7 @@ namespace Assets.Scripts.Game
         IEnumerator ChangeForceFieldMaterial()
         {
             float newFresnal = 3 - ((1 - lastEntropy) * 3);
+            if (newFresnal < .1f) newFresnal = .1f;
             float newAlpha = 1 - lastEntropy;
             float currentAlpha = mainWallMaterial.GetColor("_BaseColor").a;
 
