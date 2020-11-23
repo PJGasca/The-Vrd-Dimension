@@ -280,3 +280,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a6a541c125a2e1a4abfc74b252e3db4c, type: 3}
   - {fileID: 8300000, guid: df990bff3923d474c8a131955c4d3ed0, type: 3}
   - {fileID: 8300000, guid: 5de522745b50a3a419eabd4090fe3290, type: 3}
+  victory: {fileID: 8300000, guid: 5e1723e4967a8d840b6a7e19ff0a2b91, type: 3}

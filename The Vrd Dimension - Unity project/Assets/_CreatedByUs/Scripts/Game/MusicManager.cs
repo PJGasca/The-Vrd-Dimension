@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Assets.Scripts.Game
 {
@@ -59,6 +60,11 @@ namespace Assets.Scripts.Game
             if (volumeTransition != null) StopCoroutine(volumeTransition);
             volumeTransition = VolumeTransition();
             StartCoroutine(volumeTransition);
+        }
+
+        public void PlayWinClip()
+        {
+            musicPlayers["order"].PlayOneShot(Utility.SoundEffectClips.instance.victory);
         }
 
         IEnumerator VolumeTransition()

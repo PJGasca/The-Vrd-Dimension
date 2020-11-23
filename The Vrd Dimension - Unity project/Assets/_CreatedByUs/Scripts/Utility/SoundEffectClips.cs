@@ -27,6 +27,9 @@ namespace Assets.Scripts.Utility
         [Header("Chaos")]
         public List<AudioClip> chaosTracks;
 
+        [Header("Game State")]
+        public AudioClip victory;
+
         public static SoundEffectClips instance;
 
         private void Awake()
