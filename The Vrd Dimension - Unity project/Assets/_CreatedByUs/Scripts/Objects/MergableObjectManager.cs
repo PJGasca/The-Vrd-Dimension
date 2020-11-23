@@ -42,13 +42,13 @@ namespace Assets.Scripts.Objects {
             WaitForSeconds wait = new WaitForSeconds(0.1f);
             while(true)
             {
+                yield return wait;
                 if (mergeOnlyEqualSizes)
                     CheckForMergesBySize();
                 else
                     CheckForMerges(MergableObject.All);
 
                 if (OnMergeUpdate != null) { OnMergeUpdate (MergableObject.Count); }
-                yield return wait;
             }
         }
 

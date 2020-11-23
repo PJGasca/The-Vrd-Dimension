@@ -21,6 +21,7 @@ namespace Assets.Scripts.Game {
 
         void Show () {
             meshRenderer.enabled = true;
+            MusicManager.instance.PlayWinClip();
         }
     }
 }
