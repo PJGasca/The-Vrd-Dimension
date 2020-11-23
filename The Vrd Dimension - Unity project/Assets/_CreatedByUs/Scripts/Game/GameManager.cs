@@ -175,16 +175,23 @@ namespace Assets.Scripts.Game
                     spawned = true;
                 }
 
-                if (liveChaosAgents < maxChaosAgents && Random.Range(0, 100) < ((100-EntropyPercentage) * chaosAgentSpawnLikelihoodScale) && GetBreakableTetra() != null)
+                if (liveChaosAgents < maxChaosAgents && Random.Range(0, 100) < ((100-EntropyPercentage) * chaosAgentSpawnLikelihoodScale) )
                 {
-                    if(spawned)
+                    if(GetBreakableTetra() != null)
                     {
-                        // We could potentially spawn a chaos and order agent in the same attempt, but it might look very obvious if both pop into existence at 
-                        // exactly the same time so wait just a little before spawning.
-                        yield return new WaitForSeconds(0.5f);
-                    }
+                        if (spawned)
+                        {
+                            // We could potentially spawn a chaos and order agent in the same attempt, but it might look very obvious if both pop into existence at 
+                            // exactly the same time so wait just a little before spawning.
+                            yield return new WaitForSeconds(0.5f);
+                        }
 
-                    SpawnChaosAgent();
+                        SpawnChaosAgent();
+                    }
+                    else
+                    {
+                        Debug.Log("Would have spawned a chaos agent but there were no breakable tetras that I could find.");
+                    }
                 }
             }
         }
@@ -243,7 +250,7 @@ namespace Assets.Scripts.Game
             MergableObject breakable = null;
             foreach (MergableObject tetra in MergableObject.All)
             {
-                if (tetra.gameObject.GetComponent<ObjectSize>().Size > 1 && !tetra.targetedByAgent && !tetra.GetComponent<Grabbable>().IsGrabbed)
+                if (tetra.gameObject.GetComponent<ObjectSize>().Size > 1 /*&& !tetra.targetedByAgent*/ && !tetra.GetComponent<Grabbable>().IsGrabbed)
                 {
                     breakable = tetra;
                     break;

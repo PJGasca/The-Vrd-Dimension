@@ -40,6 +40,14 @@ namespace Assets.Scripts.Enemies
             GetComponent<Collider>().enabled = true;
         }
 
+        public void OnDisable()
+        {
+            if(target!=null)
+            {
+                target.GetComponent<MergableObject>().targetedByAgent = false;
+            }
+        }
+
         public void FixedUpdate()
         {
             if(target == null || !target.activeSelf || targetGrabbable.IsGrabbed)
@@ -92,7 +100,7 @@ namespace Assets.Scripts.Enemies
             {
                 tetra.Split();
                 audioSource.PlayOneShot(Utility.SoundEffectClips.instance.chaosBreak);
-                Debug.Log("Chaos agent collided.")
+                Debug.Log("Chaos agent collided.");
                 Die();
             }
         }
