@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Objects {
-    [RequireComponent (typeof (Grabbable), typeof (ObjectSize))]
+    [RequireComponent (typeof (Grabbable))]
     public class MergableObject : MonoBehaviour
     {
         public enum ShapeType { Tetrahedron, Octohedron }
@@ -54,6 +54,8 @@ namespace Assets.Scripts.Objects {
 
         public event System.Action<MergableObject> OnShapeEnabled;
         public event System.Action<MergableObject> OnShapeSplit;
+        public event System.Action<MergableObject, int> OnSizeChanged;
+
 
 
         public Vector3 SpawnPosition { get; private set; }
@@ -63,14 +65,36 @@ namespace Assets.Scripts.Objects {
         private bool _OnMergeCooldown { get; set; }
         private bool _HasMovedFromScenePosition { get; set; }
 
+        [SerializeField]
+        private int _size;
+
+        public int Size
+        {
+            get
+            {
+                return _size;
+            }
+
+            private set
+            {
+                _size = value;
+
+                SetScale(_size);
+                rb.mass = _size;
+
+                if (OnSizeChanged != null)
+                {
+                    OnSizeChanged(this, _size);
+                }
+            }
+        }
+
 
         public bool targetedByAgent;
 
         [SerializeField]
         private ShapeType shapeType = ShapeType.Tetrahedron;
 
-
-        [SerializeField] private ObjectSize _sizeComponent;
         private Coroutine _mergeTimerCoroutine;
         private bool _didWatchPositionCheck;
 
@@ -78,7 +102,6 @@ namespace Assets.Scripts.Objects {
 
 
         void Awake () {
-            if (_sizeComponent == null) { _sizeComponent = GetComponent<ObjectSize> (); }
             rb = GetComponent<Rigidbody>();
         }
 
@@ -97,8 +120,8 @@ namespace Assets.Scripts.Objects {
             OverlappingMergeTriggers.Clear();
             targetedByAgent = false;
             if (_all.Contains (this)) { _all.Remove (this); }
-            if (_allBySize.ContainsKey (_sizeComponent.Size) && _allBySize[_sizeComponent.Size].Contains (this)) {
-                _allBySize[_sizeComponent.Size].Remove (this);
+            if (_allBySize.ContainsKey (Size) && _allBySize[Size].Contains (this)) {
+                _allBySize[Size].Remove (this);
             }
             Game.GameManager.Instance?.OnObjectRemoved (this.gameObject);
 
@@ -113,7 +136,7 @@ namespace Assets.Scripts.Objects {
 
 
         public void Split () {
-            if (_sizeComponent.Size < MergableObjectManager.Instance.countForMerge) { return; }
+            if (Size < MergableObjectManager.Instance.countForMerge) { return; }
 
             GameObject particles = ObjectPool.Instance.GetObjectForType("SplitParticles");
             particles.transform.position = transform.position;
@@ -128,7 +151,7 @@ namespace Assets.Scripts.Objects {
             for (int i = 0; i < newShapes.Length; i++) {
                 newShapes[i].transform.position = PositionForSplit (vertices[i], center);
                 // newTetrahedra[i].GetComponent<Rigidbody> ().velocity = VelocityForSplit (vertices[i]);
-                newShapes[i].SetSize (sizes[i], _sizeComponent.Size);
+                newShapes[i].SetSize (sizes[i], Size);
                 newShapes[i].gameObject.SetActive (true);
             }
 
@@ -137,7 +160,7 @@ namespace Assets.Scripts.Objects {
 
 
         public void SetSize (int newSize) {
-            SetSize (newSize, _sizeComponent.Size);
+            SetSize (newSize, Size);
         }
 
         public void SetSize (int newSize, int oldSize) {
@@ -146,16 +169,13 @@ namespace Assets.Scripts.Objects {
             {
                 StartMergeCooldownTimer();
             }
-            _sizeComponent.Size = newSize;
-
-            SetScale (newSize);
-            RegisterBySize (newSize, oldSize);
-            rb.mass = newSize;
+            Size = newSize;
+            RegisterBySize(newSize, oldSize);
         }
 
 
         void InitializeSize () {
-            SetSize (_sizeComponent.Size, -1);
+            SetSize (Size, -1);
         }
 
 
@@ -196,8 +216,8 @@ namespace Assets.Scripts.Objects {
         int[] SplitSizes () {
             int[] sizes = new int[MergableObjectManager.Instance.countForMerge];
 
-            int average = _sizeComponent.Size / MergableObjectManager.Instance.countForMerge;
-            int remainder = _sizeComponent.Size % MergableObjectManager.Instance.countForMerge;
+            int average = Size / MergableObjectManager.Instance.countForMerge;
+            int remainder = Size % MergableObjectManager.Instance.countForMerge;
 
             sizes[0] = average + remainder;
             for (int i = 1; i < sizes.Length; i++) { sizes[i] = average; }
@@ -249,7 +269,7 @@ namespace Assets.Scripts.Objects {
         }
 
         public void Explode () {
-            MergableObject[] mergableObjects = new MergableObject[_sizeComponent.Size];
+            MergableObject[] mergableObjects = new MergableObject[Size];
             SetSize (1, -1);
 
             mergableObjects[0] = this;

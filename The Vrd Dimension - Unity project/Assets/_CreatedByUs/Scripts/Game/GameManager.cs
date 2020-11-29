@@ -83,15 +83,14 @@ namespace Assets.Scripts.Game
             int maxTetras = 0;
             foreach(GameObject obj in objects)
             {
-                // Assume it's a tetra for now
-                ObjectSize size = obj.GetComponent<ObjectSize>();
-                if(size == null)
+                MergableObject mergable = obj.GetComponent<MergableObject>();
+                if(mergable == null)
                 {
-                    Debug.LogWarning("Found a tetra that didn't have a size component on it.  That can't be right!");
+                    Debug.LogWarning("Found a manipulatable that didn't have a MergableObject component on it.  That can't be right!");
                 }
                 else
                 {
-                    maxTetras += size.Size;
+                    maxTetras += mergable.Size;
                 }
             }
 
@@ -250,7 +249,7 @@ namespace Assets.Scripts.Game
             MergableObject breakable = null;
             foreach (MergableObject tetra in MergableObject.All)
             {
-                if (tetra.gameObject.GetComponent<ObjectSize>().Size > 1 /*&& !tetra.targetedByAgent*/ && !tetra.GetComponent<Grabbable>().IsGrabbed)
+                if (tetra.Size > 1 /*&& !tetra.targetedByAgent*/ && !tetra.GetComponent<Grabbable>().IsGrabbed)
                 {
                     breakable = tetra;
                     break;

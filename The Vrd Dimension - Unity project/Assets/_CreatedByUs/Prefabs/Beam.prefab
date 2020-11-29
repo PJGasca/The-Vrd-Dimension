@@ -5517,7 +5517,8 @@ MonoBehaviour:
   agentHealRate: 20
   agentDamageRate: 10000
   autoGrabRange: 1
-  maxGrabSize: 16
+  maxGrabSize: 3
+  releaseForce: 25
 --- !u!82 &4265978988470652623
 AudioSource:
   m_ObjectHideFlags: 0

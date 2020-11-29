@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8230465347141105}
   - component: {fileID: 2880556471669147963}
   - component: {fileID: 3474632084535399857}
-  - component: {fileID: 695591714873645205}
   - component: {fileID: 3474632084535399859}
   - component: {fileID: 3474632084535399858}
   - component: {fileID: 3474632084535399868}
@@ -103,22 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3967972d0d57c874c8c03a8d2d4ca9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _size: 1
   targetedByAgent: 0
   shapeType: 0
-  _sizeComponent: {fileID: 695591714873645205}
---- !u!114 &695591714873645205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4393603012428654830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8d3b94d13b6804596ef2ce8ec54ed4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Size: 1
 --- !u!54 &3474632084535399859
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manualColor: {r: 0, g: 0, b: 0, a: 0}
-  randomColor: {r: 1, g: 0, b: 29, a: 1}
+  randomColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &7090288249047418123
 MonoBehaviour:
   m_ObjectHideFlags: 0

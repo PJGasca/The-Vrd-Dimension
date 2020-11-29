@@ -47,6 +47,9 @@ namespace Assets.Scripts.Player
         [SerializeField]
         private float maxGrabSize;
 
+        [SerializeField]
+        private float releaseForce = 50f;
+
         public void Awake()
         {
             beam = GetComponent<PlayerBeam>();
@@ -102,7 +105,8 @@ namespace Assets.Scripts.Player
                     {
                         grabbable.Release();
                     }
-                    else if (attract && !repel && Vector3.Distance(toAffect.transform.position, attachmentPoint.transform.position) <= autoGrabRange)
+                    else if (attract && !repel && Vector3.Distance(toAffect.transform.position, attachmentPoint.transform.position) <= autoGrabRange
+                        && toAffect.GetComponent<MergableObject>().Size <= maxGrabSize)
                     {
                         GrabObject(toAffect);
                     }
@@ -237,7 +241,7 @@ namespace Assets.Scripts.Player
         {
             GameObject closest = FindClosestObjectInBeam();
             bool grabbed = false;
-            if (closest != null && closest.activeSelf)
+            if (closest != null && closest.activeSelf && closest.GetComponent<MergableObject>().Size <= maxGrabSize)
             {
                 grabbed = GrabObject(closest);
             }
@@ -249,9 +253,10 @@ namespace Assets.Scripts.Player
         {
             bool grabbed = false;
             Grabbable grabbable = toGrab.GetComponent<Grabbable>();
-            if (grabbable != null && toGrab.GetComponent<ObjectSize>().Size <= maxGrabSize)
+            if (grabbable != null)
             {
                 grabbable.Grab(attachmentPoint);
+                toGrab.GetComponent<MergableObject>().OnSizeChanged += OnHeldSizeChange;
                 grabbedObject = grabbable;
                 beam.Mode = PlayerBeam.BeamMode.OFF;
                 attract = false;
@@ -268,7 +273,20 @@ namespace Assets.Scripts.Player
             if (grabbedObject != null)
             {
                 grabbedObject.Release();
+                Vector3 repelForce = transform.forward * releaseForce;
+                grabbedObject.GetComponent<Rigidbody>().AddForce(repelForce);
+                grabbedObject.GetComponent<MergableObject>().OnSizeChanged -= OnHeldSizeChange;
                 grabbedObject = null;
+                beam.Mode = PlayerBeam.BeamMode.NEUTRAL;
+            }
+        }
+
+        private void OnHeldSizeChange(MergableObject obj, int newSize)
+        {
+            obj.OnSizeChanged -= OnHeldSizeChange;
+            if(obj.gameObject == grabbedObject.gameObject)
+            {
+                ReleaseGrabbedObject();
             }
         }
 

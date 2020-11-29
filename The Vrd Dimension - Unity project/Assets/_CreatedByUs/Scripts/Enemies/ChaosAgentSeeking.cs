@@ -80,7 +80,7 @@ namespace Assets.Scripts.Enemies
             }
             else
             {
-                Debug.Log("Chaos agent could not find valid target. Dying.");
+                //Debug.Log("Chaos agent could not find valid target. Dying.");
                 target  = null;
                 mover.enabled = false;
                 Die();
@@ -96,11 +96,11 @@ namespace Assets.Scripts.Enemies
         public void OnCollisionEnter(Collision collision)
         {
             MergableObject tetra = collision.gameObject.GetComponent<MergableObject>();
-            if(tetra!=null && tetra.gameObject.GetComponent<ObjectSize>().Size>1)
+            if(tetra!=null && tetra.Size>1)
             {
                 tetra.Split();
                 audioSource.PlayOneShot(Utility.SoundEffectClips.instance.chaosBreak);
-                Debug.Log("Chaos agent collided.");
+                //Debug.Log("Chaos agent collided.");
                 Die();
             }
         }

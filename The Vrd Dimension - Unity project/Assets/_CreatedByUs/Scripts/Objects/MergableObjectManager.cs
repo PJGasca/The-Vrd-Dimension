@@ -105,7 +105,7 @@ namespace Assets.Scripts.Objects {
 
 
         void Merge (MergableObject[] toMerge) {
-            string debugSizes = toMerge.Select(t => t.GetComponent<ObjectSize> ().Size.ToString ()).Aggregate (string.Empty, (s, acc) => s + acc + ", ");
+            string debugSizes = toMerge.Select(t => t.Size.ToString ()).Aggregate (string.Empty, (s, acc) => s + acc + ", ");
             Debug.Log ($"Merging sizes: {debugSizes}");
 
             int mergedSize = MergedSize (toMerge);
@@ -134,7 +134,7 @@ namespace Assets.Scripts.Objects {
 
         int MergedSize (MergableObject[] tetrahedra) {
             return tetrahedra
-                .Select (t => t.GetComponent<ObjectSize> ().Size)
+                .Select (t => t.Size)
                 .Aggregate (0, (size, acc) => size + acc);
         }
 

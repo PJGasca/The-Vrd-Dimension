@@ -50,35 +50,50 @@ namespace Assets.Scripts.Player
                 switch (mode)
                 {
                     case BeamMode.ATTRACT:
-                        laserPointer.SetActive(false);
+                        if(laserPointer!=null)
+                        {
+                            laserPointer.SetActive(false);
+                        }
                         repelBeam.SetActive(false);
                         attractBeam.SetActive(true);
                         holdBeam.SetActive(false);
                         break;
 
                     case BeamMode.REPEL:
-                        laserPointer.SetActive(false);
+                        if (laserPointer != null)
+                        {
+                            laserPointer.SetActive(false);
+                        }
                         repelBeam.SetActive(true);
                         attractBeam.SetActive(false);
                         holdBeam.SetActive(false);
                         break;
 
                     case BeamMode.BOTH:
-                        laserPointer.SetActive(false);
+                        if (laserPointer != null)
+                        {
+                            laserPointer.SetActive(false);
+                        }
                         repelBeam.SetActive(false);
                         attractBeam.SetActive(false);
                         holdBeam.SetActive(true);
                         break;
 
                     case BeamMode.NEUTRAL:
-                        laserPointer.SetActive(true);
+                        if (laserPointer != null)
+                        {
+                            laserPointer.SetActive(true);
+                        }
                         repelBeam.SetActive(false);
                         attractBeam.SetActive(false);
                         holdBeam.SetActive(false);
                         break;
 
                     default:
-                        laserPointer.SetActive(false);
+                        if (laserPointer != null)
+                        {
+                            laserPointer.SetActive(false);
+                        }
                         repelBeam.SetActive(false);
                         attractBeam.SetActive(false);
                         holdBeam.SetActive(false);
@@ -143,9 +158,12 @@ namespace Assets.Scripts.Player
 
         private void SetLaserPointerCol(Color newCol)
         {
-            LineRenderer line = laserPointer.GetComponent<LineRenderer>();
-            line.startColor = newCol;
-            line.endColor = newCol;
+            if (laserPointer != null)
+            {
+                LineRenderer line = laserPointer.GetComponent<LineRenderer>();
+                line.startColor = newCol;
+                line.endColor = newCol;
+            }
         }
     }
 }
